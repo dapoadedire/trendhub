@@ -13,13 +13,13 @@ const Header = () => {
 
   return (
     <header
-      className="3xl:px-32 flex
-     w-full
+      className="3xl:px-32 sticky
+     top-0
+      flex w-full
      flex-col
-     bg-gray-800
+    bg-gray-800
     p-4
     text-white
-
     sm:flex-row
     sm:justify-between
     sm:px-8
@@ -27,6 +27,8 @@ const Header = () => {
     lg:px-16
     xl:px-20
     2xl:px-24
+    
+
     "
     >
       <div className="flex items-center justify-between">

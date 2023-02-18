@@ -15,21 +15,30 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-gray-800 p-8 text-white">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap">
+      <div className="container mx-auto
+      
+      ">
+        <div className="
+        grid grid-cols-1 gap-8
+        sm:grid-cols-2
+        md:grid-cols-3
+
+        ">
           <div
-            className="mb-8 w-full lg:mb-0 lg:w-1/3
-                    pr-8
+            className="
                     "
           >
             <h2 className="mb-4 text-xl font-bold">About Us</h2>
-            <p className="leading-loose text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            <p className="
+            w-10/12
+            leading-relaxed
+            text-gray-400
+            ">
+              Shop the Latest Electronics, Jewelry, and Clothing Trends.
+              From the latest smartphones and home electronics to stylish men&apos;s and women&apos;s clothing, and stunning jewelry pieces, we&apos;ve got everything you need to stay on-trend and make a statement, all in one convenient online destination.
             </p>
           </div>
-          <div className="mb-8 w-full lg:mb-0 lg:w-1/3">
+          <div className="">
             <h2 className="mb-4 text-xl font-bold">Contact Us</h2>
             <ul className="list-none">
               <li className="mb-2">
@@ -46,25 +55,51 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-full lg:w-1/3">
+          <div className="">
             <h2 className="mb-4 text-xl font-bold">Connect With Us</h2>
             <div className="flex">
               <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <FontAwesomeIcon icon={faFacebook} />
+                <FontAwesomeIcon icon={faFacebook} 
+                className="h-6 w-6
+                hover:text-blue-500
+                "
+                />
               </a>
               <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faTwitter} 
+                  className="h-6 w-6
+                  hover:text-blue-400
+                  "
+                />
               </a>
               <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <FontAwesomeIcon icon={faInstagram} />
+                <FontAwesomeIcon icon={faInstagram}
+                  className="h-6 w-6
+                  hover:text-pink-500
+                  "
+                />
               </a>
               <a href="#" className="text-gray-400 hover:text-white">
-                <FontAwesomeIcon icon={faYoutube} />
+                <FontAwesomeIcon icon={faYoutube} 
+                  className="h-6 w-6
+                  hover:text-red-500
+                  "
+                />
               </a>
             </div>
           </div>
         </div>
       </div>
+
+      <div className="mt-8 border-t border-gray-700">
+        <div className="container mx-auto py-4">
+          <p className="text-center text-gray-400">
+            &copy; {new Date().getFullYear()} - All Rights Reserved by Dapo Adedire &#128526;
+          </p>
+        </div>
+      </div>
+
+
     </footer>
   );
 };

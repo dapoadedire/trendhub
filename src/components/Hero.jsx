@@ -28,11 +28,11 @@ const Hero = () => {
       </p>
       <a
         href="/"
-        className=" bg-green-700 py-4 px-6 text-lg font-bold text-white
+        className=" bg-green-700 py-3 px-5 text-lg font-bold text-white
                 hover:bg-green-900
                 "
       >
-        Explore Our Collections and Shop Now!
+        Shop Now!
       </a>
     </div>
   );

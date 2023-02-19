@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import Product from "./Product";
-import all_products from "../data/products";
+import all_products from "../data";
 
 const ProductCategory = () => {
   const { category } = useParams();

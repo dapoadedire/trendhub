@@ -5,21 +5,41 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 
 const Product = ({ product }) => {
-  const { addItemsToCart, removeItemsFromCart, isInCart, itemQuantity } =
+  const {
+    addItemToCart,
+    removeItemFromCart,
+    getItemQuantity,
+    isInCart,
+  } =
     useContext(CartContext);
 
   return (
-    <div className="flex flex-col items-center justify-start rounded-md border border-gray-200 bg-white p-4">
+    <div className="group flex flex-col items-center justify-start rounded-md border border-gray-200 bg-white p-4">
       <Link to={`/product/${product.id}`} className="grow">
         <div className="">
           <img
-            className="mb-4 h-64 w-64 object-contain object-center"
+            className="mx-auto mb-4 h-64 w-64 object-contain
+            object-center
+           saturate-50
+           transition-all
+            duration-500
+            ease-in-out
+            group-hover:scale-110
+            group-hover:saturate-100
+
+            "
             src={product.image}
             alt={product.title}
+
           />
         </div>
         <div className="grow">
-          <h3>{product.title}</h3>
+          <h3
+          className="text-base font-medium
+          text-gray-900
+          
+          "
+          >{product.title}</h3>
         </div>
       </Link>
 
@@ -29,7 +49,8 @@ const Product = ({ product }) => {
       "
       >
         <p
-          className="rounded-md bg-green-100 p-1
+          className="rounded-md bg-green-100 px-3
+              py-1
          text-lg font-medium text-green-700
         "
         >
@@ -39,37 +60,57 @@ const Product = ({ product }) => {
         {isInCart(product) ? (
           <div className="flex flex-row items-center justify-center space-x-2">
             <button
-              className="rounded-md bg-green-100 p-1
-            text-lg font-medium text-green-700
+              className="rounded-md bg-red-100 px-4
+              py-1
+            text-lg font-medium text-red-700
+            hover:bg-red-200
+            transition-all
+            duration-200
+            ease-in-out
             "
-              onClick={() => removeItemsFromCart(product)}
+              onClick={() => removeItemFromCart(product)}
             >
               -
             </button>
             <p
-              className="rounded-md bg-green-100 p-1
-          text-lg font-medium text-green-700
+              className="rounded-md border border-green-700
+              bg-green-100
+          px-4 py-1 text-lg
+          font-medium text-green-700
           "
             >
-              {itemQuantity(product)}
+              {getItemQuantity(product)}
             </p>
             <button
-              className="rounded-md bg-green-100 p-1
+              className="rounded-md bg-green-100 px-4
+              py-1
             text-lg font-medium text-green-700
+             transition-all
+            duration-200
+            ease-in-out
+            hover:bg-green-200
             "
-              onClick={() => addItemsToCart(product)}
+              onClick={() => addItemToCart(product)}
             >
               +
             </button>
           </div>
         ) : (
           <button
-            className="rounded-md bg-green-100 p-1
+              className="rounded-md bg-green-100 px-4
+              py-1
           text-lg font-medium text-green-700
           "
-            onClick={() => addItemsToCart(product)}
+            onClick={() => addItemToCart(product)}
           >
             <FontAwesomeIcon icon={faShoppingCart} />
+            <span 
+            className="ml-2
+            text-xl
+            "
+            >
+              +
+            </span>
           </button>
         )}
       </div>

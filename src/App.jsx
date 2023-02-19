@@ -10,21 +10,20 @@ import { CartContext } from "./context/CartContext";
 function App() {
   const [cart, setCart] = useState([]);
 
-  const addItemsToCart = (product) => {
+  const addItemToCart = (product) => {
     const newCart = [...cart];
-    const itemInCart = newCart.find((item) => item.id === product.id);
+    const itemInCart = getItemInCart(product);
 
     if (itemInCart) {
       itemInCart.quantity += 1;
     } else {
       newCart.push({ ...product, quantity: 1 });
     }
-
     setCart(newCart);
   };
-  const removeItemsFromCart = (product) => {
+  const removeItemFromCart = (product) => {
     const newCart = [...cart];
-    const itemInCart = newCart.find((item) => item.id === product.id);
+    const itemInCart = getItemInCart(product);
 
     if (itemInCart) {
       if (itemInCart.quantity > 0) {
@@ -40,22 +39,37 @@ function App() {
     setCart([]);
   };
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const getItemPrice = (product) => {
+    const item = getItemInCart(product);
+    return item ? (item.price * item.quantity).toFixed(2) : 0;
+    
+  };
+
+
+
+  const totalItemsPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);;
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const isInCart = (product) => {
-    return !!cart.find((item) => item.id === product.id);
+    return !!getItemInCart(product);
   };
 
-  const itemQuantity = (product) => {
-    const item = cart.find((item) => item.id === product.id);
-    return item ? item.quantity : 0;
-  };
+  
 
-  const deleteAllItemFromCart = (product) => {
+
+  const removeAllItemsFromCart = (product) => {
     const newCart = cart.filter((item) => item.id !== product.id);
     setCart(newCart);
+  };
+
+  const getItemInCart = (product) => {
+    return cart.find((item) => item.id === product.id);
+  };
+
+  const getItemQuantity = (product) => {
+    const item = getItemInCart(product);
+    return item ? item.quantity : 0;
   };
 
   return (
@@ -63,14 +77,15 @@ function App() {
       value={{
         cart,
         setCart,
-        addItemsToCart,
-        removeItemsFromCart,
+        addItemToCart,
+        removeItemFromCart,
         clearCart,
-        itemQuantity,
-        total,
+        getItemQuantity,
+        totalItemsPrice,
         totalItems,
         isInCart,
-        deleteAllItemFromCart,
+        removeAllItemsFromCart,
+        getItemPrice,
       }}
     >
       <BrowserRouter>

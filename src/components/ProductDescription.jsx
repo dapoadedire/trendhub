@@ -2,11 +2,22 @@ import { useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import all_products from "../data/products";
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
-const ProductDescription = () => {
+
+const Productproduct = () => {
   const { product_id } = useParams({});
+
+    const {
+        addItemsToCart,
+        removeItemsFromCart,
+        isInCart,
+        ItemQuantity,
+    } = useContext(CartContext);
+
   
-  let description = all_products.filter((product) => (
+  let product = all_products.filter((product) => (
     product.id == product_id
   ))[0];
 
@@ -17,45 +28,71 @@ const ProductDescription = () => {
           <div>
             <img
               className="w-full object-cover"
-              src={description.image}
+              src={product.image}
               alt="Backpack"
             />
           </div>
           <div className="flex flex-col ">
             <div className="grow">
               <h1 className="text-2xl font-bold text-gray-900">
-                {description.title}
+                {product.title}
               </h1>
               <h2 className="mt-2 text-xl font-bold text-gray-700">
-                ${description.price}
+                ${product.price}
               </h2>
               <p className="mt-2 text-base text-gray-700">
-                {description.description}
+                {product.product}
               </p>
               <p className="mt-2 text-base text-gray-500">
-                {description.category}
+                {product.category}
               </p>
             </div>
-            {description.rating && (
+            {product.rating && (
               <div className="my-4 flex grow items-center">
-                {getRatingStars(description.rating.rate)}
+                {getRatingStars(product.rating.rate)}
                 <span className="ml-2 
                 text-base
                  text-gray-600">
-                  {description.rating.count} reviews.
+                  {product.rating.count} reviews.
                 </span>
               </div>
             )}
 
-            <button className="group relative inline-flex items-center justify-center overflow-hidden rounded-md border border-green-700 p-4 px-5 py-2 font-medium text-indigo-600 shadow-md transition duration-300 ease-out">
-              <span className="ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-green-700 text-white duration-300 group-hover:translate-x-0">
-                <FontAwesomeIcon icon={faShoppingCart} />
-              </span>
-              <span className="ease absolute flex h-full w-full items-center justify-center text-green-700 transition-all duration-300 group-hover:translate-x-full">
-                Add to Cart
-              </span>
-              <span className="invisible relative">Add to Cart</span>
-            </button>
+                  {
+                      isInCart(product) ? (
+                          <div className="flex flex-row items-center justify-center space-x-2">
+                              <button
+                                  className="rounded-md bg-green-100 p-1
+            text-lg font-medium text-green-700
+            "
+                                  onClick={() => removeItemsFromCart(product)}
+                              >
+                                  -
+                              </button>
+                              <p className="rounded-md bg-green-100 p-1
+          text-lg font-medium text-green-700
+          ">{ItemQuantity(product)}</p>
+                              <button
+
+                                  className="rounded-md bg-green-100 p-1
+            text-lg font-medium text-green-700
+            "
+                                  onClick={() => addItemsToCart(product)}
+                              >
+                                  +
+                              </button>
+                          </div>
+                      ) : (
+                          <button
+                              className="rounded-md bg-green-100 p-1
+          text-lg font-medium text-green-700
+          "
+                              onClick={() => addItemsToCart(product)}
+                          >
+                              <FontAwesomeIcon icon={faShoppingCart} />
+                          </button>
+                      )
+                  }
           </div>
         </div>
       
@@ -63,7 +100,7 @@ const ProductDescription = () => {
   );
 };
 
-export default ProductDescription;
+export default Productproduct;
 
 function getRatingStars(rating) {
   const filledStars = Math.floor(rating);

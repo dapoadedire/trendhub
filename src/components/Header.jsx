@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Sling as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
+import {CartContext} from "../context/CartContext";
+import { useContext } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +13,9 @@ const Header = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const {cart} = useContext(CartContext);
+  console.log(cart);
 
   // const categories = [
   //   "Electronics",
@@ -53,11 +58,18 @@ const Header = () => {
               About
             </a>
           </li>
-          <li>
-            <a className="hover:text-gray-400" href="#">
-              <span className="pr-4">Cart</span>
+          <li
+          className="relative
+          pr-5
+          "
+          >
+            
+            <Link to="/cart" className="hover:text-gray-400">
               <FontAwesomeIcon icon={faShoppingCart} />
-            </a>
+              <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white">
+                {cart.length}
+              </span>
+            </Link>
           </li>
         </ul>
         {/* <div className="hidden sm:block">

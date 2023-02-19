@@ -64,12 +64,13 @@ const Header = () => {
               About
             </a>
           </li>
-          <li
-            
-          >
-            <Link to="/cart" className="hover:text-gray-400 relative
+          <li>
+            <Link
+              to="/cart"
+              className="hover:text-gray-400 relative
             pr-2 pt-2
-            ">
+            "
+            >
               <FontAwesomeIcon icon={faShoppingCart} />
               <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white">
                 {cart.length}

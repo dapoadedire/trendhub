@@ -5,12 +5,7 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 
 const Product = ({ product }) => {
-  const {
-    addItemToCart,
-    removeItemFromCart,
-    getItemQuantity,
-    isInCart,
-  } =
+  const { addItemToCart, removeItemFromCart, getItemQuantity, isInCart } =
     useContext(CartContext);
 
   return (
@@ -30,59 +25,54 @@ const Product = ({ product }) => {
             "
             src={product.image}
             alt={product.title}
-
           />
         </div>
         <div className="grow">
           <h3
-          className="text-base font-medium
+            className="text-base font-medium
           text-gray-900
           
           "
-          >{product.title}</h3>
+          >
+            {product.title}
+          </h3>
         </div>
       </Link>
 
-      <div
-        className="mt-4 flex w-full flex-row items-center justify-between
-      space-x-4
-      "
-      >
-        <p
-          className="rounded-md bg-green-100 px-3
-              py-1
-         text-lg font-medium text-green-700
-        "
-        >
+      <div className="mt-4 flex w-full flex-row flex-wrap items-center justify-between
+      gap-4
+      ">
+        <p className="rounded-md bg-green-100 px-3 py-1 text-lg font-medium text-green-700">
           ${product.price}
         </p>
 
-        {isInCart(product) ? (
-          <div className="flex flex-row items-center justify-center space-x-2">
-            <button
-              className="rounded-md bg-red-100 px-4
+        <div>
+          {isInCart(product) ? (
+            <div className="flex flex-row items-center justify-center space-x-2">
+              <button
+                className="rounded-md bg-red-100 px-4
               py-1
             text-lg font-medium text-red-700
-            hover:bg-red-200
             transition-all
             duration-200
             ease-in-out
+            hover:bg-red-200
             "
-              onClick={() => removeItemFromCart(product)}
-            >
-              -
-            </button>
-            <p
-              className="rounded-md border border-green-700
+                onClick={() => removeItemFromCart(product)}
+              >
+                -
+              </button>
+              <p
+                className="rounded-md border border-green-700
               bg-green-100
           px-4 py-1 text-lg
           font-medium text-green-700
           "
-            >
-              {getItemQuantity(product)}
-            </p>
-            <button
-              className="rounded-md bg-green-100 px-4
+              >
+                {getItemQuantity(product)}
+              </p>
+              <button
+                className="rounded-md bg-green-100 px-4
               py-1
             text-lg font-medium text-green-700
              transition-all
@@ -90,29 +80,30 @@ const Product = ({ product }) => {
             ease-in-out
             hover:bg-green-200
             "
-              onClick={() => addItemToCart(product)}
-            >
-              +
-            </button>
-          </div>
-        ) : (
-          <button
+                onClick={() => addItemToCart(product)}
+              >
+                +
+              </button>
+            </div>
+          ) : (
+            <button
               className="rounded-md bg-green-100 px-4
               py-1
           text-lg font-medium text-green-700
           "
-            onClick={() => addItemToCart(product)}
-          >
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <span 
-            className="ml-2
+              onClick={() => addItemToCart(product)}
+            >
+              <FontAwesomeIcon icon={faShoppingCart} />
+              <span
+                className="ml-2
             text-xl
             "
-            >
-              +
-            </span>
-          </button>
-        )}
+              >
+                +
+              </span>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

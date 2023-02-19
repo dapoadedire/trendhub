@@ -3,12 +3,17 @@ import Description from "./pages/Description";
 import Category from "./pages/Category";
 import Cart from "./pages/Cart";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cart, setCart] = useState(storedCart);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addItemToCart = (product) => {
     const newCart = [...cart];
@@ -42,21 +47,17 @@ function App() {
   const getItemPrice = (product) => {
     const item = getItemInCart(product);
     return item ? (item.price * item.quantity).toFixed(2) : 0;
-    
   };
 
-
-
-  const totalItemsPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);;
+  const totalItemsPrice = cart
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2);
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const isInCart = (product) => {
     return !!getItemInCart(product);
   };
-
-  
-
 
   const removeAllItemsFromCart = (product) => {
     const newCart = cart.filter((item) => item.id !== product.id);

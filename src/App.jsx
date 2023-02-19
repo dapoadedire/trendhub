@@ -7,11 +7,8 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 
-
 function App() {
-
   const [cart, setCart] = useState([]);
-
 
   const addItemsToCart = (product) => {
     const newCart = [...cart];
@@ -39,10 +36,6 @@ function App() {
     setCart(newCart);
   };
 
-
-
-
-
   const clearCart = () => {
     setCart([]);
   };
@@ -55,7 +48,6 @@ function App() {
     return !!cart.find((item) => item.id === product.id);
   };
 
-
   const itemQuantity = (product) => {
     const item = cart.find((item) => item.id === product.id);
     return item ? item.quantity : 0;
@@ -66,38 +58,35 @@ function App() {
     setCart(newCart);
   };
 
-
-
-
-
-  
-
-
   return (
-    <CartContext.Provider value={{ cart, setCart,
-    addItemsToCart,
-    removeItemsFromCart,
-    clearCart,
-    itemQuantity,
-    total,
-    totalItems,
-    isInCart,
-    deleteAllItemFromCart
-    }}>
-    <BrowserRouter>
-      <Routes>
-        {/* home */}
-        <Route path="/" element={<Store />} />
-        {/* cart */}
-        {/* description */}
-        <Route path="/product/:product_id" element={<Description />} />
-        {/* about */}
-        {/* Category */}
-        <Route path="/category/:category" element={<Category />} />
-        {/* cart */}
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </BrowserRouter>
+    <CartContext.Provider
+      value={{
+        cart,
+        setCart,
+        addItemsToCart,
+        removeItemsFromCart,
+        clearCart,
+        itemQuantity,
+        total,
+        totalItems,
+        isInCart,
+        deleteAllItemFromCart,
+      }}
+    >
+      <BrowserRouter>
+        <Routes>
+          {/* home */}
+          <Route path="/" element={<Store />} />
+          {/* cart */}
+          {/* description */}
+          <Route path="/product/:product_id" element={<Description />} />
+          {/* about */}
+          {/* Category */}
+          <Route path="/category/:category" element={<Category />} />
+          {/* cart */}
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </BrowserRouter>
     </CartContext.Provider>
   );
 }

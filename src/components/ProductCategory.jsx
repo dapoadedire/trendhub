@@ -2,17 +2,12 @@ import { useParams } from "react-router";
 import Product from "./Product";
 import all_products from "../data/products";
 
-
-
 const ProductCategory = () => {
-
   const { category } = useParams();
-  
- 
-  const products = all_products.filter((product) => (
-    product.category == category
-  ));
 
+  const products = all_products.filter(
+    (product) => product.category == category
+  );
 
   return (
     <div>
@@ -25,16 +20,14 @@ const ProductCategory = () => {
           {category.toUpperCase()}
         </h1>
 
-        
-          <div
-            className="my-10 grid grid-cols-1 gap-5  sm:grid-cols-2
+        <div
+          className="my-10 grid grid-cols-1 gap-5  sm:grid-cols-2
               md:grid-cols-3"
-          >
-            {products.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
-          </div>
-        
+        >
+          {products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

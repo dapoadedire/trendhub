@@ -33,7 +33,8 @@ const Footer = () => {
         grid grid-cols-1 gap-8
         sm:grid-cols-2
         md:grid-cols-3
-        xl:grid-cols-4">
+        xl:grid-cols-4"
+        >
           <div
             className="
                     "
@@ -57,15 +58,12 @@ const Footer = () => {
             <h2 className="mb-4 text-xl font-bold">Categories</h2>
             <ul className="list-none">
               {categories.map((category, index) => (
-                <li key={index}
-                className="mb-2"
-                >
+                <li key={index} className="mb-2">
                   <Link to={`/category/${category.toLowerCase()}`}>
                     {category}
                   </Link>
                 </li>
               ))}
-             
             </ul>
           </div>
           <div className="">
@@ -122,8 +120,6 @@ const Footer = () => {
               </a>
             </div>
           </div>
-
-         
         </div>
       </div>
 

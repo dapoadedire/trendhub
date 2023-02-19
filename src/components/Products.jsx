@@ -1,12 +1,14 @@
-import products from "../data/products";
+import all_products from "../data/products";
 import Product from "./Product";
 
 const Products = () => {
   return (
-    <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2
+    <div
+      className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2
     md:grid-cols-3
-    ">
-      {products.map((product) => (
+    "
+    >
+      {all_products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
     </div>

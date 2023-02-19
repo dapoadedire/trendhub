@@ -8,17 +8,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      {/* home */}
-      <Route path="/" element={<Store />} />
-      {/* cart */}
-      {/* description */}
-      <Route path="/description/:product_id" element={<Description />} />
-      {/* about */}
-      {/* Category */}
-      <Route path="/category/:category" element={<Category />} />
-    </Routes>
-    
+      <Routes>
+        {/* home */}
+        <Route path="/" element={<Store />} />
+        {/* cart */}
+        {/* description */}
+        <Route path="/product/:product_id" element={<Description />} />
+        {/* about */}
+        {/* Category */}
+        <Route path="/category/:category" element={<Category />} />
+      </Routes>
     </BrowserRouter>
   );
 }

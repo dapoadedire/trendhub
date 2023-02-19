@@ -1,30 +1,43 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Product from "./Product";
+import all_products from "../data/products";
+
 
 
 const ProductCategory = () => {
-    const [products, setProducts] = useState([]);
-    const { category } = useParams();
-    
-    useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/category/${category}`)
-        .then((res) => res.json())
-        .then((data) => setProducts(data));
-    }, [category]);
-    
-    return (
-        <div className="flex flex-col items-center justify-center">
-        <h1 className="text-center text-4xl font-bold text-gray-800">
-            {category}
+
+  const { category } = useParams();
+  
+ 
+  const products = all_products.filter((product) => (
+    product.category == category
+  ));
+
+
+  return (
+    <div>
+      <div
+        className="flex flex-col items-center justify-center 
+        
+        "
+      >
+        <h1 className="text-center text-3xl font-bold text-gray-800">
+          {category.toUpperCase()}
         </h1>
-        <div className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+        
+          <div
+            className="my-10 grid grid-cols-1 gap-5  sm:grid-cols-2
+              md:grid-cols-3"
+          >
             {products.map((product) => (
-            <Product key={product.id} product={product} />
+              <Product key={product.id} product={product} />
             ))}
-        </div>
-        </div>
-    );
-    };
+          </div>
+        
+      </div>
+    </div>
+  );
+};
 
 export default ProductCategory;

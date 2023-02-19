@@ -9,9 +9,7 @@ const Hero = () => {
             sm:w-3/4
             "
     >
-      <h1
-        className="mb-4 text-4xl font-bold "
-      >
+      <h1 className="mb-4 text-4xl font-bold ">
         Shop the Latest Electronics, Jewelry, and Clothing Trends.
       </h1>
       <p
@@ -33,7 +31,6 @@ const Hero = () => {
       >
         Shop Now!
       </a>
-    
     </div>
   );
 };

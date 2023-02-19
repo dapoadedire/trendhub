@@ -1,4 +1,4 @@
-const products = [
+const all_products = [
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -267,4 +267,4 @@ const products = [
   },
 ];
 
-export default products;
+export default all_products;

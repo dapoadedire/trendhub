@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Fade as Hamburger } from "hamburger-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +16,9 @@ const Header = () => {
     <header
       className="3xl:px-32 sticky
      top-0
-      flex w-full
-     flex-col
+      z-50 flex
+     w-full
+    flex-col
     bg-gray-800
     p-4
     text-white
@@ -32,7 +34,12 @@ const Header = () => {
     "
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-xl">$tyloForm</h3>
+       <Link to='/' >
+
+          <h3 className="text-xl">
+            TrendHub
+          </h3>
+       </Link>
 
         <div className="sm:hidden">
           <Hamburger toggled={isOpen} toggle={toggleMenu} />
@@ -61,7 +68,7 @@ const Header = () => {
           </li>
           <li>
             <a className="hover:text-gray-400" href="#">
-              Products
+              Category
             </a>
           </li>
           <li>

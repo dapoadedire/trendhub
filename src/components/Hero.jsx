@@ -10,10 +10,7 @@ const Hero = () => {
             "
     >
       <h1
-        className="mb-4 text-4xl font-bold
-                
-                
-                "
+        className="mb-4 text-4xl font-bold "
       >
         Shop the Latest Electronics, Jewelry, and Clothing Trends.
       </h1>
@@ -28,12 +25,15 @@ const Hero = () => {
       </p>
       <a
         href="/"
-        className=" bg-green-700 py-3 px-5 text-lg font-bold text-white
+        className="
+        rounded-md
+        bg-green-700 py-3 px-5 text-lg font-bold text-white
                 hover:bg-green-900
                 "
       >
         Shop Now!
       </a>
+    
     </div>
   );
 };

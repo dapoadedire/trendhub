@@ -3,7 +3,7 @@ const Hero = () => {
     <div
       className="
             mx-auto
-            my-20
+            my-10
             w-full
             text-center
             sm:w-3/4

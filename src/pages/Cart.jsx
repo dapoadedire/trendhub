@@ -20,7 +20,9 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <main>
+      <main
+        className="flex-1"
+      >
         <h1>Cart</h1>
         <div
           className="container mx-auto my-10 w-10/12

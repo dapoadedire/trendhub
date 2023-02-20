@@ -16,7 +16,7 @@ const Product = ({ product }) => {
     useContext(CartContext);
 
   return (
-    <div className="group flex flex-col items-center justify-start rounded-md
+    <div className="group flex flex-col items-center justify-start 
     border border-gray-200
     bg-white p-5">
       <Link to={`/product/${product.id}`} className="grow">
@@ -38,6 +38,7 @@ const Product = ({ product }) => {
           <h3
             className="text-base font-medium
           text-gray-900
+          font-inter
           "
           >
             {product.title}
@@ -52,7 +53,13 @@ const Product = ({ product }) => {
       gap-4
       ">
         <div>
-          <p className="rounded-md bg-green-100 px-3 py-1 text-lg font-medium text-green-700">
+          <p 
+            className="
+            font-inter
+                            
+                            py-2 px-4 font-bold text-gray-800"
+
+          >
             {
               formatCurrency(product.price)
             }
@@ -62,41 +69,39 @@ const Product = ({ product }) => {
         </div>
 
 <div
-className="
-flex
-
-space-x-2
-
-"
+          className="flex items-center border  border-gray-400 "
 >
           {isInCart(product) && getItemQuantity(product) > 0 ? (
             <>
               <button
-                className="rounded-md bg-red-100 px-4 py-1
-        text-lg font-medium text-red-700
-        transition-all duration-200 ease-in-out hover:bg-red-200"
+                className="mr-2  
+                            border-r border-gray-400
+                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
+
                 onClick={() => removeItemFromCart(product)}
               >
                 <FontAwesomeIcon icon={faMinus} />
               </button>
-              <p
-                className="rounded-md border border-green-700 bg-green-100
-        px-4 py-1 text-lg font-medium text-green-700"
-              >
-                {getItemQuantity(product)}
-              </p>
+              <span className="w-6
+                          
+                          text-center font-bold
+                          
+                          text-gray-700">{getItemQuantity(product)}</span>
               <button
-                className="rounded-md bg-green-100 px-4 py-1
-        text-lg font-medium text-green-700 transition-all duration-200 ease-in-out hover:bg-green-200"
-                onClick={() => addItemToCart(product)}
+                className="ml-2  
+                            border-l border-gray-400
+                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
+         onClick={() => addItemToCart(product)}
               >
                 <FontAwesomeIcon icon={faPlus} />
               </button>
             </>
           ) : (
             <button
-              className="rounded-md bg-green-100 px-4 py-1
-      text-lg font-medium text-green-700"
+                className="
+                            
+                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
+
               onClick={() => addItemToCart(product)}
             >
               <FontAwesomeIcon icon={faShoppingCart} />
@@ -105,6 +110,7 @@ space-x-2
           )}
 
 </div>
+
 
       
 

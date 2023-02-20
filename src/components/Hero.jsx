@@ -2,6 +2,7 @@ const Hero = () => {
   return (
     <div
       className="
+            font-noto
             mx-auto
             my-10
             w-full
@@ -24,13 +25,16 @@ const Hero = () => {
       <a
         href="/"
         className="
-        rounded-md
-        bg-green-700 py-3 px-5 text-lg font-bold text-white
-                hover:bg-green-900
+        
+         py-3 px-5 text-lg font-bold text-black
+         border-2 border-black
+          hover:bg-black hover:text-white
+                
                 "
       >
         Shop Now!
       </a>
+     
     </div>
   );
 };

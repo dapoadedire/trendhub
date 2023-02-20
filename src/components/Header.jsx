@@ -26,10 +26,14 @@ const Header = () => {
 
   return (
     <header
-      className="3xl:px-32 sticky top-0 z-50 flex w-full flex-col bg-gray-800 p-4 text-white shadow-2xl sm:flex-row sm:justify-between sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+      className="3xl:px-32 sticky top-0 z-50 flex w-full flex-col bg-secondary p-4 text-neutral3 shadow-2xl sm:flex-row sm:justify-between sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24
+      bg-slate-900
+      ">
       <div className="flex items-center justify-between">
         <Link to="/">
-          <h3 className="text-xl">TrendHub</h3>
+          <h3 className="text-xl
+          text-white
+          ">TrendHub</h3>
         </Link>
 
         <div className="flex items-center
@@ -42,14 +46,18 @@ const Header = () => {
           >
             <FontAwesomeIcon icon={faShoppingCart} 
             className="h-6 w-6
-            pr-2 pt-2
-            "
+            pr-2 pt-2"
+            color="white"
             />
-            <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white">
+            <span className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full  border-2 
+              border-white bg-black text-white 
+              ">
               {cart.length}
             </span>
           </Link>
-          <Hamburger toggled={isOpen} toggle={toggleMenu} />
+          <Hamburger toggled={isOpen} toggle={toggleMenu} 
+          color="white"
+          />
         </div>
       </div>
 
@@ -61,7 +69,7 @@ const Header = () => {
       sm:py-0
       `}
       >
-        <ul className="flex flex-col space-y-4 text-white sm:flex-row sm:space-x-4 sm:space-y-0">
+        <ul className="flex flex-col space-y-4 text-white sm:flex-row sm:space-x-10 sm:space-y-0">
           <li>
             <a href="#" className="hover:text-gray-400">
               Contact
@@ -78,14 +86,20 @@ const Header = () => {
             </a>
           </li>
           <li>
+           
             <Link
               to="/cart"
               className="relative pr-2
             pt-2 hover:text-gray-400
             "
             >
-              <FontAwesomeIcon icon={faShoppingCart} />
-              <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white">
+             
+              <FontAwesomeIcon icon={faShoppingCart} 
+              className="h-6 w-6"
+              />
+              <span className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full  border-2 
+              border-white bg-black text-white 
+              ">
                 {cart.length}
               </span>
             </Link>

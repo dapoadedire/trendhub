@@ -1,3 +1,6 @@
+
+// @import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Serif&display=swap');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,14 +9,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: "#ff2c55",
-        secondary: "#0c0d34",
-        accent: "#ffd600",
-        neutral1: "#f2f2f2",
-        neutral2: "#d6d6d6",
-        neutral3: "#ffffff",
-      },
+      fontFamily: {
+        'noto': ['Noto Serif', 'sans-serif'],
+        'inter': ['Inter', 'serif'],
+
+      }
+      
     },
   },
   plugins: [

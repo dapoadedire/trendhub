@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 const Hero = () => {
   return (
     <div
@@ -26,15 +27,14 @@ const Hero = () => {
         href="/"
         className="
         
-         py-3 px-5 text-lg font-bold text-black
-         border-2 border-black
+         border-2 border-black py-3 px-5 text-lg
+         font-bold text-black
           hover:bg-black hover:text-white
                 
                 "
       >
         Shop Now!
       </a>
-     
     </div>
   );
 };

@@ -268,3 +268,28 @@ const all_products = [
 ];
 
 export default all_products;
+
+
+export const coupons = [
+  {
+    id: 1,
+    code: "10-OFF",
+    discount: 10,
+  },
+  {
+    id: 2,
+    code: "20-OFF",
+    discount: 20,
+  },
+  {
+    id: 3,
+    code: "30-OFF",
+    discount: 30,
+  },
+  {
+    id: 4,
+    code: "40-OFF",
+    discount: 40,
+  },
+]
+

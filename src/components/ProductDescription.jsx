@@ -4,7 +4,6 @@ import {
   faPlus,
   faShoppingCart,
   faMinus,
-
 } from "@fortawesome/free-solid-svg-icons";
 import all_products from "../data";
 import { CartContext } from "../context/CartContext";
@@ -34,13 +33,14 @@ const Productproduct = () => {
             <h1 className="text-2xl font-bold text-gray-900">
               {product.title}
             </h1>
-            <h2 className="mt-2 text-xl font-bold text-gray-700">
-              {
-                formatCurrency(product.price)
-              }
+            <h2 className="mt-2 text-xl font-bold text-gray-800">
+              {formatCurrency(product.price)}
             </h2>
-            <p className="mt-2 text-base text-gray-700">{product.product}</p>
             <p className="mt-2 text-base text-gray-500">{product.category}</p>
+
+            <p className="mt-2 text-base text-gray-700">
+              {product.description}
+            </p>
           </div>
           {product.rating && (
             <div className="my-4 flex grow items-center">
@@ -55,50 +55,52 @@ const Productproduct = () => {
             </div>
           )}
 
-         
-          <div
-            className="flex space-x-2"
-          >
-            {isInCart(product) && getItemQuantity(product) > 0 ? (
-              <>
+          <div className="flex items-center">
+            <div
+              className="flex items-center 
+            border border-gray-400
+            "
+            >
+              {isInCart(product) && getItemQuantity(product) > 0 ? (
+                <>
+                  <button
+                    className="mr-2  
+                            border-r border-gray-400
+                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
+                    onClick={() => removeItemFromCart(product)}
+                  >
+                    <FontAwesomeIcon icon={faMinus} />
+                  </button>
+                  <span
+                    className="w-6
+                
+                          
+                          text-center font-bold
+                          
+                          text-gray-700"
+                  >
+                    {getItemQuantity(product)}
+                  </span>
+                  <button
+                    className="ml-2  
+                            border-l border-gray-400
+                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
+                    onClick={() => addItemToCart(product)}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                  </button>
+                </>
+              ) : (
                 <button
-                  className="rounded-md bg-red-100 px-4 py-1
-        text-lg font-medium text-red-700
-        transition-all duration-200 ease-in-out hover:bg-red-200"
-                  onClick={() => removeItemFromCart(product)}
-                >
-                  <FontAwesomeIcon icon={faMinus} />
-                </button>
-                <p
-                  className="rounded-md border border-green-700 bg-green-100
-        px-4 py-1 text-lg font-medium text-green-700"
-                >
-                  {getItemQuantity(product)}
-                </p>
-                <button
-                  className="rounded-md bg-green-100 px-4 py-1
-        text-lg font-medium text-green-700 transition-all duration-200 ease-in-out hover:bg-green-200"
+                  className="
+                            
+                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
                   onClick={() => addItemToCart(product)}
                 >
-                  <FontAwesomeIcon icon={faPlus} />
+                  <FontAwesomeIcon icon={faShoppingCart} />
                 </button>
-              </>
-            ) : (
-              <button
-                className="rounded-md bg-green-100 px-4 py-1
-      text-lg font-medium text-green-700"
-                onClick={() => addItemToCart(product)}
-              >
-                <span
-                className="pr-2"
-                >
-                  Add to cart
-                </span>
-                <FontAwesomeIcon icon={faShoppingCart} />
-
-              </button>
-            )}
-
+              )}
+            </div>
           </div>
         </div>
       </div>

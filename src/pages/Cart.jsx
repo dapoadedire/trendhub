@@ -7,8 +7,7 @@ const Cart = () => {
     <>
       <Header />
       <main className="container mx-auto my-10 w-10/12  grow">
-
-      <CartContainer />
+        <CartContainer />
       </main>
       <Footer />
     </>

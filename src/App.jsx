@@ -41,10 +41,8 @@ function App() {
     } else {
       newCart.push({ ...product, quantity: 1 });
     }
-
     setCart(newCart);
   };
-
 
   const clearCart = () => {
     setCart([]);
@@ -107,10 +105,7 @@ function App() {
           <Route path="/category/:category" element={<Category />} />
           {/* cart */}
           <Route path="/cart" element={<Cart />} />
-          <Route
-          path="*"
-          element={<NotFound />}/>
-            
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </CartContext.Provider>

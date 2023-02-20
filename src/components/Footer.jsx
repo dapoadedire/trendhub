@@ -22,7 +22,7 @@ const categories = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 p-8 text-white">
+    <footer className=" bg-slate-900 p-8 text-white">
       <div
         className="container mx-auto
       

@@ -6,6 +6,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -31,14 +32,19 @@ function App() {
     const itemInCart = getItemInCart(product);
 
     if (itemInCart) {
-      if (itemInCart.quantity > 0) {
+      if (itemInCart.quantity > 1) {
         itemInCart.quantity -= 1;
+      } else {
+        // Remove item with quantity of zero from cart
+        newCart.splice(newCart.indexOf(itemInCart), 1);
       }
     } else {
       newCart.push({ ...product, quantity: 1 });
     }
+
     setCart(newCart);
   };
+
 
   const clearCart = () => {
     setCart([]);
@@ -101,6 +107,10 @@ function App() {
           <Route path="/category/:category" element={<Category />} />
           {/* cart */}
           <Route path="/cart" element={<Cart />} />
+          <Route
+          path="*"
+          element={<NotFound />}/>
+            
         </Routes>
       </BrowserRouter>
     </CartContext.Provider>

@@ -1,9 +1,15 @@
 import { useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faShoppingCart,
+  faMinus,
+
+} from "@fortawesome/free-solid-svg-icons";
 import all_products from "../data";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { formatCurrency } from "../utils";
 
 const Productproduct = () => {
   const { product_id } = useParams({});
@@ -29,7 +35,9 @@ const Productproduct = () => {
               {product.title}
             </h1>
             <h2 className="mt-2 text-xl font-bold text-gray-700">
-              ${product.price}
+              {
+                formatCurrency(product.price)
+              }
             </h2>
             <p className="mt-2 text-base text-gray-700">{product.product}</p>
             <p className="mt-2 text-base text-gray-500">{product.category}</p>
@@ -47,42 +55,51 @@ const Productproduct = () => {
             </div>
           )}
 
-          {isInCart(product) ? (
-            <div className="flex flex-row items-center justify-center space-x-2">
+         
+          <div
+            className="flex space-x-2"
+          >
+            {isInCart(product) && getItemQuantity(product) > 0 ? (
+              <>
+                <button
+                  className="rounded-md bg-red-100 px-4 py-1
+        text-lg font-medium text-red-700
+        transition-all duration-200 ease-in-out hover:bg-red-200"
+                  onClick={() => removeItemFromCart(product)}
+                >
+                  <FontAwesomeIcon icon={faMinus} />
+                </button>
+                <p
+                  className="rounded-md border border-green-700 bg-green-100
+        px-4 py-1 text-lg font-medium text-green-700"
+                >
+                  {getItemQuantity(product)}
+                </p>
+                <button
+                  className="rounded-md bg-green-100 px-4 py-1
+        text-lg font-medium text-green-700 transition-all duration-200 ease-in-out hover:bg-green-200"
+                  onClick={() => addItemToCart(product)}
+                >
+                  <FontAwesomeIcon icon={faPlus} />
+                </button>
+              </>
+            ) : (
               <button
-                className="rounded-md bg-green-100 p-1
-            text-lg font-medium text-green-700
-            "
-                onClick={() => removeItemFromCart(product)}
-              >
-                -
-              </button>
-              <p
-                className="rounded-md bg-green-100 p-1
-          text-lg font-medium text-green-700
-          "
-              >
-                {getItemQuantity(product)}
-              </p>
-              <button
-                className="rounded-md bg-green-100 p-1
-            text-lg font-medium text-green-700
-            "
+                className="rounded-md bg-green-100 px-4 py-1
+      text-lg font-medium text-green-700"
                 onClick={() => addItemToCart(product)}
               >
-                +
+                <span
+                className="pr-2"
+                >
+                  Add to cart
+                </span>
+                <FontAwesomeIcon icon={faShoppingCart} />
+
               </button>
-            </div>
-          ) : (
-            <button
-              className="rounded-md bg-green-100 p-1
-          text-lg font-medium text-green-700
-          "
-              onClick={() => addItemToCart(product)}
-            >
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </button>
-          )}
+            )}
+
+          </div>
         </div>
       </div>
     </div>

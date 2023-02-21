@@ -48,6 +48,11 @@ function App() {
     const newCart = [...cart];
     const itemInCart = getItemInCart(product);
 
+   if (quantity === 0) {
+      removeItemFromCart(product);
+      return;
+    }
+
     if (itemInCart) {
       itemInCart.quantity = quantity;
     } else {

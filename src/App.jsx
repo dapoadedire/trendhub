@@ -4,7 +4,7 @@ import Category from "./pages/Category";
 import Cart from "./pages/Cart";
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 import NotFound from "./pages/NotFound";
 import WishListPage from "./pages/WishListPage";
@@ -114,7 +114,7 @@ function App() {
         getItemInWishlist,
       }}
     >
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {/* home */}
           <Route path="/" element={<Store />} />
@@ -130,7 +130,10 @@ function App() {
           <Route path="/wishlist" element={<WishListPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+
+      </HashRouter>
+       
+      
     </CartContext.Provider>
   );
 }

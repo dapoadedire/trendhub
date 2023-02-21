@@ -1,25 +1,21 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faShoppingCart,
-  faMinus,
-} from "@fortawesome/free-solid-svg-icons";
-import { formatCurrency } from "../utils";
 
-import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { formatCurrency } from "../utils";
+import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Product = ({ product }) => {
-  const { addItemToCart, removeItemFromCart, getItemQuantity, isInCart } =
+  const { addItemToWishlist, removeItemFromWishlist, getItemInWishlist } =
     useContext(CartContext);
 
   return (
     <div
-      className="group flex flex-col items-center justify-start 
-    border border-gray-200
-    bg-white p-5"
+      className="group flex flex-col items-center justify-center  
+    bg-white"
     >
       <Link to={`/product/${product.id}`} className="grow">
         <div className="">
@@ -38,10 +34,8 @@ const Product = ({ product }) => {
         </div>
         <div>
           <h3
-            className="font-inter text-base
-          font-medium
-          text-gray-900
-          "
+            className="font-inter mb-2
+          text-base text-gray-900"
           >
             {product.title}
           </h3>
@@ -49,61 +43,48 @@ const Product = ({ product }) => {
       </Link>
 
       <div
-        className="mt-3
-      flex
-      w-full
-      flex-row flex-wrap items-center justify-between
-      gap-4
+        className="flex w-full items-center
+      justify-between
       "
       >
         <div>
           <p
             className="
             font-inter
-                            
-                            py-2 px-4 font-bold text-gray-800"
+           
+            self-start
+            py-2  text-start
+            text-base
+            text-gray-800
+            "
           >
             {formatCurrency(product.price)}
           </p>
         </div>
 
-        <div className="flex items-center border  border-gray-400 ">
-          {isInCart(product) && getItemQuantity(product) > 0 ? (
-            <>
-              <button
-                className="mr-2  
-                            border-r border-gray-400
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                onClick={() => removeItemFromCart(product)}
-              >
-                <FontAwesomeIcon icon={faMinus} />
-              </button>
-              <span
-                className="w-6
-                          
-                          text-center font-bold
-                          
-                          text-gray-700"
-              >
-                {getItemQuantity(product)}
-              </span>
-              <button
-                className="ml-2  
-                            border-l border-gray-400
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                onClick={() => addItemToCart(product)}
-              >
-                <FontAwesomeIcon icon={faPlus} />
-              </button>
-            </>
+        <div>
+          {getItemInWishlist(product) ? (
+            <button
+              onClick={() => removeItemFromWishlist(product)}
+              className="font-inter
+              text-red-400
+              transition-all
+              duration-300
+              ease-in-out
+              hover:text-red-500"
+            >
+              <FontAwesomeIcon icon={faHeart} />
+            </button>
           ) : (
             <button
-              className="
-                            
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-              onClick={() => addItemToCart(product)}
+              onClick={() => addItemToWishlist(product)}
+              className="font-inter
+              text-gray-400
+              transition-all
+              duration-300
+              ease-in-out hover:text-gray-500"
             >
-              <FontAwesomeIcon icon={faShoppingCart} />
+              <FontAwesomeIcon icon={faHeart} />
             </button>
           )}
         </div>

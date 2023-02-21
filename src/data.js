@@ -269,7 +269,6 @@ const all_products = [
 
 export default all_products;
 
-
 export const coupons = [
   {
     id: 1,
@@ -291,5 +290,4 @@ export const coupons = [
     code: "40-OFF",
     discount: 40,
   },
-]
-
+];

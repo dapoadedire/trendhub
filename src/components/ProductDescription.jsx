@@ -1,10 +1,5 @@
 import { useParams } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faShoppingCart,
-  faMinus,
-} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import all_products from "../data";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
@@ -13,10 +8,32 @@ import { formatCurrency } from "../utils";
 const Productproduct = () => {
   const { product_id } = useParams({});
 
-  const { addItemToCart, removeItemFromCart, isInCart, getItemQuantity } =
+  const { addItemToCart, removeItemFromCart, getItemQuantity } =
     useContext(CartContext);
 
   let product = all_products.filter((product) => product.id == product_id)[0];
+
+  const [value, setValue] = useState(getItemQuantity(product) || 1);
+
+  const handleIncrease = () => {
+    setValue(value + 1);
+  };
+
+  const handleDecrease = () => {
+    if (value > 0) {
+      setValue(value - 1);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted value:", value);
+    addItemToCart(product, value);
+  };
+
+  const handleInputChange = (e) => {
+    setValue(Number(e.target.value));
+  };
 
   return (
     <div className="mx-auto max-w-md overflow-hidden rounded-md border border-gray-200 bg-white p-4 shadow-md md:max-w-2xl lg:max-w-4xl">
@@ -55,52 +72,77 @@ const Productproduct = () => {
             </div>
           )}
 
-          <div className="flex items-center">
+          <form
+            onSubmit={handleSubmit}
+            className="
+          flex
+          
+          items-center
+          justify-between
+          gap-4
+          
+          "
+          >
             <div
-              className="flex items-center 
-            border border-gray-400
+              className="flex  
+            
             "
             >
-              {isInCart(product) && getItemQuantity(product) > 0 ? (
-                <>
-                  <button
-                    className="mr-2  
-                            border-r border-gray-400
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                    onClick={() => removeItemFromCart(product)}
-                  >
-                    <FontAwesomeIcon icon={faMinus} />
-                  </button>
-                  <span
-                    className="w-6
-                
-                          
-                          text-center font-bold
-                          
-                          text-gray-700"
-                  >
-                    {getItemQuantity(product)}
-                  </span>
-                  <button
-                    className="ml-2  
-                            border-l border-gray-400
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                    onClick={() => addItemToCart(product)}
-                  >
-                    <FontAwesomeIcon icon={faPlus} />
-                  </button>
-                </>
-              ) : (
-                <button
-                  className="
-                            
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                  onClick={() => addItemToCart(product)}
-                >
-                  <FontAwesomeIcon icon={faShoppingCart} />
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={handleDecrease}
+                className="
+              border border-gray-500
+              px-4
+              py-2
+              "
+              >
+                {"<"}
+              </button>
+              <input
+                type="number"
+                value={value}
+                onChange={handleInputChange}
+                className="w-16  
+                text-center"
+              />
+
+              <button
+                type="button"
+                onClick={handleIncrease}
+                className="border border-gray-500
+              px-4
+              py-2
+              "
+              >
+                {">"}
+              </button>
             </div>
+
+            <div>
+              <button
+                type="submit"
+                className="
+              border
+              border-gray-500 px-4
+              py-2
+              
+              "
+              >
+                Add to cart
+              </button>
+            </div>
+          </form>
+          <div>
+            <button
+              type="button"
+              className="mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              onClick={() => {
+                removeItemFromCart(product);
+              }}
+            >
+              Remove from cart
+            </button>
           </div>
         </div>
       </div>

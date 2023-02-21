@@ -7,8 +7,36 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 import NotFound from "./pages/NotFound";
+import WishListPage from "./pages/WishListPage";
 
 function App() {
+  const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const [wishlist, setWishlist] = useState(storedWishlist);
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
+  const addItemToWishlist = (product) => {
+    const newWishlist = [...wishlist];
+    const itemInWishlist = getItemInWishlist(product);
+
+    if (!itemInWishlist) {
+      newWishlist.push(product);
+    }
+
+    setWishlist(newWishlist);
+  };
+
+  const removeItemFromWishlist = (product) => {
+    const newWishlist = wishlist.filter((item) => item.id !== product.id);
+    setWishlist(newWishlist);
+  };
+
+  const getItemInWishlist = (product) => {
+    return wishlist.find((item) => item.id === product.id);
+  };
+
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
   const [cart, setCart] = useState(storedCart);
 
@@ -16,31 +44,21 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addItemToCart = (product) => {
+  const addItemToCart = (product, quantity) => {
     const newCart = [...cart];
     const itemInCart = getItemInCart(product);
 
     if (itemInCart) {
-      itemInCart.quantity += 1;
+      itemInCart.quantity = quantity;
     } else {
-      newCart.push({ ...product, quantity: 1 });
+      newCart.push({ ...product, quantity });
     }
+
     setCart(newCart);
   };
-  const removeItemFromCart = (product) => {
-    const newCart = [...cart];
-    const itemInCart = getItemInCart(product);
 
-    if (itemInCart) {
-      if (itemInCart.quantity > 1) {
-        itemInCart.quantity -= 1;
-      } else {
-        // Remove item with quantity of zero from cart
-        newCart.splice(newCart.indexOf(itemInCart), 1);
-      }
-    } else {
-      newCart.push({ ...product, quantity: 1 });
-    }
+  const removeItemFromCart = (product) => {
+    const newCart = cart.filter((item) => item.id !== product.id);
     setCart(newCart);
   };
 
@@ -61,11 +79,6 @@ function App() {
 
   const isInCart = (product) => {
     return !!getItemInCart(product);
-  };
-
-  const removeAllItemsFromCart = (product) => {
-    const newCart = cart.filter((item) => item.id !== product.id);
-    setCart(newCart);
   };
 
   const getItemInCart = (product) => {
@@ -89,8 +102,11 @@ function App() {
         totalItemsPrice,
         totalItems,
         isInCart,
-        removeAllItemsFromCart,
         getItemPrice,
+        wishlist,
+        addItemToWishlist,
+        removeItemFromWishlist,
+        getItemInWishlist,
       }}
     >
       <BrowserRouter>
@@ -105,6 +121,8 @@ function App() {
           <Route path="/category/:category" element={<Category />} />
           {/* cart */}
           <Route path="/cart" element={<Cart />} />
+          {/* wishlist */}
+          <Route path="/wishlist" element={<WishListPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

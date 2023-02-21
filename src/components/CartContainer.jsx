@@ -3,22 +3,16 @@ import { useContext } from "react";
 import { formatCurrency } from "../utils";
 import CheckoutSuccess from "./CheckoutSuccess";
 import { useState } from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import CartItem from "./CartItem";
 
 const CartContainer = () => {
   const [showCheckout, setShowCheckout] = useState(false);
   const {
     cart,
-    addItemToCart,
-    removeItemFromCart,
     clearCart,
-    getItemQuantity,
+
     totalItemsPrice,
     totalItems,
-    getItemPrice,
-    removeAllItemsFromCart,
   } = useContext(CartContext);
 
   const handleCheckout = () => {
@@ -66,88 +60,7 @@ const CartContainer = () => {
               "
                 >
                   {cart.map((product) => (
-                    <div
-                      key={product.id}
-                      className=" flex items-center border-b  border-gray-400
-                  bg-white p-2
-                  
-                  "
-                    >
-                      <div className="h-24 w-24 flex-none  bg-gray-200">
-                        <img
-                          src={product.image}
-                          alt={product.title}
-                          className="h-full w-full object-contain"
-                        />
-                      </div>
-                      <div className="flex-auto p-4">
-                        <h2
-                          className="mb-2 
-                      text-base
-                      text-gray-700"
-                        >
-                          {product.title}
-                        </h2>
-                        <p
-                          className="text-sm
-                      text-gray-500
-                      "
-                        >
-                          {getItemQuantity(product)} x{" "}
-                          {formatCurrency(product.price)} ={" "}
-                          {formatCurrency(getItemPrice(product))}
-                        </p>
-                        <div
-                          className="mt-2 flex items-center
-                     justify-between 
-                     
-                     
-                      "
-                        >
-                          <div className="flex items-center border  border-gray-400 ">
-                            <button
-                              onClick={() => removeItemFromCart(product)}
-                              className="mr-2  
-                            border-r border-gray-400
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                            >
-                              <FontAwesomeIcon icon={faMinus} />
-                            </button>
-                            <span
-                              className="w-6
-                          
-                          text-center font-bold
-                          
-                          text-gray-700"
-                            >
-                              {getItemQuantity(product)}
-                            </span>
-                            <button
-                              onClick={() => addItemToCart(product)}
-                              className="ml-2  
-                            border-l border-gray-400
-                            py-2 px-4 font-bold text-gray-800 hover:bg-gray-300"
-                            >
-                              <FontAwesomeIcon icon={faPlus} />
-                            </button>
-                          </div>
-                          <button
-                            onClick={() => removeAllItemsFromCart(product)}
-                            className="ml-4
-                          rounded-lg py-2 px-4 text-sm font-bold
-                          
-                          text-gray-800 hover:bg-red-300
-                          hover:text-red-600
-                          "
-                          >
-                            <FontAwesomeIcon
-                              icon={faTrashCan}
-                              className="h-5 w-5"
-                            />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                    <CartItem product={product} key={product.id} />
                   ))}
                 </div>
                 <div
@@ -191,28 +104,19 @@ const CartContainer = () => {
                       </span>
                     </div>
                     <div>
-
-
-                  
-
-
-                   
-                   
-
-
-                    <button
-                      onClick={() => clearCart()}
-                      className="mt-4 w-full rounded bg-red-500 py-2 px-4 font-bold text-white hover:bg-red-600"
-                    >
-                      Clear cart
-                    </button>
-                    <button
-                      onClick={() => handleCheckout()}
-                      className="mt-4 w-full rounded bg-green-500 py-2 px-4 font-bold text-white "
-                    >
-                      Checkout
-                    </button>
-                        </div>
+                      <button
+                        onClick={() => clearCart()}
+                        className="mt-4 w-full rounded bg-red-500 py-2 px-4 font-bold text-white hover:bg-red-600"
+                      >
+                        Clear cart
+                      </button>
+                      <button
+                        onClick={() => handleCheckout()}
+                        className="mt-4 w-full rounded bg-green-500 py-2 px-4 font-bold text-white "
+                      >
+                        Checkout
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

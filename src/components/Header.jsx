@@ -14,7 +14,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  const { cart } = useContext(CartContext);
+  const { wishlist, totalItems } = useContext(CartContext);
   // console.log(cart);
 
   const categories = [
@@ -30,9 +30,11 @@ const Header = () => {
       2xl:px-24
       "
     >
-      <div className="flex items-center justify-between
+      <div
+        className="flex items-center justify-between
       gap-4
-      ">
+      "
+      >
         <Link to="/">
           <h3
             className="text-xl
@@ -62,7 +64,7 @@ const Header = () => {
               border-white bg-black text-white 
               "
             >
-              {cart.length}
+              {totalItems > 0 ? totalItems : ""}
             </span>
           </Link>
           <Hamburger toggled={isOpen} toggle={toggleMenu} color="white" />
@@ -72,17 +74,12 @@ const Header = () => {
       <nav
         className={`${
           isOpen ? "block" : "hidden"
-        } mt-2 border-t border-white py-4
-      md:block md:border-none
-      md:py-0
-      `}
+        } mt-2 border-t border-white py-4 md:block md:border-none md:py-0`}
       >
         <ul className="flex flex-col space-y-4 text-white md:flex-row md:space-x-10 md:space-y-0">
           {categories.map((category, index) => (
             <li key={index}>
-              <Link to={`/category/${category.toLowerCase()}`}>
-                {category}
-              </Link>
+              <Link to={`/category/${category.toLowerCase()}`}>{category}</Link>
             </li>
           ))}
           <li>
@@ -92,14 +89,19 @@ const Header = () => {
             pt-2 hover:text-gray-400
             "
             >
-              <FontAwesomeIcon icon={faShoppingCart} className="h-6 w-6" />
-              <span
-                className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full  border-2 
-              border-white bg-black text-white 
-              "
-              >
-                {cart.length}
-              </span>
+              Cart(
+              {totalItems > 0 ? totalItems : ""})
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/wishlist"
+              className="relative pr-2
+                pt-2 hover:text-gray-400
+                "
+            >
+              WishList(
+              {wishlist.length > 0 ? wishlist.length : ""})
             </Link>
           </li>
         </ul>

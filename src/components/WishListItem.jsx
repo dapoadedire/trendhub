@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 const WishListItem = ({ product }) => {
-    const { addItemToCart, getItemQuantity, getItemPrice,
+    const { addItemToCart, 
         removeItemFromWishlist, getItemInWishlist 
     } =
         useContext(CartContext);
@@ -58,8 +58,7 @@ const WishListItem = ({ product }) => {
                       text-gray-500
                       "
                 >
-                    {getItemQuantity(product)} x {formatCurrency(product.price)} ={" "}
-                    {formatCurrency(getItemPrice(product))}
+                {formatCurrency(product.price)} 
                 </p>
                 <form
                     onSubmit={handleSubmit}

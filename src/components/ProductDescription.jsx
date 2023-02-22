@@ -8,7 +8,7 @@ import { formatCurrency } from "../utils";
 const Productproduct = () => {
   const { product_id } = useParams({});
 
-  const { addItemToCart, removeItemFromCart, getItemQuantity } =
+  const { addItemToCart, removeItemFromCart, getItemQuantity, isInCart } =
     useContext(CartContext);
 
   let product = all_products.filter((product) => product.id == product_id)[0];
@@ -75,47 +75,63 @@ const Productproduct = () => {
           <form
             onSubmit={handleSubmit}
             className="
+          mb-4
           flex
-          
+          flex-wrap
           items-center
           justify-between
           gap-4
-          
           "
           >
-            <div
-              className="flex  
-            
-            "
-            >
+            <div className="flex gap-2">
               <button
                 type="button"
                 onClick={handleDecrease}
                 className="
-              border border-gray-500
+              border
+              border-gray-500
               px-4
               py-2
+              font-semibold
+              hover:border-green-700
+              hover:bg-green-200
+              hover:text-green-700
               "
               >
-                {"<"}
+                {"<-"}
               </button>
               <input
                 type="number"
                 value={value}
                 onChange={handleInputChange}
                 className="w-16  
-                text-center"
+                border
+                border-gray-500
+                px-4
+                py-2
+                text-center
+                outline-none
+                hover:border-green-700
+                hover:text-green-700
+                focus:ring-2
+                focus:ring-green-200"
               />
 
               <button
                 type="button"
                 onClick={handleIncrease}
-                className="border border-gray-500
+                className="
+              border
+              border-gray-500
               px-4
               py-2
+              font-semibold
+              hover:border-green-700
+              hover:bg-green-200
+              hover:text-green-700
               "
               >
-                {">"}
+                {"->"}
               </button>
             </div>
 
@@ -123,9 +139,15 @@ const Productproduct = () => {
               <button
                 type="submit"
                 className="
-              border
-              border-gray-500 px-4
+             border
+              border-gray-500
+              px-4
               py-2
+              font-medium
+              hover:border-green-700
+              
+              hover:bg-green-200
+              hover:text-green-700
               
               "
               >
@@ -133,17 +155,29 @@ const Productproduct = () => {
               </button>
             </div>
           </form>
-          <div>
-            <button
-              type="button"
-              className="mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              onClick={() => {
-                removeItemFromCart(product);
-              }}
-            >
-              Remove from cart
-            </button>
-          </div>
+          {isInCart(product) && (
+            <div className="flex justify-end">
+              <button
+                type="button"
+                className="
+               border
+              border-gray-500
+              px-4
+              py-2
+              font-medium
+              hover:border-red-700
+              hover:bg-red-200
+              hover:text-red-700
+              
+              "
+                onClick={() => {
+                  removeItemFromCart(product);
+                }}
+              >
+                Remove from cart
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import Product from "./Product";
 const Products = () => {
   return (
     <div
-      className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2
+      className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2
     md:grid-cols-3
     "
     >

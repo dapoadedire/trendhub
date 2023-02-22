@@ -7,13 +7,8 @@ import CartItem from "./CartItem";
 
 const CartContainer = () => {
   const [showCheckout, setShowCheckout] = useState(false);
-  const {
-    cart,
-    clearCart,
-
-    totalItemsPrice,
-    totalItems,
-  } = useContext(CartContext);
+  const { cart, clearCart, totalItemsPrice, totalItems } =
+    useContext(CartContext);
 
   const handleCheckout = () => {
     setShowCheckout(true);

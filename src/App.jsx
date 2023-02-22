@@ -48,7 +48,7 @@ function App() {
     const newCart = [...cart];
     const itemInCart = getItemInCart(product);
 
-   if (quantity === 0) {
+    if (quantity === 0) {
       removeItemFromCart(product);
       return;
     }
@@ -130,10 +130,7 @@ function App() {
           <Route path="/wishlist" element={<WishListPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-
       </HashRouter>
-       
-      
     </CartContext.Provider>
   );
 }

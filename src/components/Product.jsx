@@ -5,29 +5,30 @@ import { formatCurrency } from "../utils";
 import { Link } from "react-router-dom";
 import { HiOutlineHeart } from "react-icons/hi";
 
-
 const Product = ({ product }) => {
   const { addItemToWishlist, removeItemFromWishlist, getItemInWishlist } =
     useContext(CartContext);
   return (
     <div
-      className="group flex flex-col items-center justify-center  
-     
-      bg-gray-50
-      p-4
+      className="flex flex-col items-center justify-center  
+      p-4 hover:bg-gray-50
+      rounded-lg
     "
     >
-      <Link to={`/product/${product.id}`} className="grow">
-        <div className="">
+      <Link
+        to={`/product/${product.id}`}
+        className="grow
+      w-full
+      "
+      >
+        <div>
           <img
             className="mx-auto mb-4 h-64 w-64 object-contain
             object-center
-           saturate-50
            transition-all
-            duration-500
+           duration-1000
             ease-in-out
-            group-hover:scale-110
-            group-hover:saturate-100"
+            "
             src={product.image}
             alt={product.title}
           />
@@ -36,6 +37,7 @@ const Product = ({ product }) => {
           <h3
             className="font-inter mb-1
           text-sm
+          text-left
           
           text-gray-900"
           >
@@ -64,37 +66,32 @@ const Product = ({ product }) => {
 
         <div>
           {getItemInWishlist(product) ? (
-            <button
-              onClick={() => removeItemFromWishlist(product)}
-              className="font-inter
-              animate-bounce
-              text-red-500
-              transition-all
-              duration-300
-              ease-in-out
-              hover:text-red-600
-              "
-            >
+            <button onClick={() => removeItemFromWishlist(product)}>
               <HiOutlineHeart
                 className="hover:animated-pulse
               scale-150
-              fill-current
+              text-red-600
+              fill-red-600
+             
+             
+             
+
 
               "
               />
             </button>
           ) : (
-            <button
-              onClick={() => addItemToWishlist(product)}
-              className="font-inter
-              text-black
-              transition-all
-              duration-300
-              ease-in-out"
-            >
+            <button onClick={() => addItemToWishlist(product)}>
               <HiOutlineHeart
                 className="scale-150
               fill-white
+              text-black
+              transition-all
+              duration-200
+              ease-in-out
+              hover:fill-red-400
+              hover:text-red-400
+
               
               "
               />

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
-import { Fade as Hamburger } from 'hamburger-react'
+import { Fade as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
@@ -63,7 +63,6 @@ const Header = () => {
             scale-150
             text-white
             "
-
             />
             <span
               className=" animate-pulse
@@ -118,21 +117,24 @@ const Header = () => {
           isOpen ? "block" : "hidden"
         } mt-2 border-t border-white py-4 md:block md:border-none md:py-0`}
       >
-        <ul className="
+        <ul
+          className="
         
         flex flex-col space-y-4 text-white md:flex-row md:space-x-10 md:space-y-0
         
-        ">
+        "
+        >
           {categories.map((category, index) => (
-            <li key={index}
-            className="
+            <li
+              key={index}
+              className="
            group
            hover:text-gray-100
             "
             >
               <Link to={`/category/${category.toLowerCase()}`}>{category}</Link>
               <p
-              className="
+                className="
               invisible
               h-[1px]
               w-0
@@ -143,14 +145,10 @@ const Header = () => {
               group-hover:visible
               group-hover:w-full
               "
-              >
-
-              </p>
+              ></p>
             </li>
           ))}
-          <li
-          className="hidden md:block"
-          >
+          <li className="hidden md:block">
             <Link
               to="/cart"
               className="
@@ -158,14 +156,14 @@ const Header = () => {
              items-center hover:text-gray-400
             "
             >
-            <BsCart className="mr-3
+              <BsCart
+                className="mr-3
             scale-150
             text-white
-            " 
-            
-            />
-             <span
-             className=" animate-pulse
+            "
+              />
+              <span
+                className=" animate-pulse
              rounded-full
              bg-green-600
              px-1
@@ -173,15 +171,12 @@ const Header = () => {
              font-medium
              text-white
              "
-             >
-              {totalItems > 0 ? totalItems : ""}
-             </span>
-              
+              >
+                {totalItems > 0 ? totalItems : ""}
+              </span>
             </Link>
           </li>
-          <li
-          className="hidden md:block"
-          >
+          <li className="hidden md:block">
             <Link
               to="/wishlist"
               className="
@@ -189,10 +184,12 @@ const Header = () => {
              items-center hover:text-gray-400
             "
             >
-              <FaRegHeart className="mr-3
+              <FaRegHeart
+                className="mr-3
             scale-150
             text-white
-            " />
+            "
+              />
               <span
                 className=" animate-pulse
              

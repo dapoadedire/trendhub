@@ -4,8 +4,13 @@ import { formatCurrency } from "../utils";
 import { useState } from "react";
 
 const CartItem = ({ product }) => {
-  const { addItemToCart, removeItemFromCart, getItemQuantity, getItemPrice } =
-    useContext(CartContext);
+  const {
+    addItemToCart,
+    removeItemFromCart,
+    getItemQuantity,
+    isInCart,
+    getItemPrice,
+  } = useContext(CartContext);
 
   const [value, setValue] = useState(getItemQuantity(product) || 1);
 
@@ -60,47 +65,58 @@ const CartItem = ({ product }) => {
         <form
           onSubmit={handleSubmit}
           className="
+          my-4
           flex
-          
+          flex-wrap
           items-center
           justify-between
           gap-4
-          
           "
         >
           <div
-            className="flex  
-            
+            className="flex items-center
+            border border-gray-500
             "
           >
             <button
               type="button"
               onClick={handleDecrease}
               className="
-              border border-gray-500
-              px-4
-              py-2
+             
+              
+              p-2
+              font-semibold
+              hover:bg-gray-200
               "
             >
-              {"<"}
+              {"<-"}
             </button>
             <input
               type="number"
               value={value}
               onChange={handleInputChange}
-              className="w-16  
-                text-center"
+              className="w-16                 
+                
+                p-2
+                text-center
+                outline-none
+               
+               
+                "
             />
 
             <button
               type="button"
               onClick={handleIncrease}
-              className="border border-gray-500
-              px-4
-              py-2
+              className="
+             
+              p-2
+              
+              font-semibold
+              hover:bg-gray-200
               "
             >
-              {">"}
+              {"->"}
             </button>
           </div>
 
@@ -108,27 +124,40 @@ const CartItem = ({ product }) => {
             <button
               type="submit"
               className="
-              border
-              border-gray-500 px-4
+             border
+              border-gray-500
+              px-4
               py-2
+              font-medium
+              hover:border-green-700
+              
+              hover:bg-green-200
+              hover:text-green-700
               
               "
             >
               Add to cart
             </button>
           </div>
+          {isInCart(product) && (
+            <div className="flex justify-end">
+              <button
+                type="button"
+                className="
+              p-2
+              font-medium
+              hover:text-red-700
+              
+              "
+                onClick={() => {
+                  removeItemFromCart(product);
+                }}
+              >
+                Remove item
+              </button>
+            </div>
+          )}
         </form>
-        <div>
-          <button
-            type="button"
-            className="mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            onClick={() => {
-              removeItemFromCart(product);
-            }}
-          >
-            Remove from cart
-          </button>
-        </div>
       </div>
     </div>
   );

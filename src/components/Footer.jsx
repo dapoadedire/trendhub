@@ -2,25 +2,18 @@
 
 import { Link } from "react-router-dom";
 
-
 import {
   SlSocialLinkedin,
   SlSocialFacebook,
   SlSocialInstagram,
   SlSocialTwitter,
-
 } from "react-icons/sl";
 
 import { CiLocationOn } from "react-icons/ci";
 
-import {
-  BsTelephone,
-
-} from "react-icons/bs";
+import { BsTelephone } from "react-icons/bs";
 
 import { AiOutlineMail } from "react-icons/ai";
-
-
 
 const categories = [
   "Electronics",
@@ -107,10 +100,6 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-white">
                 <SlSocialTwitter className="h-6 w-6" />
               </a>
-
-              
-
-
             </div>
           </div>
         </div>

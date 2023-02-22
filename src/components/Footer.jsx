@@ -71,35 +71,38 @@ const Footer = () => {
           <div className="">
             <h2 className="mb-4 text-xl font-bold">Contact Us</h2>
             <ul className="list-none">
-              <li className="mb-2">
+              <li className="mb-2  flex items-center">
                 <CiLocationOn className="mr-2" />
                 123 Main St, Anytown USA
               </li>
-              <li className="mb-2">
+              <li className="mb-2  flex items-center">
                 <BsTelephone className="mr-2" />
                 (123) 456-7890
               </li>
-              <li className="mb-2">
-                <AiOutlineMail className="mr-2" />
+              <li className="mb-2 flex items-center">
+   <AiOutlineMail className="mr-2" />
+
                 info@website.com
               </li>
             </ul>
           </div>
           <div className="">
             <h2 className="mb-4 text-xl font-bold">Connect With Us</h2>
-            <div className="flex">
-              <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <SlSocialLinkedin className="h-6 w-6" />
+            <div className="flex
+            gap-4
+            "> <a href="#" className="text-gray-400 hover:text-white">
+                <SlSocialTwitter className="h-5 w-5" />
               </a>
-              <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <SlSocialFacebook className="h-6 w-6" />
+              <a href="#" className=" text-gray-400 hover:text-white">
+                <SlSocialLinkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <SlSocialInstagram className="h-6 w-6" />
+              <a href="#" className=" text-gray-400 hover:text-white">
+                <SlSocialFacebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <SlSocialTwitter className="h-6 w-6" />
+              <a href="#" className=" text-gray-400 hover:text-white">
+                <SlSocialInstagram className="h-5 w-5" />
               </a>
+             
             </div>
           </div>
         </div>

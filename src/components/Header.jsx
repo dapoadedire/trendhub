@@ -49,11 +49,9 @@ const Header = () => {
           className="flex items-center
         gap-4
         md:hidden
-
         "
         >
-          <Link
-            to="/cart"
+          <button
             className="
              flex
              items-center hover:text-gray-400
@@ -77,9 +75,8 @@ const Header = () => {
               {totalItems > 0 ? totalItems : ""}
             </span>
 
-          </Link>
-          <Link
-            to="/wishlist"
+          </button>
+          <button
             className="
              flex
              items-center hover:text-gray-400
@@ -105,7 +102,7 @@ const Header = () => {
 
 
 
-          </Link>
+          </button>
           <Hamburger toggled={isOpen} toggle={toggleMenu} 
           duration={1}
           color="white" />

@@ -4,12 +4,17 @@ import { useContext } from "react";
 import { formatCurrency } from "../utils";
 import { useState } from "react";
 
+import { GrClose } from "react-icons/gr";
+
 const WishListItem = ({ product }) => {
   const {
     addItemToCart,
     removeItemFromWishlist,
     getItemInWishlist,
     getItemQuantity,
+    isInCart,
+    removeItemFromCart
+
   } = useContext(CartContext);
 
   const [value, setValue] = useState(getItemQuantity(product) || 1);
@@ -34,93 +39,75 @@ const WishListItem = ({ product }) => {
   return (
     <div
       key={product.id}
-      className=" flex items-center border-b  border-gray-400
-                  bg-white p-2
-                  
-                  "
+      className=" 
+      border border-gray-400
+      "
     >
-      <div className="h-24 w-24 flex-none  bg-gray-200">
+      <div className="">
         <img
           src={product.image}
           alt={product.title}
-          className="h-full w-full object-contain"
+          className=""
         />
       </div>
-      <div className="flex-auto p-4">
+      <div className="">
         <h2
-          className="mb-2 
-                      text-base
-                      text-gray-700"
+          className=""
         >
           {product.title}
         </h2>
         <p
-          className="text-sm
-                      text-gray-500
-                      "
+          className=""
         >
           {formatCurrency(product.price)}
         </p>
         <form
           onSubmit={handleSubmit}
-          className="
-          flex
-          
-          items-center
-          justify-between
-          gap-4
-          
-          "
+          className=""
         >
           <div
-            className="flex  
-            
+            className="
             "
           >
             <button
               type="button"
               onClick={handleDecrease}
-              className="
-              border border-gray-500
-              px-4
-              py-2
-              "
+              className=""
             >
-              {"<"}
+              {"<-"}
             </button>
             <input
               type="number"
               value={value}
               onChange={handleInputChange}
-              className="w-16  
-                text-center"
+              className=""
             />
 
             <button
               type="button"
               onClick={handleIncrease}
-              className="border border-gray-500
-              px-4
-              py-2
-              "
+              className=""
             >
-              {">"}
+              {"->"}
             </button>
           </div>
 
           <div>
             <button
               type="submit"
-              className="
-              border
-              border-gray-500 px-4
-              py-2
-              
-              "
+              className=""
             >
               Add to cart
             </button>
           </div>
+          {isInCart(product) && (
+            <div className="">
+              <button
+                type="button"
+                className=""
+                onClick={() => {removeItemFromCart(product);}}>Remove</button>
+            </div>
+          )}
         </form>
       </div>
 
@@ -128,14 +115,9 @@ const WishListItem = ({ product }) => {
         {getItemInWishlist(product) && (
           <button
             onClick={() => removeItemFromWishlist(product)}
-            className="font-inter
-              text-red-400
-              transition-all
-              duration-300
-              ease-in-out
-              hover:text-red-500"
+            className=""
           >
-            Remove from wishlist
+            <GrClose />
           </button>
         )}
       </div>

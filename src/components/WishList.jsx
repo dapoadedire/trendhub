@@ -6,7 +6,9 @@ const WishList = () => {
   const { wishlist } = useContext(CartContext);
 
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto my-10
+    border border-gray-500
+    ">
       <h1 className="mb-5 text-center text-2xl font-bold">
         WishList ({wishlist.length})
       </h1>
@@ -19,7 +21,7 @@ const WishList = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-wrap justify-between gap-4">
+          <div className="flex  flex-col justify-between gap-4 p-3">
             {wishlist.map((product) => (
               <WishListItem product={product} key={product.id} />
             ))}

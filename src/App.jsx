@@ -1,13 +1,11 @@
 import Store from "./pages/Store";
 import Description from "./pages/Description";
 import Category from "./pages/Category";
-import Cart from "./pages/Cart";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 import NotFound from "./pages/NotFound";
-import WishListPage from "./pages/WishListPage";
 
 function App() {
   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -123,11 +121,7 @@ function App() {
           <Route path="/product/:product_id" element={<Description />} />
           {/* about */}
           {/* Category */}
-          <Route path="/category/:category" element={<Category />} />
-          {/* cart */}
-          <Route path="/cart" element={<Cart />} />
-          {/* wishlist */}
-          <Route path="/wishlist" element={<WishListPage />} />
+          <Route path="/category/:category" element={<Category />} /> 
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>

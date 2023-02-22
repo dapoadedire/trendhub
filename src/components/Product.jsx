@@ -11,7 +11,7 @@ const Product = ({ product }) => {
   return (
     <div
       className="flex flex-col items-center justify-center  
-      p-4 hover:bg-gray-50
+      p-4
       rounded-lg
     "
     >
@@ -70,8 +70,8 @@ const Product = ({ product }) => {
               <HiOutlineHeart
                 className="hover:animated-pulse
               scale-150
-              text-red-600
-              fill-red-600
+              text-black
+              fill-black
              
              
              
@@ -89,8 +89,8 @@ const Product = ({ product }) => {
               transition-all
               duration-200
               ease-in-out
-              hover:fill-red-400
-              hover:text-red-400
+              hover:fill-black
+              hover:text-black
 
               
               "

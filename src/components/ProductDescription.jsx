@@ -75,7 +75,7 @@ const Productproduct = () => {
           <form
             onSubmit={handleSubmit}
             className="
-          mb-4
+          my-4
           flex
           flex-wrap
           items-center
@@ -83,19 +83,20 @@ const Productproduct = () => {
           gap-4
           "
           >
-            <div className="flex gap-2">
+            <div
+              className="flex items-center
+            border border-gray-500
+            "
+            >
               <button
                 type="button"
                 onClick={handleDecrease}
                 className="
-              border
-              border-gray-500
-              px-4
-              py-2
+             
+              
+              p-2
               font-semibold
-              hover:border-green-700
-              hover:bg-green-200
-              hover:text-green-700
+              hover:bg-gray-200
               "
               >
                 {"<-"}
@@ -104,31 +105,25 @@ const Productproduct = () => {
                 type="number"
                 value={value}
                 onChange={handleInputChange}
-                className="w-16  
-                border
-                border-gray-500
-                px-4
-                py-2
+                className="w-16                 
+                
+                p-2
                 text-center
                 outline-none
-                hover:border-green-700
-                hover:text-green-700
-                focus:ring-2
-                focus:ring-green-200"
+               
+               
+                "
               />
 
               <button
                 type="button"
                 onClick={handleIncrease}
                 className="
-              border
-              border-gray-500
-              px-4
-              py-2
+             
+              p-2
+              
               font-semibold
-              hover:border-green-700
-              hover:bg-green-200
-              hover:text-green-700
+              hover:bg-gray-200
               "
               >
                 {"->"}
@@ -154,30 +149,25 @@ const Productproduct = () => {
                 Add to cart
               </button>
             </div>
-          </form>
-          {isInCart(product) && (
-            <div className="flex justify-end">
-              <button
-                type="button"
-                className="
-               border
-              border-gray-500
-              px-4
-              py-2
+            {isInCart(product) && (
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  className="
+              p-2
               font-medium
-              hover:border-red-700
-              hover:bg-red-200
               hover:text-red-700
               
               "
-                onClick={() => {
-                  removeItemFromCart(product);
-                }}
-              >
-                Remove from cart
-              </button>
-            </div>
-          )}
+                  onClick={() => {
+                    removeItemFromCart(product);
+                  }}
+                >
+                  Remove item
+                </button>
+              </div>
+            )}
+          </form>
         </div>
       </div>
     </div>

@@ -39,7 +39,7 @@ const CartItem = ({ product }) => {
                   
                   "
     >
-      <div className="h-24 w-24 flex-none  bg-gray-200">
+      <div className="h-24 w-24 flex-none bg-gray-200">
         <img
           src={product.image}
           alt={product.title}
@@ -69,7 +69,7 @@ const CartItem = ({ product }) => {
           flex
           flex-wrap
           items-center
-          justify-between
+        
           gap-4
           "
         >
@@ -132,9 +132,7 @@ const CartItem = ({ product }) => {
               hover:border-green-700
               
               hover:bg-green-200
-              hover:text-green-700
-              
-              "
+              hover:text-green-700"
             >
               Add to cart
             </button>

@@ -1,17 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Link } from "react-router-dom";
+
+
 import {
-  faFacebook,
-  faTwitter,
-  faInstagram,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+  SlSocialLinkedin,
+  SlSocialFacebook,
+  SlSocialInstagram,
+  SlSocialTwitter,
+
+} from "react-icons/sl";
+
+import { CiLocationOn } from "react-icons/ci";
+
 import {
-  faMapMarkerAlt,
-  faPhone,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+  BsTelephone,
+
+} from "react-icons/bs";
+
+import { AiOutlineMail } from "react-icons/ai";
+
+
 
 const categories = [
   "Electronics",
@@ -70,15 +79,15 @@ const Footer = () => {
             <h2 className="mb-4 text-xl font-bold">Contact Us</h2>
             <ul className="list-none">
               <li className="mb-2">
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+                <CiLocationOn className="mr-2" />
                 123 Main St, Anytown USA
               </li>
               <li className="mb-2">
-                <FontAwesomeIcon icon={faPhone} className="mr-2" />
+                <BsTelephone className="mr-2" />
                 (123) 456-7890
               </li>
               <li className="mb-2">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
+                <AiOutlineMail className="mr-2" />
                 info@website.com
               </li>
             </ul>
@@ -87,37 +96,21 @@ const Footer = () => {
             <h2 className="mb-4 text-xl font-bold">Connect With Us</h2>
             <div className="flex">
               <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <FontAwesomeIcon
-                  icon={faFacebook}
-                  className="h-6 w-6
-                hover:text-blue-500
-                "
-                />
+                <SlSocialLinkedin className="h-6 w-6" />
               </a>
               <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <FontAwesomeIcon
-                  icon={faTwitter}
-                  className="h-6 w-6
-                  hover:text-blue-400
-                  "
-                />
+                <SlSocialFacebook className="h-6 w-6" />
               </a>
               <a href="#" className="mr-4 text-gray-400 hover:text-white">
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  className="h-6 w-6
-                  hover:text-pink-500
-                  "
-                />
+                <SlSocialInstagram className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white">
-                <FontAwesomeIcon
-                  icon={faYoutube}
-                  className="h-6 w-6
-                  hover:text-red-500
-                  "
-                />
+                <SlSocialTwitter className="h-6 w-6" />
               </a>
+
+              
+
+
             </div>
           </div>
         </div>

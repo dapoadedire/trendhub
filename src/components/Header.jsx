@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Sling as Hamburger } from "hamburger-react";
+import { Fade as Hamburger } from 'hamburger-react'
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { BsCart } from "react-icons/bs";
+import { FaRegHeart } from "react-icons/fa";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,22 +52,62 @@ const Header = () => {
 
         "
         >
-          <Link to="/cart" className="relative">
-            <FontAwesomeIcon
-              icon={faShoppingCart}
-              className="h-6 w-6
-            pr-2 pt-2"
-              color="white"
+          <Link
+            to="/cart"
+            className="
+             flex
+             items-center hover:text-gray-400
+            "
+          >
+            <BsCart className="mr-3
+            scale-150
+            text-white
+            "
+
             />
             <span
-              className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full  border-2 
-              border-white bg-black text-white 
-              "
+              className=" rounded-full
+             bg-green-600
+             px-1
+             text-xs
+             font-medium
+             text-white
+             "
             >
               {totalItems > 0 ? totalItems : ""}
             </span>
+
           </Link>
-          <Hamburger toggled={isOpen} toggle={toggleMenu} color="white" />
+          <Link
+            to="/wishlist"
+            className="
+             flex
+             items-center hover:text-gray-400
+            "
+          >
+            <FaRegHeart className="mr-3
+            scale-150
+            text-white
+            " />
+            <span
+              className=" rounded-full
+             
+             bg-red-500
+             px-1
+             text-xs
+             
+             text-gray-100 
+             "
+            >
+              {wishlist.length > 0 ? wishlist.length : ""}
+            </span>
+
+
+
+          </Link>
+          <Hamburger toggled={isOpen} toggle={toggleMenu} 
+          duration={1}
+          color="white" />
         </div>
       </div>
 
@@ -82,26 +122,62 @@ const Header = () => {
               <Link to={`/category/${category.toLowerCase()}`}>{category}</Link>
             </li>
           ))}
-          <li>
+          <li
+          className="hidden md:block"
+          >
             <Link
               to="/cart"
-              className="relative pr-2
-            pt-2 hover:text-gray-400
+              className="
+             flex
+             items-center hover:text-gray-400
             "
             >
-              Cart(
-              {totalItems > 0 ? totalItems : ""})
+            <BsCart className="mr-3
+            scale-150
+            text-white
+            " 
+            
+            />
+             <span
+             className=" rounded-full
+             bg-green-600
+             px-1
+             text-xs
+             font-medium
+             text-white
+             "
+             >
+              {totalItems > 0 ? totalItems : ""}
+             </span>
+              
             </Link>
           </li>
-          <li>
+          <li
+          className="hidden md:block"
+          >
             <Link
               to="/wishlist"
-              className="relative pr-2
-                pt-2 hover:text-gray-400
-                "
+              className="
+             flex
+             items-center hover:text-gray-400
+            "
             >
-              WishList(
-              {wishlist.length > 0 ? wishlist.length : ""})
+              <FaRegHeart className="mr-3
+            scale-150
+            text-white
+            " />
+              <span
+                className=" rounded-full
+             
+             bg-red-500
+             px-1
+             text-xs
+             
+             text-gray-100 
+             "
+              >
+                {wishlist.length > 0 ? wishlist.length : ""}
+              </span>
             </Link>
           </li>
         </ul>

@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const WishListItem = ({ product }) => {
     const { addItemToCart, 
-        removeItemFromWishlist, getItemInWishlist 
+        removeItemFromWishlist, getItemInWishlist , getItemQuantity
     } =
         useContext(CartContext);
 

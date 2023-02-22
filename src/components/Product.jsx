@@ -5,8 +5,10 @@ import { CartContext } from "../context/CartContext";
 import { formatCurrency } from "../utils";
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { HiOutlineHeart } from "react-icons/hi";
+
+
+
 
 const Product = ({ product }) => {
   const { addItemToWishlist, removeItemFromWishlist, getItemInWishlist } =
@@ -15,7 +17,10 @@ const Product = ({ product }) => {
   return (
     <div
       className="group flex flex-col items-center justify-center  
-    bg-white"
+     
+      bg-gray-50
+      p-4
+    "
     >
       <Link to={`/product/${product.id}`} className="grow">
         <div className="">
@@ -34,8 +39,10 @@ const Product = ({ product }) => {
         </div>
         <div>
           <h3
-            className="font-inter mb-2
-          text-base text-gray-900"
+            className="font-inter mb-1
+          text-sm
+          
+          text-gray-900"
           >
             {product.title}
           </h3>
@@ -67,24 +74,40 @@ const Product = ({ product }) => {
             <button
               onClick={() => removeItemFromWishlist(product)}
               className="font-inter
-              text-red-400
+              hover:animated-pulse
+              text-red-500
               transition-all
               duration-300
               ease-in-out
-              hover:text-red-500"
+              hover:text-red-600
+              "
             >
-              <FontAwesomeIcon icon={faHeart} />
+              <HiOutlineHeart
+                className="hover:animated-pulse
+              scale-125
+              fill-current
+
+              "
+              />
             </button>
           ) : (
             <button
               onClick={() => addItemToWishlist(product)}
               className="font-inter
-              text-gray-400
+              text-black
               transition-all
               duration-300
-              ease-in-out hover:text-gray-500"
+              ease-in-out
+              hover:text-red-600
+              
+              "
             >
-              <FontAwesomeIcon icon={faHeart} />
+              <HiOutlineHeart
+                className="fill-white
+              scale-125
+              
+              "
+              />
             </button>
           )}
         </div>

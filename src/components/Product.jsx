@@ -1,19 +1,14 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { formatCurrency } from "../utils";
 import { Link } from "react-router-dom";
-
 import { HiOutlineHeart } from "react-icons/hi";
-
-
 
 
 const Product = ({ product }) => {
   const { addItemToWishlist, removeItemFromWishlist, getItemInWishlist } =
     useContext(CartContext);
-
   return (
     <div
       className="group flex flex-col items-center justify-center  
@@ -58,12 +53,10 @@ const Product = ({ product }) => {
           <p
             className="
             font-inter
-           
             self-start
             py-2  text-start
             text-base
-            text-gray-800
-            "
+            text-gray-800"
           >
             {formatCurrency(product.price)}
           </p>
@@ -84,7 +77,7 @@ const Product = ({ product }) => {
             >
               <HiOutlineHeart
                 className="hover:animated-pulse
-              scale-125
+              scale-150
               fill-current
 
               "
@@ -97,13 +90,10 @@ const Product = ({ product }) => {
               text-black
               transition-all
               duration-300
-              ease-in-out
-              hover:text-red-600
-              
-              "
+              ease-in-out"
             >
               <HiOutlineHeart
-                className="scale-125
+                className="scale-150
               fill-white
               
               "

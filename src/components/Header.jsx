@@ -66,11 +66,12 @@ const Header = () => {
 
             />
             <span
-              className=" rounded-full
+              className=" animate-pulse
+             rounded-full
              bg-green-600
              px-1
              text-xs
-             font-medium
+              font-medium
              text-white
              "
             >
@@ -90,13 +91,14 @@ const Header = () => {
             text-white
             " />
             <span
-              className=" rounded-full
+              className=" animate-pulse
              
+             rounded-full
              bg-red-500
              px-1
-             text-xs
              
-             text-gray-100 
+             text-xs 
+             text-gray-100
              "
             >
               {wishlist.length > 0 ? wishlist.length : ""}
@@ -163,7 +165,8 @@ const Header = () => {
             
             />
              <span
-             className=" rounded-full
+             className=" animate-pulse
+             rounded-full
              bg-green-600
              px-1
              text-xs
@@ -191,13 +194,14 @@ const Header = () => {
             text-white
             " />
               <span
-                className=" rounded-full
+                className=" animate-pulse
              
+             rounded-full
              bg-red-500
              px-1
-             text-xs
              
-             text-gray-100 
+             text-xs 
+             text-gray-100
              "
               >
                 {wishlist.length > 0 ? wishlist.length : ""}

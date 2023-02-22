@@ -116,10 +116,34 @@ const Header = () => {
           isOpen ? "block" : "hidden"
         } mt-2 border-t border-white py-4 md:block md:border-none md:py-0`}
       >
-        <ul className="flex flex-col space-y-4 text-white md:flex-row md:space-x-10 md:space-y-0">
+        <ul className="
+        
+        flex flex-col space-y-4 text-white md:flex-row md:space-x-10 md:space-y-0
+        
+        ">
           {categories.map((category, index) => (
-            <li key={index}>
+            <li key={index}
+            className="
+           group
+           hover:text-gray-100
+            "
+            >
               <Link to={`/category/${category.toLowerCase()}`}>{category}</Link>
+              <p
+              className="
+              invisible
+              h-[1px]
+              w-0
+              bg-gray-100
+              
+              transition-all
+              duration-500
+              group-hover:visible
+              group-hover:w-full
+              "
+              >
+
+              </p>
             </li>
           ))}
           <li

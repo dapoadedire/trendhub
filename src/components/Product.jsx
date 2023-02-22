@@ -74,7 +74,7 @@ const Product = ({ product }) => {
             <button
               onClick={() => removeItemFromWishlist(product)}
               className="font-inter
-              hover:animated-pulse
+              animate-bounce
               text-red-500
               transition-all
               duration-300
@@ -103,8 +103,8 @@ const Product = ({ product }) => {
               "
             >
               <HiOutlineHeart
-                className="fill-white
-              scale-125
+                className="scale-125
+              fill-white
               
               "
               />

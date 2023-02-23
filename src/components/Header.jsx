@@ -28,8 +28,9 @@ const Header = () => {
     sticky
     inset-x-0
     top-0
-    flex
+    z-50
 
+    flex
     h-[80px]
     w-full
     items-center
@@ -41,7 +42,11 @@ const Header = () => {
       <div
       className=""
       >
-        TrendHub
+        <h2
+        className="text-xl font-bold"
+        >
+          TrendHub
+        </h2>
       </div>
       <div
         className="
@@ -51,16 +56,50 @@ const Header = () => {
         "
       >
         <Link to="/wishlist"
-          className="flex items-center gap-2"
+          className="flex items-center gap-3"
         >
-          <FaRegHeart />
-          {wishlist.length}
+          <FaRegHeart
+            className="scale-[1.3]"
+          />
+          <span
+            className="flex
+            
+              h-5
+              w-5
+              items-center
+              justify-center
+              rounded-full
+              bg-red-500
+              p-1
+              text-xs
+font-bold
+
+              "
+          >
+            {wishlist.length}
+          </span>
         </Link>
         <Link to="/cart"
-          className="flex items-center gap-2"
+          className="flex items-center gap-3"
         >
-          <BsCart />
-          {totalItems}
+          <BsCart
+            className="scale-[1.3] "
+          />
+          <span
+            className="flex
+            
+              h-5
+              w-5
+              items-center
+              justify-center
+              rounded-full
+              bg-green-500
+              p-1
+              text-xs
+font-bold"
+          >
+            {totalItems}
+          </span>
         </Link>
 
         <Hamburger
@@ -84,8 +123,8 @@ const Header = () => {
     transition-all
     duration-500
     md:static
-    md:w-auto
     md:h-auto
+    md:w-auto
     
 
     
@@ -99,18 +138,21 @@ const Header = () => {
         w-full border-t
         border-white
         p-4
-        md:gap-3 
+        md:gap-6 
          ${isOpen ? "opacity-100" : "opacity-0"}
          transition-all
          duration-500
          md:flex
+         md:border-none
          md:opacity-100
         `}
         >
           {
             categories.map((category) => (
               <li key={category.name}
-                className="mb-2
+                className="group
+                mb-2
+                hover:text-slate-300
                 md:mb-0
                 "
 
@@ -119,6 +161,16 @@ const Header = () => {
                 >
                   {category.name}
                 </Link>
+                <div
+                  className="h-[2px] w-0 bg-slate-300 
+                transition-all
+                duration-500
+                group-hover:w-full
+
+                "
+                >
+                  
+                </div>
               </li>
             ))
           }
@@ -126,19 +178,53 @@ const Header = () => {
                 md:mb-0
                 ">
             <Link to="/wishlist"
-              className="flex items-center gap-2"
+              className="flex items-center gap-4"
             >
-              <FaRegHeart />
-              {wishlist.length}
+              <FaRegHeart 
+              className="scale-150"
+              />
+              <span
+              className="flex
+            
+              h-5
+              w-5
+              items-center
+              justify-center
+              rounded-full
+              bg-red-500
+              p-1
+              text-xs
+font-bold
+
+              "
+              >
+                {wishlist.length}
+              </span>
             </Link>
            
           </li>
           <li>
             <Link to="/cart"
-              className="flex items-center gap-2"
+              className="flex items-center gap-4"
             >
-              <BsCart />
+              <BsCart 
+                className="scale-150"
+              />
+              <span
+                className="flex
+            
+              h-5
+              w-5
+              items-center
+              justify-center
+              rounded-full
+              bg-green-500
+              p-1
+              text-xs
+font-bold"
+              >
               {totalItems}
+              </span>
             </Link>
           </li>
         </ul>

@@ -6,12 +6,21 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
+import { VscChromeClose } from "react-icons/vsc";
+import WishList from "./WishList";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isWishListOpen, setIsWishListOpen] = useState(false);
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleWishList = () => {
+    setIsWishListOpen(!isWishListOpen);
   };
 
   const { wishlist, totalItems } = useContext(CartContext);
@@ -28,7 +37,6 @@ const Header = () => {
     sticky
     inset-x-0
     top-0
-    z-50
 
     z-50
 
@@ -43,7 +51,7 @@ const Header = () => {
     "
     >
       <div className="">
-        <h2 className="text-xl font-bold">TrendHub</h2>
+       <Link to="/"> <h1 className="text-2xl font-bold">TrendHub</h1></Link>
       </div>
       <div
         className="
@@ -52,10 +60,13 @@ const Header = () => {
         md:hidden
         "
       >
-        <Link to="/wishlist" className="flex items-center gap-3">
-          <FaRegHeart className="scale-[1.3]" />
-          <span
-            className="flex
+        <button
+        onClick={toggleWishList}
+          className="flex items-center gap-3"
+        >
+            <FaRegHeart className="scale-[1.3]" />
+            <span
+              className="flex
             
               h-5
               w-5
@@ -68,11 +79,11 @@ const Header = () => {
 font-bold
 
               "
-          >
-            {wishlist.length}
-          </span>
-        </Link>
-        <Link to="/cart" className="flex items-center gap-3">
+            >
+              {wishlist.length}
+            </span>
+        </button>
+        <button className="flex items-center gap-3">
           <BsCart className="scale-[1.3] " />
           <span
             className="flex
@@ -89,7 +100,7 @@ font-bold"
           >
             {totalItems}
           </span>
-        </Link>
+        </button>
 
         <Hamburger
           toggled={isOpen}
@@ -112,7 +123,6 @@ font-bold"
     duration-500
     md:static
     md:h-auto
-    md:h-auto
     md:w-auto
     
 
@@ -126,8 +136,7 @@ font-bold"
         
         w-full border-t
         border-white
-        p-4
-        md:gap-6 
+        p-4 
         md:gap-6 
          ${isOpen ? "opacity-100" : "opacity-0"}
          py-6
@@ -183,8 +192,12 @@ font-bold"
                 md:mb-0
                 md:block
                 "
+                
           >
-            <Link to="/wishlist" className="flex items-center gap-4">
+            <button
+              onClick={toggleWishList}
+              className="flex items-center gap-3"
+            >
               <FaRegHeart className="scale-150" />
               <span
                 className="flex
@@ -203,7 +216,7 @@ font-bold
               >
                 {wishlist.length}
               </span>
-            </Link>
+            </button>
           </li>
           <li
             className=" hidden
@@ -230,6 +243,61 @@ font-bold"
           </li>
         </ul>
       </nav>
+      <div
+      className={`
+      hide-scrollbar
+     fixed
+      top-0
+      right-0
+     z-50
+      h-full
+      w-full
+      border-t
+      bg-slate-900
+      sm:w-[50vw]
+      md:w-[40vw]
+      
+
+      ${isWishListOpen ? "translate-x-0" : "translate-x-full"}
+    
+      overflow-scroll
+      transition-all
+
+      duration-[600ms]
+
+              `}
+      >
+
+        <div
+          className="sticky top-0 z-50
+      
+      flex
+      h-[80px]
+      items-center
+      justify-end
+      bg-slate-900
+      px-6
+      py-4
+      "
+        >
+          
+          <button
+          onClick={toggleWishList}
+          className="flex items-center justify-center rounded-full bg-slate-600 p-2"
+          >
+            <VscChromeClose className="scale-[1.5]" />
+          </button>
+        </div>
+        <h1 className="mb-4 text-center
+        text-2xl
+        ">
+          Wish List ({wishlist.length})
+        </h1>
+       
+          <WishList />
+     
+        
+      </div>
     </header>
   );
 };

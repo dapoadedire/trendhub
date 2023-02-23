@@ -13,6 +13,12 @@ const Product = ({ product }) => {
       className="flex flex-col items-center justify-center  
       p-4
       rounded-lg
+      border
+      border-transparent
+    hover:border-gray-200
+    transition-all
+    duration-200
+    ease-in-out
     "
     >
       <Link

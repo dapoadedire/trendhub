@@ -7,17 +7,18 @@ const WishList = () => {
 
   return (
     <div
-      className="container mx-auto my-10
-    border border-gray-500
+      className=" 
+      mx-auto mb-10
+      max-w-screen-lg
+    p-4
     "
     >
-      <h1 className="mb-5 text-center text-2xl font-bold">
-        WishList ({wishlist.length})
-      </h1>
       {wishlist.length === 0 ? (
         <div className="flex flex-col items-center justify-center space-y-4">
-          <h2 className="text-2xl font-medium">Your wishlist is empty</h2>
-          <p className="text-gray-500">
+          <h2 className="text-lg font-medium">Your wishlist is empty</h2>
+          <p className="text-gray-400
+          text-sm
+          ">
             Add items to your wishlist to continue shopping.
           </p>
         </div>

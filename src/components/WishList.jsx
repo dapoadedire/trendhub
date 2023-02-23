@@ -6,9 +6,11 @@ const WishList = () => {
   const { wishlist } = useContext(CartContext);
 
   return (
-    <div className="container mx-auto my-10
+    <div
+      className="container mx-auto my-10
     border border-gray-500
-    ">
+    "
+    >
       <h1 className="mb-5 text-center text-2xl font-bold">
         WishList ({wishlist.length})
       </h1>

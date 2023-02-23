@@ -80,17 +80,20 @@ const Footer = () => {
                 (123) 456-7890
               </li>
               <li className="mb-2 flex items-center">
-   <AiOutlineMail className="mr-2" />
-
+                <AiOutlineMail className="mr-2" />
                 info@website.com
               </li>
             </ul>
           </div>
           <div className="">
             <h2 className="mb-4 text-xl font-bold">Connect With Us</h2>
-            <div className="flex
+            <div
+              className="flex
             gap-4
-            "> <a href="#" className="text-gray-400 hover:text-white">
+            "
+            >
+              {" "}
+              <a href="#" className="text-gray-400 hover:text-white">
                 <SlSocialTwitter className="h-5 w-5" />
               </a>
               <a href="#" className=" text-gray-400 hover:text-white">
@@ -102,7 +105,6 @@ const Footer = () => {
               <a href="#" className=" text-gray-400 hover:text-white">
                 <SlSocialInstagram className="h-5 w-5" />
               </a>
-             
             </div>
           </div>
         </div>

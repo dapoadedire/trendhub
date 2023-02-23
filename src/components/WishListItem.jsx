@@ -13,8 +13,7 @@ const WishListItem = ({ product }) => {
     getItemInWishlist,
     getItemQuantity,
     isInCart,
-    removeItemFromCart
-
+    removeItemFromCart,
   } = useContext(CartContext);
 
   const [value, setValue] = useState(getItemQuantity(product) || 1);
@@ -44,36 +43,17 @@ const WishListItem = ({ product }) => {
       "
     >
       <div className="">
-        <img
-          src={product.image}
-          alt={product.title}
-          className=""
-        />
+        <img src={product.image} alt={product.title} className="" />
       </div>
       <div className="">
-        <h2
-          className=""
-        >
-          {product.title}
-        </h2>
-        <p
-          className=""
-        >
-          {formatCurrency(product.price)}
-        </p>
-        <form
-          onSubmit={handleSubmit}
-          className=""
-        >
+        <h2 className="">{product.title}</h2>
+        <p className="">{formatCurrency(product.price)}</p>
+        <form onSubmit={handleSubmit} className="">
           <div
             className="
             "
           >
-            <button
-              type="button"
-              onClick={handleDecrease}
-              className=""
-            >
+            <button type="button" onClick={handleDecrease} className="">
               {"<-"}
             </button>
             <input
@@ -83,20 +63,13 @@ const WishListItem = ({ product }) => {
               className=""
             />
 
-            <button
-              type="button"
-              onClick={handleIncrease}
-              className=""
-            >
+            <button type="button" onClick={handleIncrease} className="">
               {"->"}
             </button>
           </div>
 
           <div>
-            <button
-              type="submit"
-              className=""
-            >
+            <button type="submit" className="">
               Add to cart
             </button>
           </div>
@@ -105,7 +78,12 @@ const WishListItem = ({ product }) => {
               <button
                 type="button"
                 className=""
-                onClick={() => {removeItemFromCart(product);}}>Remove</button>
+                onClick={() => {
+                  removeItemFromCart(product);
+                }}
+              >
+                Remove
+              </button>
             </div>
           )}
         </form>
@@ -113,10 +91,7 @@ const WishListItem = ({ product }) => {
 
       <div>
         {getItemInWishlist(product) && (
-          <button
-            onClick={() => removeItemFromWishlist(product)}
-            className=""
-          >
+          <button onClick={() => removeItemFromWishlist(product)} className="">
             <GrClose />
           </button>
         )}

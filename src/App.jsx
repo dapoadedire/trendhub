@@ -121,7 +121,7 @@ function App() {
           <Route path="/product/:product_id" element={<Description />} />
           {/* about */}
           {/* Category */}
-          <Route path="/category/:category" element={<Category />} /> 
+          <Route path="/category/:category" element={<Category />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>

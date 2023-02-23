@@ -30,6 +30,8 @@ const Header = () => {
     top-0
     z-50
 
+    z-50
+
     flex
     h-[80px]
     w-full
@@ -110,6 +112,7 @@ font-bold"
     duration-500
     md:static
     md:h-auto
+    md:h-auto
     md:w-auto
     
 
@@ -124,6 +127,7 @@ font-bold"
         w-full border-t
         border-white
         p-4
+        md:gap-6 
         md:gap-6 
          ${isOpen ? "opacity-100" : "opacity-0"}
          py-6

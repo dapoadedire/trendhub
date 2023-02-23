@@ -15,195 +15,137 @@ const Header = () => {
   };
 
   const { wishlist, totalItems } = useContext(CartContext);
-  // console.log(cart);
-
   const categories = [
-    "Electronics",
-    "Jewelery",
-    "Men's Clothing",
-    "Women's Clothing",
+    { name: "Electronics", link: "/category/electronics" },
+    { name: "Jewelery", link: "/category/jewelery" },
+    { name: "Men's Clothing", link: "/category/mens-clothing" },
+    { name: "Women's Clothing", link: "/category/womens-clothing" },
   ];
 
   return (
     <header
-      className="3xl:px-32 sticky top-0 z-50 flex w-full flex-col bg-slate-900 p-4 shadow-2xl md:flex-row md:justify-between md:px-12 lg:px-16 xl:px-20
-      2xl:px-24
-      "
-    >
-      <div
-        className="flex items-center justify-between
-      gap-4
-      "
-      >
-        <Link to="/">
-          <h3
-            className="text-xl
-          text-white
-          "
-          >
-            TrendHub
-          </h3>
-        </Link>
+    className="
+    sticky
+    inset-x-0
+    top-0
+    flex
 
-        <div
-          className="flex items-center
+    h-[80px]
+    w-full
+    items-center
+    justify-between
+    bg-slate-900
+    px-4
+    text-white
+    ">
+      <div
+      className=""
+      >
+        TrendHub
+      </div>
+      <div
+        className="
+        flex items-center
         gap-4
         md:hidden
         "
-        >
-          <button
-            className="
-             flex
-             items-center hover:text-gray-400
-            "
-          >
-            <BsCart className="mr-3
-            scale-150
-            text-white
-            "
-            />
-            <span
-              className=" animate-pulse
-             rounded-full
-             bg-green-600
-             px-1
-             text-xs
-              font-medium
-             text-white
-             "
-            >
-              {totalItems > 0 ? totalItems : ""}
-            </span>
-
-          </button>
-          <button
-            className="
-             flex
-             items-center hover:text-gray-400
-            "
-          >
-            <FaRegHeart className="mr-3
-            scale-150
-            text-white
-            " />
-            <span
-              className=" animate-pulse
-             
-             rounded-full
-             bg-red-500
-             px-1
-             
-             text-xs 
-             text-gray-100
-             "
-            >
-              {wishlist.length > 0 ? wishlist.length : ""}
-            </span>
-
-
-
-          </button>
-          <Hamburger toggled={isOpen} toggle={toggleMenu} 
-          duration={1}
-          color="white" />
-        </div>
-      </div>
-
-      <nav
-        className={`${
-          isOpen ? "block" : "hidden"
-        } mt-2 border-t border-white py-4 md:block md:border-none md:py-0`}
       >
-        <ul
-          className="
-        
-        flex flex-col space-y-4 text-white md:flex-row md:space-x-10 md:space-y-0
-        
-        "
+        <Link to="/wishlist"
+          className="flex items-center gap-2"
         >
-          {categories.map((category, index) => (
-            <li
-              key={index}
-              className="
-           group
-           hover:text-gray-100
-            "
-            >
-              <Link to={`/category/${category.toLowerCase()}`}>{category}</Link>
-              <p
-                className="
-              invisible
-              h-[1px]
-              w-0
-              bg-gray-100
-              
-              transition-all
-              duration-500
-              group-hover:visible
-              group-hover:w-full
-              "
-              ></p>
-            </li>
-          ))}
-          <li className="hidden md:block">
-            <Link
-              to="/cart"
-              className="
-             flex
-             items-center hover:text-gray-400
-            "
-            >
-              <BsCart
-                className="mr-3
-            scale-150
-            text-white
-            "
-              />
-              <span
-                className=" animate-pulse
-             rounded-full
-             bg-green-600
-             px-1
-             text-xs
-             font-medium
-             text-white
-             "
+          <FaRegHeart />
+          {wishlist.length}
+        </Link>
+        <Link to="/cart"
+          className="flex items-center gap-2"
+        >
+          <BsCart />
+          {totalItems}
+        </Link>
+
+        <Hamburger
+          toggled={isOpen}
+          toggle={toggleMenu}
+          size={20}
+          label="Show menu"
+        />
+
+      </div>
+    <nav
+    className={`
+    absolute
+    top-[80px]
+    left-0
+    w-full
+    
+
+    overflow-hidden
+    bg-slate-900
+    transition-all
+    duration-500
+    md:static
+    md:w-auto
+    md:h-auto
+    
+
+    
+    ${isOpen ? "h-[250px]" : "h-0"}
+
+    `}
+    >
+        <ul
+        className={`
+        
+        w-full border-t
+        border-white
+        p-4
+        md:gap-3 
+         ${isOpen ? "opacity-100" : "opacity-0"}
+         transition-all
+         duration-500
+         md:flex
+         md:opacity-100
+        `}
+        >
+          {
+            categories.map((category) => (
+              <li key={category.name}
+                className="mb-2
+                md:mb-0
+                "
+
               >
-                {totalItems > 0 ? totalItems : ""}
-              </span>
+                <Link to={category.link} 
+                >
+                  {category.name}
+                </Link>
+              </li>
+            ))
+          }
+          <li className="mb-2
+                md:mb-0
+                ">
+            <Link to="/wishlist"
+              className="flex items-center gap-2"
+            >
+              <FaRegHeart />
+              {wishlist.length}
             </Link>
+           
           </li>
-          <li className="hidden md:block">
-            <Link
-              to="/wishlist"
-              className="
-             flex
-             items-center hover:text-gray-400
-            "
+          <li>
+            <Link to="/cart"
+              className="flex items-center gap-2"
             >
-              <FaRegHeart
-                className="mr-3
-            scale-150
-            text-white
-            "
-              />
-              <span
-                className=" animate-pulse
-             
-             rounded-full
-             bg-red-500
-             px-1
-             
-             text-xs 
-             text-gray-100
-             "
-              >
-                {wishlist.length > 0 ? wishlist.length : ""}
-              </span>
+              <BsCart />
+              {totalItems}
             </Link>
           </li>
         </ul>
-      </nav>
+    </nav>
+
+     
+
     </header>
   );
 };

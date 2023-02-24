@@ -6,14 +6,14 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
-import { VscChromeClose } from "react-icons/vsc";
+import { BsXLg } from "react-icons/bs";
 import WishList from "./WishList";
-
+import CartContainer from "./CartContainer";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isWishListOpen, setIsWishListOpen] = useState(false);
-
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,12 +23,16 @@ const Header = () => {
     setIsWishListOpen(!isWishListOpen);
   };
 
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   const { wishlist, totalItems } = useContext(CartContext);
   const categories = [
     { name: "Electronics", link: "/category/electronics" },
     { name: "Jewelery", link: "/category/jewelery" },
-    { name: "Men's Clothing", link: "/category/mens-clothing" },
-    { name: "Women's Clothing", link: "/category/womens-clothing" },
+    { name: "Men's Clothing", link: "/category/men's clothing" },
+    { name: "Women's Clothing", link: "/category/women's clothing" },
   ];
 
   return (
@@ -37,9 +41,7 @@ const Header = () => {
     sticky
     inset-x-0
     top-0
-
     z-50
-
     flex
     h-[80px]
     w-full
@@ -51,7 +53,10 @@ const Header = () => {
     "
     >
       <div className="">
-       <Link to="/"> <h1 className="text-2xl font-bold">TrendHub</h1></Link>
+        <Link to="/">
+          {" "}
+          <h1 className="text-2xl font-bold">TrendHub</h1>
+        </Link>
       </div>
       <div
         className="
@@ -60,13 +65,10 @@ const Header = () => {
         md:hidden
         "
       >
-        <button
-        onClick={toggleWishList}
-          className="flex items-center gap-3"
-        >
-            <FaRegHeart className="scale-[1.3]" />
-            <span
-              className="flex
+        <button onClick={toggleWishList} className="flex items-center gap-3">
+          <FaRegHeart className="scale-[1.3]" />
+          <span
+            className="flex
             
               h-5
               w-5
@@ -79,11 +81,11 @@ const Header = () => {
 font-bold
 
               "
-            >
-              {wishlist.length}
-            </span>
+          >
+            {wishlist.length}
+          </span>
         </button>
-        <button className="flex items-center gap-3">
+        <button className="flex items-center gap-3" onClick={toggleCart}>
           <BsCart className="scale-[1.3] " />
           <span
             className="flex
@@ -118,13 +120,16 @@ font-bold"
     
 
     overflow-hidden
+    border-b
     bg-slate-900
     transition-all
     duration-500
     md:static
     md:h-auto
+
     md:w-auto
     
+    md:border-none
 
     
     ${isOpen ? "h-[250px]" : "h-0"}
@@ -134,8 +139,7 @@ font-bold"
         <ul
           className={`
         
-        w-full border-t
-        border-white
+        w-full 
         p-4 
         md:gap-6 
          ${isOpen ? "opacity-100" : "opacity-0"}
@@ -162,19 +166,15 @@ font-bold"
               <Link
                 to={category.link}
                 className="
-                  rounded-full
-                  border
-                  border-transparent
-                  p-2
                   transition-all
                   duration-500
                   group-hover:border-slate-300
-                  group-hover:bg-slate-900
+                 
                   "
               >
                 {category.name}
               </Link>
-              {/* <div
+              <div
                   className="h-[2px] w-0 bg-slate-300 
                 transition-all
                 duration-500
@@ -183,7 +183,7 @@ font-bold"
                 "
                 >
                   
-                </div> */}
+                </div>
             </li>
           ))}
           <li
@@ -192,7 +192,6 @@ font-bold"
                 md:mb-0
                 md:block
                 "
-                
           >
             <button
               onClick={toggleWishList}
@@ -222,7 +221,7 @@ font-bold
             className=" hidden
                 md:block"
           >
-            <Link to="/cart" className="flex items-center gap-4">
+            <button onClick={toggleCart} className="flex items-center gap-4">
               <BsCart className="scale-150" />
               <span
                 className="flex
@@ -239,25 +238,26 @@ font-bold"
               >
                 {totalItems}
               </span>
-            </Link>
+            </button>
           </li>
         </ul>
       </nav>
       <div
-      className={`
+        className={`
       hide-scrollbar
      fixed
       top-0
-      right-0
-     z-50
+     
+     right-0
+      z-50
       h-full
       w-full
       border-t
       bg-slate-900
       sm:w-[50vw]
-      md:w-[40vw]
       
 
+      md:w-[40vw]
       ${isWishListOpen ? "translate-x-0" : "translate-x-full"}
     
       overflow-scroll
@@ -267,7 +267,6 @@ font-bold"
 
               `}
       >
-
         <div
           className="sticky top-0 z-50
       
@@ -280,23 +279,53 @@ font-bold"
       py-4
       "
         >
-          
           <button
-          onClick={toggleWishList}
-          className="flex items-center justify-center rounded-full bg-slate-600 p-2"
+            onClick={toggleWishList}
+            className="flex items-center justify-center rounded-full bg-slate-600 p-2"
           >
-            <VscChromeClose className="scale-[1.5]" />
+            <BsXLg className="scale-[1.3]" />
           </button>
         </div>
-        <h1 className="mb-4 text-center
-        text-2xl
-        ">
-          Wish List ({wishlist.length})
-        </h1>
-       
-          <WishList />
-     
-        
+
+        <WishList />
+      </div>
+
+      <div
+        className={`
+      
+     fixed
+      top-0
+     right-0
+     z-50
+      h-full
+      w-full
+      border-t
+      bg-slate-900
+      text-white
+      sm:w-[50vw]
+      md:w-[40vw]
+      ${isCartOpen ? "translate-x-0" : "translate-x-full"}
+      
+      transition-all
+      duration-[600ms]
+
+              `}
+      >
+        <div
+          className="sticky top-0 z-50 flex
+      h-[80px]
+      items-center
+      justify-end bg-slate-900 px-6 py-4"
+        >
+          <button
+            onClick={toggleCart}
+            className="flex items-center justify-center rounded-full bg-slate-600 p-2"
+          >
+            <BsXLg className="scale-[1.3]" />
+          </button>
+        </div>
+
+        <CartContainer />
       </div>
     </header>
   );

@@ -11,7 +11,7 @@ const Description = () => {
       "
       >
         <ProductDescription />
-        {/* <NewsletterForm /> */}
+       
       </main>
       <Footer />
     </>

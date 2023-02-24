@@ -11,11 +11,10 @@
   }
 }
 
-
 /* hide scrollbar */
 
 @layer utilities {
-   .hide-scrollbar::-webkit-scrollbar {
+  .hide-scrollbar::-webkit-scrollbar {
     display: none;
-   }
+  }
 }

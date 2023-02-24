@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 function App() {
   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -113,7 +114,9 @@ function App() {
       }}
     >
       <HashRouter>
+        <ScrollToTop />
         <Routes>
+
           {/* home */}
           <Route path="/" element={<Store />} />
           {/* cart */}

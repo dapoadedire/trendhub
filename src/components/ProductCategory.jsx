@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import Product from "./Product";
 import all_products from "../data";
+import { capitalizeSentence } from "../utils";
 
 const ProductCategory = () => {
   const { category } = useParams();
@@ -17,7 +18,7 @@ const ProductCategory = () => {
         "
       >
         <h1 className="text-center text-3xl font-bold text-gray-800">
-          {category.toUpperCase()}
+          {capitalizeSentence(category)}
         </h1>
 
         <div

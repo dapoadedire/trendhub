@@ -46,108 +46,125 @@ const WishListItem = ({ product }) => {
       
       "
     >
-      <div className="
+      <div
+        className="
       mb-3 flex 
       gap-3
       
       
-      ">
-        <img src={product.image} alt={product.title} className="
+      "
+      >
+        <img
+          src={product.image}
+          alt={product.title}
+          className="
         h-24
         w-24
         flex-none
         rounded-xl
         object-cover
-        " />
-       <div>
-          <h2 className="
+        "
+        />
+        <div>
+          <h2
+            className="
         mb-2 text-sm
-        ">{product.title}</h2>
+        "
+          >
+            {product.title}
+          </h2>
           <p className="underline">{formatCurrency(product.price)}</p>
-       </div>
+        </div>
       </div>
-        <form onSubmit={handleSubmit} className="
+      <form
+        onSubmit={handleSubmit}
+        className="
         flex
         gap-2
-        ">
-          <div
-            className="
+        "
+      >
+        <div
+          className="
             rounded-md
             border
             border-slate-600
             "
-          >
-            <button type="button" onClick={handleDecrease} className="
+        >
+          <button
+            type="button"
+            onClick={handleDecrease}
+            className="
             p-2
-            ">
-              {"<-"}
-            </button>
-            <input
-              type="number "
-              value={value}
-              onChange={handleInputChange}
+            "
+          >
+            {"<"}
+          </button>
+          <input
+            type="number "
+            value={value}
+            onChange={handleInputChange}
             className="w-10 border-x border-slate-600
             bg-slate-900
             p-2 text-center"
-            />
+          />
           <button type="button" onClick={handleIncrease} className="p-2">
-              {"->"}
-            </button>
-          </div>
+            {">"}
+          </button>
+        </div>
 
-          <div>
-          <button type="submit" className="rounded-md
+        <div>
+          <button
+            type="submit"
+            className="rounded-md
            bg-green-500
                 p-2
                 text-white
-          ">
-              Add to cart
-            </button>
-          </div>
-          {isInCart(product) && (
-            <div className="">
-              <button
-                type="button"
-                className="
+          "
+          >
+            Add to cart
+          </button>
+        </div>
+        {isInCart(product) && (
+          <div className="">
+            <button
+              type="button"
+              className="
                 rounded-md
                 bg-red-500
                 p-2
                 text-white
                 "
-                onClick={() => {
-                  removeItemFromCart(product);
-                }}
-              >
-                Remove
-              </button>
-            </div>
-          )}
-        </form>
-     
+              onClick={() => {
+                removeItemFromCart(product);
+              }}
+            >
+              Remove
+            </button>
+          </div>
+        )}
+      </form>
 
       <div
-      className="
+        className="
       absolute
       top-2
 
       right-2
-      text-red-500
-      w-6
-      h-6
-      bg-slate-600
-      border
-      rounded-full
       flex
+      h-6
+      w-6
       items-center
       justify-center
+      rounded-full
+      border
+      bg-slate-600
+      text-red-500
 
       "
       >
         {getItemInWishlist(product) && (
           <button onClick={() => removeItemFromWishlist(product)}>
-            <VscChromeClose
-            color="white"
-            />
+            <VscChromeClose color="white" />
           </button>
         )}
       </div>

@@ -34,38 +34,34 @@ const CartItem = ({ product }) => {
   return (
     <div
       key={product.id}
-      className=" flex items-center border-b  border-gray-400
-                  bg-white p-2
-                  
-                  "
+      className="
+      relative mb-4
+      rounded-xl
+      border
+      border-slate-600
+      
+      p-2
+      "
     >
-      <div className="h-24 w-24 flex-none bg-gray-200">
+      <div className="mb-2 flex gap-3">
         <img
           src={product.image}
           alt={product.title}
-          className="h-full w-full object-contain"
+          className="h-24 w-24 flex-none object-contain"
         />
+        <div>
+          <h2 className="mb-2 ">{product.title}</h2>
+          <p>
+            {getItemQuantity(product)} x {formatCurrency(product.price)} ={" "}
+            {formatCurrency(getItemPrice(product))}
+          </p>
+        </div>
       </div>
-      <div className="flex-auto p-4">
-        <h2
-          className="mb-2 
-                      text-base
-                      text-gray-700"
-        >
-          {product.title}
-        </h2>
-        <p
-          className="text-sm
-                      text-gray-500
-                      "
-        >
-          {getItemQuantity(product)} x {formatCurrency(product.price)} ={" "}
-          {formatCurrency(getItemPrice(product))}
-        </p>
+      <div className="flex-auto p-2">
         <form
           onSubmit={handleSubmit}
           className="
-          my-4
+          
           flex
           flex-wrap
           items-center
@@ -82,14 +78,12 @@ const CartItem = ({ product }) => {
               type="button"
               onClick={handleDecrease}
               className="
-             
-              
               p-2
               font-semibold
-              hover:bg-gray-200
+              hover:bg-slate-700
               "
             >
-              {"<-"}
+              {"<"}
             </button>
             <input
               type="number"
@@ -97,11 +91,10 @@ const CartItem = ({ product }) => {
               onChange={handleInputChange}
               className="w-16                 
                 
+                bg-slate-900
                 p-2
                 text-center
-                outline-none
-               
-               
+               outline-none
                 "
             />
 
@@ -113,10 +106,10 @@ const CartItem = ({ product }) => {
               p-2
               
               font-semibold
-              hover:bg-gray-200
+              hover:bg-slate-700
               "
             >
-              {"->"}
+              {">"}
             </button>
           </div>
 

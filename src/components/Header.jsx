@@ -117,8 +117,6 @@ font-bold"
     top-[80px]
     left-0
     w-full
-    
-
     overflow-hidden
     border-b
     bg-slate-900

@@ -5,6 +5,8 @@ import { formatCurrency } from "../utils";
 import { useState } from "react";
 import { VscChromeClose } from "react-icons/vsc";
 
+import { motion } from "framer-motion";
+
 const WishListItem = ({ product }) => {
   const {
     addItemToCart,
@@ -35,16 +37,20 @@ const WishListItem = ({ product }) => {
   };
 
   return (
-    <div
+    <motion.div
+
+      positionTransition
+      initial={{ opacity: 0, y: 50, scale: 0.3 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, x: "100%", transition: { duration: 0.2 } }}
+
       key={product.id}
       className=" 
       relative 
      border-b
       border-gray-500
       p-2
-      pb-10
-      
-      "
+      pb-10"
     >
       <div
         className="
@@ -268,7 +274,7 @@ const WishListItem = ({ product }) => {
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

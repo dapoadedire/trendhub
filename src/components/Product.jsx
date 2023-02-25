@@ -9,6 +9,8 @@ import { BsHeartFill } from "react-icons/bs";
 import { BsBagCheck } from "react-icons/bs";
 import RatingStars from "./RatingStars";
 
+
+
 const Product = ({ product }) => {
   const {
     addItemToWishlist,
@@ -20,6 +22,10 @@ const Product = ({ product }) => {
   } = useContext(CartContext);
   return (
     <div
+
+    
+     
+
       className="flex flex-col items-center justify-center  
       rounded-lg
      

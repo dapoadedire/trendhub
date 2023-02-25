@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import WishListItem from "./WishListItem";
 
+import { AnimatePresence } from "framer-motion";
+
 const WishList = () => {
   const { wishlist } = useContext(CartContext);
 
@@ -29,13 +31,15 @@ const WishList = () => {
           </p>
         </div>
       ) : (
-        <>
+         
           <div className="flex  flex-col justify-between gap-4 p-3">
+            <AnimatePresence initial={false} >
             {wishlist.map((product) => (
               <WishListItem product={product} key={product.id} />
             ))}
+            </AnimatePresence>
           </div>
-        </>
+        
       )}
     </div>
   );

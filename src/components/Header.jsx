@@ -16,15 +16,15 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(isOpen => !isOpen);
   };
 
   const toggleWishList = () => {
-    setIsWishListOpen(!isWishListOpen);
+    setIsWishListOpen(isWishListOpen => !isWishListOpen);
   };
 
   const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
+    setIsCartOpen(isCartOpen => !isCartOpen);
   };
 
   const { wishlist, totalItems } = useContext(CartContext);

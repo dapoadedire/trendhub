@@ -74,103 +74,7 @@ const Productproduct = () => {
             </div>
           )}
 
-          {/* <form
-            onSubmit={handleSubmit}
-            className="
-          my-4
-          flex
-          flex-wrap
-          items-center
-          justify-between
-          gap-4
-          "
-          >
-            <div
-              className="flex items-center
-            border border-gray-500
-            "
-            >
-              <button
-                type="button"
-                onClick={handleDecrease}
-                className="
-             
-              
-              p-2
-              font-semibold
-              hover:bg-gray-200
-              "
-              >
-                {"<"}
-              </button>
-              <input
-                type="number"
-                value={value}
-                onChange={handleInputChange}
-                className="w-16                 
-                
-                p-2
-                text-center
-                outline-none
-               
-               
-                "
-              />
-
-              <button
-                type="button"
-                onClick={handleIncrease}
-                className="
-             
-              p-2
-              
-              font-semibold
-              hover:bg-gray-200
-              "
-              >
-                {">"}
-              </button>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="
-             border
-              border-gray-500
-              px-4
-              py-2
-              font-medium
-              hover:border-green-700
-              
-              hover:bg-green-200
-              hover:text-green-700
-              
-              "
-              >
-                Add to cart
-              </button>
-            </div>
-            {isInCart(product) && (
-              <div className="flex justify-end">
-                <button
-                  type="button"
-                  className="
-              p-2
-              font-medium
-              hover:text-red-700
-              
-              "
-                  onClick={() => {
-                    removeItemFromCart(product);
-                  }}
-                >
-                  Remove item
-                </button>
-              </div>
-            )}
-          </form> */}
-
+         
           <form
             onSubmit={handleSubmit}
             className="
@@ -196,7 +100,7 @@ const Productproduct = () => {
               p-2
               px-4
               font-semibold
-              hover:bg-slate-700
+              hover:bg-slate-300
               rounded-md
               "
               >
@@ -227,7 +131,7 @@ const Productproduct = () => {
               px-4
               
               font-semibold
-              hover:bg-slate-700
+              hover:bg-slate-300
               rounded-md
               "
               >
@@ -246,7 +150,7 @@ const Productproduct = () => {
               font-medium
                rounded-md
 
-               hover:bg-slate-700
+               hover:bg-slate-300
              
               "
               >

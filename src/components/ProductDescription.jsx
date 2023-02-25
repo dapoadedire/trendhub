@@ -74,7 +74,7 @@ const Productproduct = () => {
             </div>
           )}
 
-          <form
+          {/* <form
             onSubmit={handleSubmit}
             className="
           my-4
@@ -101,7 +101,7 @@ const Productproduct = () => {
               hover:bg-gray-200
               "
               >
-                {"<-"}
+                {"<"}
               </button>
               <input
                 type="number"
@@ -128,7 +128,7 @@ const Productproduct = () => {
               hover:bg-gray-200
               "
               >
-                {"->"}
+                {">"}
               </button>
             </div>
 
@@ -159,6 +159,108 @@ const Productproduct = () => {
               p-2
               font-medium
               hover:text-red-700
+              
+              "
+                  onClick={() => {
+                    removeItemFromCart(product);
+                  }}
+                >
+                  Remove item
+                </button>
+              </div>
+            )}
+          </form> */}
+
+          <form
+            onSubmit={handleSubmit}
+            className="
+          
+          flex
+          flex-wrap
+          items-center
+        gap-4
+          text-sm
+          "
+          >
+            <div
+              className="flex items-center
+          
+            "
+            >
+              <button
+                type="button"
+                onClick={handleDecrease}
+                className="
+              p-2
+              font-semibold
+              hover:bg-slate-700
+              border
+              border-slate-600
+              px-4
+              "
+              >
+                {"<"}
+              </button>
+              <input
+                type="number"
+                value={value}
+                onChange={handleInputChange}
+                className="w-16                 
+                
+              font-bold
+                p-2
+                text-center
+               outline-none
+                "
+              />
+
+              <button
+                type="button"
+                onClick={handleIncrease}
+                className="
+              border
+              border-slate-600
+              px-4
+             
+              p-2
+              
+              font-semibold
+              hover:bg-slate-700
+              "
+              >
+                {">"}
+              </button>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="
+             border
+              border-slate-600
+              px-4
+              py-2
+              font-medium
+             
+              "
+              >
+                Add to cart
+              </button>
+            </div>
+            {isInCart(product) && (
+              <div className="
+            justify-self-end
+            
+            ">
+                <button
+                  type="button"
+                  className="
+              p-2
+              
+            text-pink-500
+
+            
+              
               
               "
                   onClick={() => {

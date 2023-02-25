@@ -17,9 +17,11 @@ const CartContainer = () => {
 
   return (
     <div className="
-      hide-scrollbar
-    h-full
+    hide-scrollbar
+      h-full
     overflow-scroll
+    border-t
+    pt-4
     ">
       {showCheckout ? (
         <CheckoutSuccess />
@@ -53,13 +55,14 @@ const CartContainer = () => {
               </div>
               <div
                 className="
+                border-t
                 absolute
                   inset-x-0
                   bottom-0
-                  
-                  bg-gray-200
+                  bg-slate-900
+                 
                   p-4
-                  text-slate-900
+                 
                   "
               >
                 <h2
@@ -105,10 +108,10 @@ const CartContainer = () => {
                 >
                   <button
                     className="
-                      rounded
-                      bg-red-500
+                     border
+                     
                       p-2
-                      text-white
+                      
                       "
                     onClick={() => clearCart()}
                   >
@@ -116,11 +119,11 @@ const CartContainer = () => {
                   </button>
                   <button
                     className="
+                      border
+                     
                       
-                      rounded
-                      bg-green-500
                       p-2
-                      text-white
+                     
                       
                       "
                     onClick={() => handleCheckout()}

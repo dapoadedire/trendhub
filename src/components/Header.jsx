@@ -55,7 +55,9 @@ const Header = () => {
       <div className="">
         <Link to="/">
           {" "}
-          <h1 className="text-2xl font-bold">TrendHub</h1>
+          <h1 className="text-2xl
+          font-bold
+          ">TrendHub</h1>
         </Link>
       </div>
       <div
@@ -89,8 +91,7 @@ font-bold
           <BsCart className="scale-[1.3] " />
           <span
             className="flex
-            
-              h-5
+            h-5
               w-5
               items-center
               justify-center
@@ -250,7 +251,7 @@ font-bold"
       z-50
       h-full
       w-full
-      border-t
+      
       bg-slate-900
       sm:w-[50vw]
       
@@ -297,7 +298,7 @@ font-bold"
      z-50
       h-full
       w-full
-      border-t
+      border-l
       bg-slate-900
       text-white
       sm:w-[50vw]
@@ -317,9 +318,11 @@ font-bold"
         >
           <button
             onClick={toggleCart}
-            className="flex items-center justify-center rounded-full bg-slate-600 p-2"
+            className="flex items-center justify-center rounded-full
+          bg-slate-700
+            hover:bg-slate-600 p-2"
           >
-            <BsXLg className="scale-[1.3]" />
+            <BsXLg className="scale-[1.2]" />
           </button>
         </div>
 

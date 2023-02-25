@@ -16,13 +16,12 @@ const Product = ({ product }) => {
     <div
       className="flex flex-col items-center justify-center  
       rounded-lg
-      border
-      border-transparent
+     
       p-4
     transition-all
     duration-200
     ease-in-out
-    hover:border-gray-200
+   
     "
     >
       <Link
@@ -89,7 +88,7 @@ const Product = ({ product }) => {
             py-2  text-start
             text-base
             font-bold
-            text-green-700
+           
             "
           >
             {formatCurrency(product.price)}
@@ -141,20 +140,15 @@ const Product = ({ product }) => {
           }
           {getItemInWishlist(product) ? (
             <button onClick={() => removeItemFromWishlist(product)}
-              className="  hover:bg-gray-200
+              className="  rounded-lg
                 p-2
-                rounded-lg
                 text-slate-900
+                hover:bg-gray-200
                 "
             >
               <BsHeartFill
                 className="
-              scale-[1.3]
-              
-              text-red-500
-              
-             
-              "
+              scale-[1.3]"
               />
             </button>
           ) : (

@@ -38,11 +38,11 @@ const WishListItem = ({ product }) => {
     <div
       key={product.id}
       className=" 
-      relative rounded-xl
-      border
-      border-slate-600
-      px-3
-      py-6
+      relative 
+     border-b
+      border-gray-500
+      p-2
+      pb-10
       
       "
     >
@@ -57,13 +57,11 @@ const WishListItem = ({ product }) => {
         <img
           src={product.image}
           alt={product.title}
-          className="
-        h-24
-        w-24
-        flex-none
-        rounded-xl
-        object-cover
-        "
+          className="h-36 w-36 flex-none border
+          border-slate-600
+         
+          object-cover
+          "
         />
         <div>
           <h2
@@ -76,7 +74,7 @@ const WishListItem = ({ product }) => {
           <p className="underline">{formatCurrency(product.price)}</p>
         </div>
       </div>
-      <form
+      {/* <form
         onSubmit={handleSubmit}
         className="
         flex
@@ -142,13 +140,112 @@ const WishListItem = ({ product }) => {
             </button>
           </div>
         )}
-      </form>
+      </form> */}
+      <form
+        onSubmit={handleSubmit}
+        className="
+          
+          flex
+          flex-wrap
+          items-center
+        gap-4
+          text-sm
+          "
+      >
+        <div
+          className="flex items-center
+          
+            "
+        >
+          <button
+            type="button"
+            onClick={handleDecrease}
+            className="
+              p-2
+              font-semibold
+              hover:bg-slate-700
+              border
+              border-slate-600
+              px-4
+              "
+          >
+            {"<"}
+          </button>
+          <input
+            type="number"
+            value={value}
+            onChange={handleInputChange}
+            className="w-16                 
+                
+                bg-slate-900
+                p-2
+                text-center
+               outline-none
+                "
+          />
 
+          <button
+            type="button"
+            onClick={handleIncrease}
+            className="
+              border
+              border-slate-600
+              px-4
+             
+              p-2
+              
+              font-semibold
+              hover:bg-slate-700
+              "
+          >
+            {">"}
+          </button>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            className="
+             border
+              border-slate-600
+              px-4
+              py-2
+              font-medium
+             
+              "
+          >
+            Add to cart
+          </button>
+        </div>
+        {isInCart(product) && (
+          <div className="
+            justify-self-end
+            
+            ">
+            <button
+              type="button"
+              className="
+              p-2
+              
+            text-pink-500
+
+            
+              
+              
+              "
+              onClick={() => {
+                removeItemFromCart(product);
+              }}
+            >
+              Remove item
+            </button>
+          </div>
+        )}
+      </form>
       <div
         className="
       absolute
       top-2
-
       right-2
       flex
       h-6

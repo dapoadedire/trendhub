@@ -35,29 +35,45 @@ const CartItem = ({ product }) => {
     <div
       key={product.id}
       className="
-      relative mb-4
-      rounded-xl
-      border
-      border-slate-600
-      
+      relative mt-4
+
+      border-b
+      border-gray-500
       p-2
+      pb-10
       "
     >
       <div className="mb-2 flex gap-3">
         <img
           src={product.image}
           alt={product.title}
-          className="h-24 w-24 flex-none object-contain"
+          className="h-36 w-36 flex-none border
+          border-slate-600
+         
+          object-cover
+          "
         />
         <div>
-          <h2 className="mb-2 ">{product.title}</h2>
-          <p>
+          <h2 className="mb-2 
+          text-base
+          text-gray-300
+          ">{product.title}</h2>
+          <p
+          className="
+          text-sm
+          text-gray-400
+          "
+          >
             {getItemQuantity(product)} x {formatCurrency(product.price)} ={" "}
             {formatCurrency(getItemPrice(product))}
           </p>
         </div>
       </div>
-      <div className="flex-auto p-2">
+      <div className="mt-6 flex
+      w-full
+     
+       flex-wrap
+      ">
         <form
           onSubmit={handleSubmit}
           className="
@@ -65,13 +81,13 @@ const CartItem = ({ product }) => {
           flex
           flex-wrap
           items-center
-        
-          gap-4
+        gap-4
+          text-sm
           "
         >
           <div
             className="flex items-center
-            border border-gray-500
+          
             "
           >
             <button
@@ -81,6 +97,9 @@ const CartItem = ({ product }) => {
               p-2
               font-semibold
               hover:bg-slate-700
+              border
+              border-slate-600
+              px-4
               "
             >
               {"<"}
@@ -102,6 +121,9 @@ const CartItem = ({ product }) => {
               type="button"
               onClick={handleIncrease}
               className="
+              border
+              border-slate-600
+              px-4
              
               p-2
               
@@ -118,26 +140,30 @@ const CartItem = ({ product }) => {
               type="submit"
               className="
              border
-              border-gray-500
+              border-slate-600
               px-4
               py-2
               font-medium
-              hover:border-green-700
-              
-              hover:bg-green-200
-              hover:text-green-700"
+             
+              "
             >
               Add to cart
             </button>
           </div>
           {isInCart(product) && (
-            <div className="flex justify-end">
+            <div className="
+            justify-self-end
+            
+            ">
               <button
                 type="button"
                 className="
               p-2
-              font-medium
-              hover:text-red-700
+              
+            text-pink-500
+
+            
+              
               
               "
                 onClick={() => {

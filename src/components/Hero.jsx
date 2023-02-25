@@ -33,7 +33,7 @@ const Hero = () => {
                 
                 "
       >
-        Shop Now!
+        Shop Now
       </a>
     </div>
   );

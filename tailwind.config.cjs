@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         'noto': ['Noto Serif', 'sans-serif'],
         'inter': ['Inter', 'serif'],
+        'tilt': ['Tilt Prism', 'cursive']
 
       }
       
@@ -19,6 +20,7 @@ module.exports = {
   },
   plugins: [
     // require('@tailwindcss/forms'),
+    
   ],
 }
 

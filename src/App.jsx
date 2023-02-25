@@ -60,11 +60,9 @@ function App() {
       toast.success("Added to cart");
       itemInCart.quantity = quantity;
     } else {
-
       toast.success("Added to cart");
       newCart.push({ ...product, quantity });
     }
-
 
     setCart(newCart);
   };

@@ -38,21 +38,18 @@ const WishListItem = ({ product }) => {
 
   return (
     <motion.div
-
-
       positionTransition
       initial={{ opacity: 0, y: 50, scale: 0.3 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, x: "100%", transition: { duration: 0.2 } }}
       layout
-
       key={product.id}
       className=" 
       relative 
      
 
-       bg-slate-800
-      rounded-md
+       rounded-md
+      bg-slate-800
       
       p-3
       "
@@ -65,9 +62,9 @@ const WishListItem = ({ product }) => {
         <img
           src={product.image}
           alt={product.title}
-          className="h-36 w-36 flex-none border
+          className="h-36 w-36 flex-none rounded-md
+          border
           border-slate-600
-          rounded-md
           object-cover
           "
           loading="lazy"
@@ -84,10 +81,10 @@ const WishListItem = ({ product }) => {
           <p className="underline">{formatCurrency(product.price)}</p>
         </div>
       </div>
-     
-          <form
-          onSubmit={handleSubmit}
-          className="
+
+      <form
+        onSubmit={handleSubmit}
+        className="
           
           flex
           flex-wrap
@@ -95,110 +92,110 @@ const WishListItem = ({ product }) => {
         gap-4
           text-sm
           "
-        >
-          <div
-            className="flex items-center
+      >
+        <div
+          className="flex items-center
           
             "
-          >
-            <button
-              type="button"
-              onClick={handleDecrease}
-              className="
+        >
+          <button
+            type="button"
+            onClick={handleDecrease}
+            className="
+              rounded-md
               border
               border-slate-600
               p-2
               px-4
               font-semibold
               hover:bg-slate-700
-              rounded-md
               "
-            >
-              {"<"}
-            </button>
-            <input
-              type="number"
-              value={value}
-              onChange={handleInputChange}
-              className="w-16                 
+          >
+            {"<"}
+          </button>
+          <input
+            type="number"
+            value={value}
+            onChange={handleInputChange}
+            className="w-16                 
                 
                 bg-slate-800
                 p-2
                 text-center
-               outline-none
                font-semibold
+               outline-none
                 "
-            />
+          />
 
-            <button
-              type="button"
-              onClick={handleIncrease}
-              className="
+          <button
+            type="button"
+            onClick={handleIncrease}
+            className="
+              rounded-md
               border
               border-slate-600
-              p-2
              
-              px-4
+              p-2
               
+              px-4
               font-semibold
               hover:bg-slate-700
-              rounded-md
               "
-            >
-              {">"}
-            </button>
-          </div>
+          >
+            {">"}
+          </button>
+        </div>
 
-          <div>
-            <button
-              type="submit"
-              className="
-             border
+        <div>
+          <button
+            type="submit"
+            className="
+             rounded-md
+              border
               border-slate-600
               px-4
               py-2
-              font-medium
-               rounded-md
+               font-medium
 
                hover:bg-slate-700
              
               "
-            >
-              Add to cart
-            </button>
-          </div>
-          {isInCart(product) && (
-            <div
-              className="
+          >
+            Add to cart
+          </button>
+        </div>
+        {isInCart(product) && (
+          <div
+            className="
             justify-self-end
             
             "
-            >
-              <button
-                type="button"
-                className="
-              p-2
+          >
+            <button
+              type="button"
+              className="
+              rounded-md
               
-             text-pink-500
+             p-2
 
-            hover:text-pink-700
+            text-pink-500
               
               hover:bg-pink-200
-              rounded-md
+              hover:text-pink-700
 
             
               
               
               "
-                onClick={() => {
-                  removeItemFromCart(product);
-                }}
-              >
-                Remove item
-              </button>
-            </div>
-          )}
-        </form>
+              onClick={() => {
+                removeItemFromCart(product);
+              }}
+            >
+              Remove item
+            </button>
+          </div>
+        )}
+      </form>
       <div
         className="
       absolute
@@ -209,22 +206,20 @@ const WishListItem = ({ product }) => {
       justify-center
       rounded-full
    
-      p-2
+      border
     
-      hover:bg-slate-700
+      border-slate-600
+bg-slate-700
+      p-2
+
 
       "
       >
         {getItemInWishlist(product) && (
           <button onClick={() => removeItemFromWishlist(product)}>
-            <VscChromeClose color="white" 
-            size="1.2rem"
-            className="scale-120"
-
-            />
+            <VscChromeClose color="white" size="1.2rem" className="scale-120" />
           </button>
         )}
-        
       </div>
     </motion.div>
   );

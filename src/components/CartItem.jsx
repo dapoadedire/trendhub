@@ -2,7 +2,7 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { formatCurrency } from "../utils";
 import { useState } from "react";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 const CartItem = ({ product }) => {
   const {
@@ -34,32 +34,29 @@ const CartItem = ({ product }) => {
 
   return (
     <motion.div
-
-
       positionTransition
       initial={{ opacity: 0, y: 50, scale: 0.3 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, x: "100%", transition: { duration: 0.2 } }}
       layout
-
       key={product.id}
       className="
       relative mt-4
 
      
+      rounded-md
+      bg-slate-800
       p-3
       pb-10
-      bg-slate-800
-      rounded-md
       "
     >
       <div className="mb-2 flex gap-3">
         <img
           src={product.image}
           alt={product.title}
-          className="h-36 w-36 flex-none border
+          className="h-36 w-36 flex-none rounded-md
+          border
           border-slate-600
-          rounded-md
          
           object-cover
           "
@@ -113,13 +110,13 @@ const CartItem = ({ product }) => {
               type="button"
               onClick={handleDecrease}
               className="
+              rounded-md
               border
               border-slate-600
               p-2
               px-4
               font-semibold
               hover:bg-slate-700
-              rounded-md
               "
             >
               {"<"}
@@ -133,8 +130,8 @@ const CartItem = ({ product }) => {
                 bg-slate-800
                 p-2
                 text-center
-               outline-none
                font-semibold
+               outline-none
                 "
             />
 
@@ -142,15 +139,15 @@ const CartItem = ({ product }) => {
               type="button"
               onClick={handleIncrease}
               className="
+              rounded-md
               border
               border-slate-600
-              p-2
              
-              px-4
+              p-2
               
+              px-4
               font-semibold
               hover:bg-slate-700
-              rounded-md
               "
             >
               {">"}
@@ -161,12 +158,12 @@ const CartItem = ({ product }) => {
             <button
               type="submit"
               className="
-             border
+             rounded-md
+              border
               border-slate-600
               px-4
               py-2
-              font-medium
-               rounded-md
+               font-medium
 
                hover:bg-slate-700
              
@@ -185,14 +182,14 @@ const CartItem = ({ product }) => {
               <button
                 type="button"
                 className="
-              p-2
+              rounded-md
               
-             text-pink-500
+             p-2
 
-            hover:text-pink-700
+            text-pink-500
               
               hover:bg-pink-200
-              rounded-md
+              hover:text-pink-700
 
             
               

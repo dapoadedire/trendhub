@@ -40,15 +40,18 @@ const CartContainer = () => {
           </h1>
 
           {cart.length === 0 ? (
-              <motion.div
-                initial={{ opacity: 0, y: 50, scale: 0.3 }}
-                animate={{ opacity: 1, y: 0, scale: 1, }}
-                exit={{ opacity: 0 }}
-         className="mt-20 flex
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.3 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0 }}
+              className="mt-20 flex
          flex-col
-         items-center justify-center space-y-4">
-                <h2 className="text-lg font-medium">Your cart is empty</h2>
-                <p className="text-base text-gray-400">Add items to your cart to continue shopping.</p>
+         items-center justify-center space-y-4"
+            >
+              <h2 className="text-lg font-medium">Your cart is empty</h2>
+              <p className="text-base text-gray-400">
+                Add items to your cart to continue shopping.
+              </p>
             </motion.div>
           ) : (
             <>
@@ -57,12 +60,10 @@ const CartContainer = () => {
                 pb-80
                 "
               >
-                    <AnimatePresence initial={false}
-                      mode="popLayout"
-                    >
-                {cart.map((product) => (
-                  <CartItem product={product} key={product.id} />
-                ))}
+                <AnimatePresence initial={false} mode="popLayout">
+                  {cart.map((product) => (
+                    <CartItem product={product} key={product.id} />
+                  ))}
                 </AnimatePresence>
               </div>
               <div
@@ -89,9 +90,11 @@ const CartContainer = () => {
                 >
                   Cart Summary
                 </h2>
-                <div className="
+                <div
+                  className="
                 py-2
-                ">
+                "
+                >
                   <span
                     className="
                       pr-2
@@ -120,7 +123,8 @@ const CartContainer = () => {
                     flex
                     justify-between
                     gap-4
-                    ">
+                    "
+                >
                   <button
                     className="
                      border

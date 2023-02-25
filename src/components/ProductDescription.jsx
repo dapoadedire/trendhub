@@ -41,7 +41,10 @@ const Productproduct = () => {
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <img
-            className="w-full object-cover"
+            className="object-contain
+            w-96
+            h-96
+            "
             src={product.image}
             alt="Backpack"
             loading="lazy"
@@ -74,7 +77,6 @@ const Productproduct = () => {
             </div>
           )}
 
-         
           <form
             onSubmit={handleSubmit}
             className="
@@ -95,13 +97,13 @@ const Productproduct = () => {
                 type="button"
                 onClick={handleDecrease}
                 className="
+              rounded-md
               border
               border-slate-600
               p-2
               px-4
               font-semibold
               hover:bg-slate-300
-              rounded-md
               "
               >
                 {"<"}
@@ -115,8 +117,8 @@ const Productproduct = () => {
                 
                 p-2
                 text-center
-               outline-none
                font-semibold
+               outline-none
                 "
               />
 
@@ -124,15 +126,15 @@ const Productproduct = () => {
                 type="button"
                 onClick={handleIncrease}
                 className="
+              rounded-md
               border
               border-slate-600
-              p-2
              
-              px-4
+              p-2
               
+              px-4
               font-semibold
               hover:bg-slate-300
-              rounded-md
               "
               >
                 {">"}
@@ -143,12 +145,12 @@ const Productproduct = () => {
               <button
                 type="submit"
                 className="
-             border
+             rounded-md
+              border
               border-slate-600
               px-4
               py-2
-              font-medium
-               rounded-md
+               font-medium
 
                hover:bg-slate-300
              
@@ -167,14 +169,14 @@ const Productproduct = () => {
                 <button
                   type="button"
                   className="
-              p-2
+              rounded-md
               
-             text-pink-500
+             p-2
 
-            hover:text-pink-700
+            text-pink-500
               
               hover:bg-pink-200
-              rounded-md
+              hover:text-pink-700
 
             
               

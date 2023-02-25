@@ -9,8 +9,6 @@ import { BsHeartFill } from "react-icons/bs";
 import { BsBagCheck } from "react-icons/bs";
 import RatingStars from "./RatingStars";
 
-
-
 const Product = ({ product }) => {
   const {
     addItemToWishlist,
@@ -22,10 +20,6 @@ const Product = ({ product }) => {
   } = useContext(CartContext);
   return (
     <div
-
-    
-     
-
       className="flex flex-col items-center justify-center  
       rounded-lg
      
@@ -58,8 +52,8 @@ const Product = ({ product }) => {
 
         <div>
           <h3
-            className="font-inter mb-1
-          text-left
+            className="mb-1 text-left
+          font-inter
           text-sm
           
           text-gray-900"
@@ -94,9 +88,9 @@ const Product = ({ product }) => {
         <div>
           <p
             className="
-            font-inter
             self-start
-            py-2  text-start
+            py-2
+            text-start  font-inter
             text-base
             font-bold
            

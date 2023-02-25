@@ -16,15 +16,15 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(isOpen => !isOpen);
+    setIsOpen((isOpen) => !isOpen);
   };
 
   const toggleWishList = () => {
-    setIsWishListOpen(isWishListOpen => !isWishListOpen);
+    setIsWishListOpen((isWishListOpen) => !isWishListOpen);
   };
 
   const toggleCart = () => {
-    setIsCartOpen(isCartOpen => !isCartOpen);
+    setIsCartOpen((isCartOpen) => !isCartOpen);
   };
 
   const { wishlist, totalItems } = useContext(CartContext);
@@ -269,23 +269,27 @@ font-bold"
               `}
       >
         <div
-          className="sticky top-0 z-50
+          className="sticky top-0
+           z-50
       
       flex
-      h-[80px]
       items-center
       justify-end
       bg-slate-900
-      px-6
-      py-4
+      p-4
+     
       "
         >
           <button
             onClick={toggleWishList}
             className="flex items-center justify-center rounded-full
-          bg-slate-700
-            p-2 hover:bg-slate-600"      >
-            <BsXLg className="scale-[1.3]" />
+          border
+            border-slate-600
+            bg-slate-700
+            p-3
+            hover:bg-slate-600"
+          >
+            <BsXLg className="scale-[1.1]" />
           </button>
         </div>
 
@@ -314,18 +318,27 @@ font-bold"
               `}
       >
         <div
-          className="sticky top-0 z-50 flex
-      h-[80px]
+          className="sticky top-0
+           z-50
+      
+      flex
       items-center
-      justify-end bg-slate-900 px-6 py-4"
+      justify-end
+      bg-slate-900
+      p-4
+     
+      "
         >
           <button
             onClick={toggleCart}
             className="flex items-center justify-center rounded-full
-          bg-slate-700
-            p-2 hover:bg-slate-600"
+          border
+            border-slate-600
+            bg-slate-700
+            p-3
+            hover:bg-slate-600"
           >
-            <BsXLg className="scale-[1.2]" />
+            <BsXLg className="scale-[1.1]" />
           </button>
         </div>
 

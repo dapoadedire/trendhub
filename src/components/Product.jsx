@@ -40,6 +40,7 @@ const Product = ({ product }) => {
             "
             src={product.image}
             alt={product.title}
+            loading="lazy" 
           />
         </div>
         

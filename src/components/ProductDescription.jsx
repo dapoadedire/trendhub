@@ -44,6 +44,7 @@ const Productproduct = () => {
             className="w-full object-cover"
             src={product.image}
             alt="Backpack"
+            loading="lazy" 
           />
         </div>
         <div className="flex flex-col ">

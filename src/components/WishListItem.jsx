@@ -62,6 +62,7 @@ const WishListItem = ({ product }) => {
          
           object-cover
           "
+          loading="lazy" 
         />
         <div>
           <h2

@@ -52,6 +52,7 @@ const CartItem = ({ product }) => {
          
           object-cover
           "
+          loading="lazy" 
         />
         <div>
           <h2 className="mb-2 

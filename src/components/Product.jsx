@@ -58,8 +58,8 @@ const Product = ({ product }) => {
 
         <div>
           <h3
-            className="mb-1 text-left
-          font-inter
+            className="font-inter mb-1
+          text-left
           text-sm
           
           text-gray-900"
@@ -94,9 +94,9 @@ const Product = ({ product }) => {
         <div>
           <p
             className="
+            font-inter
             self-start
-            py-2
-            text-start  font-inter
+            py-2  text-start
             text-base
             font-bold
            

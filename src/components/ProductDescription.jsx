@@ -190,10 +190,14 @@ const Productproduct = () => {
               <button
                 type="button"
                 onClick={handleDecrease}
-                className="border border-slate-600 p-2
+                className="
+              border
+              border-slate-600
+              p-2
               px-4
               font-semibold
               hover:bg-slate-700
+              rounded-md
               "
               >
                 {"<"}
@@ -204,10 +208,11 @@ const Productproduct = () => {
                 onChange={handleInputChange}
                 className="w-16                 
                 
-              p-2
+                
+                p-2
                 text-center
-                font-bold
                outline-none
+               font-semibold
                 "
               />
 
@@ -223,6 +228,7 @@ const Productproduct = () => {
               
               font-semibold
               hover:bg-slate-700
+              rounded-md
               "
               >
                 {">"}
@@ -238,6 +244,9 @@ const Productproduct = () => {
               px-4
               py-2
               font-medium
+               rounded-md
+
+               hover:bg-slate-700
              
               "
               >
@@ -256,7 +265,12 @@ const Productproduct = () => {
                   className="
               p-2
               
-            text-pink-500
+             text-pink-500
+
+            hover:text-pink-700
+              
+              hover:bg-pink-200
+              rounded-md
 
             
               

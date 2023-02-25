@@ -2,6 +2,7 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { formatCurrency } from "../utils";
 import { useState } from "react";
+import {motion} from "framer-motion"
 
 const CartItem = ({ product }) => {
   const {
@@ -32,15 +33,24 @@ const CartItem = ({ product }) => {
   };
 
   return (
-    <div
+    <motion.div
+
+
+      positionTransition
+      initial={{ opacity: 0, y: 50, scale: 0.3 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, x: "100%", transition: { duration: 0.2 } }}
+      layout
+
       key={product.id}
       className="
       relative mt-4
 
-      border-b
-      border-gray-500
-      p-2
+     
+      p-3
       pb-10
+      bg-slate-800
+      rounded-md
       "
     >
       <div className="mb-2 flex gap-3">
@@ -49,6 +59,7 @@ const CartItem = ({ product }) => {
           alt={product.title}
           className="h-36 w-36 flex-none border
           border-slate-600
+          rounded-md
          
           object-cover
           "
@@ -56,17 +67,18 @@ const CartItem = ({ product }) => {
         />
         <div>
           <h2
-            className="mb-2 
+            className="mb-4 
           text-base
-          text-gray-300
+          
           "
           >
             {product.title}
           </h2>
           <p
             className="
-          text-sm
-          text-gray-400
+          text-base
+          
+          text-gray-300
           "
           >
             {getItemQuantity(product)} x {formatCurrency(product.price)} ={" "}
@@ -107,6 +119,7 @@ const CartItem = ({ product }) => {
               px-4
               font-semibold
               hover:bg-slate-700
+              rounded-md
               "
             >
               {"<"}
@@ -117,10 +130,11 @@ const CartItem = ({ product }) => {
               onChange={handleInputChange}
               className="w-16                 
                 
-                bg-slate-900
+                bg-slate-800
                 p-2
                 text-center
                outline-none
+               font-semibold
                 "
             />
 
@@ -136,6 +150,7 @@ const CartItem = ({ product }) => {
               
               font-semibold
               hover:bg-slate-700
+              rounded-md
               "
             >
               {">"}
@@ -151,6 +166,9 @@ const CartItem = ({ product }) => {
               px-4
               py-2
               font-medium
+               rounded-md
+
+               hover:bg-slate-700
              
               "
             >
@@ -169,7 +187,12 @@ const CartItem = ({ product }) => {
                 className="
               p-2
               
-            text-pink-500
+             text-pink-500
+
+            hover:text-pink-700
+              
+              hover:bg-pink-200
+              rounded-md
 
             
               
@@ -185,7 +208,7 @@ const CartItem = ({ product }) => {
           )}
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -7,6 +7,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./hooks/ScrollToTop";
+import { Toaster, toast } from "react-hot-toast";
 
 function App() {
   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -21,6 +22,7 @@ function App() {
     const itemInWishlist = getItemInWishlist(product);
 
     if (!itemInWishlist) {
+      toast.success("Added to wishlist");
       newWishlist.push(product);
     }
 
@@ -29,6 +31,7 @@ function App() {
 
   const removeItemFromWishlist = (product) => {
     const newWishlist = wishlist.filter((item) => item.id !== product.id);
+    toast.error("Removed from wishlist");
     setWishlist(newWishlist);
   };
 
@@ -48,25 +51,32 @@ function App() {
     const itemInCart = getItemInCart(product);
 
     if (quantity === 0) {
+      toast.error("Removed from cart");
       removeItemFromCart(product);
       return;
     }
 
     if (itemInCart) {
+      toast.success("Added to cart");
       itemInCart.quantity = quantity;
     } else {
+
+      toast.success("Added to cart");
       newCart.push({ ...product, quantity });
     }
+
 
     setCart(newCart);
   };
 
   const removeItemFromCart = (product) => {
     const newCart = cart.filter((item) => item.id !== product.id);
+    toast.error("Removed from cart");
     setCart(newCart);
   };
 
   const clearCart = () => {
+    toast.error("Cart cleared");
     setCart([]);
   };
 
@@ -113,6 +123,11 @@ function App() {
         getItemInWishlist,
       }}
     >
+      <Toaster
+        position="bottom-left"
+        reverseOrder={false}
+        toastOptions={{ duration: 3000 }}
+      />
       <HashRouter>
         <ScrollToTop />
         <Routes>

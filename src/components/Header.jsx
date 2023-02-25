@@ -282,8 +282,9 @@ font-bold"
         >
           <button
             onClick={toggleWishList}
-            className="flex items-center justify-center rounded-full bg-slate-600 p-2"
-          >
+            className="flex items-center justify-center rounded-full
+          bg-slate-700
+            p-2 hover:bg-slate-600"      >
             <BsXLg className="scale-[1.3]" />
           </button>
         </div>
@@ -300,7 +301,7 @@ font-bold"
      z-50
       h-full
       w-full
-      border-l
+  
       bg-slate-900
       text-white
       sm:w-[50vw]

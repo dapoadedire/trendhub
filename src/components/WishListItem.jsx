@@ -62,7 +62,7 @@ const WishListItem = ({ product }) => {
          
           object-cover
           "
-          loading="lazy" 
+          loading="lazy"
         />
         <div>
           <h2
@@ -162,12 +162,12 @@ const WishListItem = ({ product }) => {
             type="button"
             onClick={handleDecrease}
             className="
-              p-2
-              font-semibold
-              hover:bg-slate-700
               border
               border-slate-600
+              p-2
               px-4
+              font-semibold
+              hover:bg-slate-700
               "
           >
             {"<"}
@@ -191,9 +191,9 @@ const WishListItem = ({ product }) => {
             className="
               border
               border-slate-600
-              px-4
-             
               p-2
+             
+              px-4
               
               font-semibold
               hover:bg-slate-700
@@ -219,10 +219,12 @@ const WishListItem = ({ product }) => {
           </button>
         </div>
         {isInCart(product) && (
-          <div className="
+          <div
+            className="
             justify-self-end
             
-            ">
+            "
+          >
             <button
               type="button"
               className="

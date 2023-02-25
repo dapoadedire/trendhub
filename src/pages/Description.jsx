@@ -11,7 +11,6 @@ const Description = () => {
       "
       >
         <ProductDescription />
-       
       </main>
       <Footer />
     </>

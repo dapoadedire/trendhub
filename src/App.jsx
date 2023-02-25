@@ -116,7 +116,6 @@ function App() {
       <HashRouter>
         <ScrollToTop />
         <Routes>
-
           {/* home */}
           <Route path="/" element={<Store />} />
           {/* cart */}

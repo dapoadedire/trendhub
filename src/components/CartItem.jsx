@@ -52,15 +52,19 @@ const CartItem = ({ product }) => {
          
           object-cover
           "
-          loading="lazy" 
+          loading="lazy"
         />
         <div>
-          <h2 className="mb-2 
+          <h2
+            className="mb-2 
           text-base
           text-gray-300
-          ">{product.title}</h2>
+          "
+          >
+            {product.title}
+          </h2>
           <p
-          className="
+            className="
           text-sm
           text-gray-400
           "
@@ -70,11 +74,13 @@ const CartItem = ({ product }) => {
           </p>
         </div>
       </div>
-      <div className="mt-6 flex
+      <div
+        className="mt-6 flex
       w-full
      
        flex-wrap
-      ">
+      "
+      >
         <form
           onSubmit={handleSubmit}
           className="
@@ -95,12 +101,12 @@ const CartItem = ({ product }) => {
               type="button"
               onClick={handleDecrease}
               className="
-              p-2
-              font-semibold
-              hover:bg-slate-700
               border
               border-slate-600
+              p-2
               px-4
+              font-semibold
+              hover:bg-slate-700
               "
             >
               {"<"}
@@ -124,9 +130,9 @@ const CartItem = ({ product }) => {
               className="
               border
               border-slate-600
-              px-4
-             
               p-2
+             
+              px-4
               
               font-semibold
               hover:bg-slate-700
@@ -152,10 +158,12 @@ const CartItem = ({ product }) => {
             </button>
           </div>
           {isInCart(product) && (
-            <div className="
+            <div
+              className="
             justify-self-end
             
-            ">
+            "
+            >
               <button
                 type="button"
                 className="

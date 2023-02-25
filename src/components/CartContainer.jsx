@@ -16,13 +16,15 @@ const CartContainer = () => {
   };
 
   return (
-    <div className="
+    <div
+      className="
     hide-scrollbar
       h-full
     overflow-scroll
     border-t
     pt-4
-    ">
+    "
+    >
       {showCheckout ? (
         <CheckoutSuccess />
       ) : (
@@ -36,9 +38,7 @@ const CartContainer = () => {
           </h1>
 
           {cart.length === 0 ? (
-            <div
-            className="flex flex-col items-center justify-center space-y-4"
-            >
+            <div className="flex flex-col items-center justify-center space-y-4">
               <h2>Your cart is empty</h2>
               <p>Add items to your cart to continue shopping.</p>
             </div>
@@ -55,10 +55,10 @@ const CartContainer = () => {
               </div>
               <div
                 className="
-                border-t
                 absolute
-                  inset-x-0
+                inset-x-0
                   bottom-0
+                  border-t
                   bg-slate-900
                  
                   p-4

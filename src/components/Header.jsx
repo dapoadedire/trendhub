@@ -55,9 +55,13 @@ const Header = () => {
       <div className="">
         <Link to="/">
           {" "}
-          <h1 className="text-2xl
+          <h1
+            className="text-2xl
           font-bold
-          ">TrendHub</h1>
+          "
+          >
+            TrendHub
+          </h1>
         </Link>
       </div>
       <div
@@ -174,15 +178,13 @@ font-bold"
                 {category.name}
               </Link>
               <div
-                  className="h-[2px] w-0 bg-slate-300 
+                className="h-[2px] w-0 bg-slate-300 
                 transition-all
                 duration-500
                 group-hover:w-full
 
                 "
-                >
-                  
-                </div>
+              ></div>
             </li>
           ))}
           <li
@@ -320,7 +322,7 @@ font-bold"
             onClick={toggleCart}
             className="flex items-center justify-center rounded-full
           bg-slate-700
-            hover:bg-slate-600 p-2"
+            p-2 hover:bg-slate-600"
           >
             <BsXLg className="scale-[1.2]" />
           </button>

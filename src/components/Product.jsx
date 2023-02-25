@@ -10,8 +10,14 @@ import { BsBagCheck } from "react-icons/bs";
 import RatingStars from "./RatingStars";
 
 const Product = ({ product }) => {
-  const { addItemToWishlist, addItemToCart, removeItemFromCart,isInCart,removeItemFromWishlist, getItemInWishlist } =
-    useContext(CartContext);
+  const {
+    addItemToWishlist,
+    addItemToCart,
+    removeItemFromCart,
+    isInCart,
+    removeItemFromWishlist,
+    getItemInWishlist,
+  } = useContext(CartContext);
   return (
     <div
       className="flex flex-col items-center justify-center  
@@ -40,29 +46,29 @@ const Product = ({ product }) => {
             "
             src={product.image}
             alt={product.title}
-            loading="lazy" 
+            loading="lazy"
           />
         </div>
-        
+
         <div>
           <h3
-            className="font-inter mb-1
-          text-left
+            className="mb-1 text-left
+          font-inter
           text-sm
           
           text-gray-900"
           >
             {product.title}
           </h3>
-         
         </div>
-        
       </Link>
 
       {product.rating && (
-        <div className=" my-2 flex  items-center justify-start
+        <div
+          className=" my-2 flex  items-center justify-start
         self-start
-        ">
+        "
+        >
           <RatingStars rating={product.rating.rate} />
           <span
             className="ml-2 
@@ -74,8 +80,6 @@ const Product = ({ product }) => {
         </div>
       )}
 
-     
-
       <div
         className="flex w-full items-center
       justify-between
@@ -84,9 +88,9 @@ const Product = ({ product }) => {
         <div>
           <p
             className="
-            font-inter
             self-start
-            py-2  text-start
+            py-2
+            text-start  font-inter
             text-base
             font-bold
            
@@ -96,13 +100,10 @@ const Product = ({ product }) => {
           </p>
         </div>
 
-        <div
-        className="flex items-center gap-4"
-        >
-          {
-            isInCart(product) ? (
-              <button
-                className="
+        <div className="flex items-center gap-4">
+          {isInCart(product) ? (
+            <button
+              className="
                 rounded-lg
                 p-2
                 
@@ -114,33 +115,27 @@ const Product = ({ product }) => {
                 hover:bg-gray-200
                 
                 "
-
-                onClick={() => removeItemFromCart(product)}
-              >
-               
-                <BsBagCheck 
-                className="scale-[1.3]"
-                />
-              </button>
-            ) : (
-                <button
-
-                  onClick={() => addItemToCart(product, 1)}
-
-                  className="rounded-lg
+              onClick={() => removeItemFromCart(product)}
+            >
+              <BsBagCheck className="scale-[1.3]" />
+            </button>
+          ) : (
+            <button
+              onClick={() => addItemToCart(product, 1)}
+              className="rounded-lg
                 p-2
                 transition-all
                  duration-200
                    ease-in-out
                 hover:bg-gray-200
                 "
-
-                >
-                  <BsCart className="scale-[1.3]" />
-                </button>)
-          }
+            >
+              <BsCart className="scale-[1.3]" />
+            </button>
+          )}
           {getItemInWishlist(product) ? (
-            <button onClick={() => removeItemFromWishlist(product)}
+            <button
+              onClick={() => removeItemFromWishlist(product)}
               className="  rounded-lg
                 p-2
                 text-slate-900
@@ -153,16 +148,15 @@ const Product = ({ product }) => {
               />
             </button>
           ) : (
-            <button onClick={() => addItemToWishlist(product)}
-            
-            className="  hover:bg-gray-200
+            <button
+              onClick={() => addItemToWishlist(product)}
+              className="  rounded-lg
             p-2
-            rounded-lg
+            hover:bg-gray-200
 
             "
-            
             >
-                <BsHeart
+              <BsHeart
                 className="scale-[1.3]
           
               

@@ -41,7 +41,7 @@ const WishList = () => {
         </motion.div>
       ) : (
         <div className="flex  flex-col justify-between gap-4 p-3">
-          <AnimatePresence initial={false} mode="popLayout">
+          <AnimatePresence initial={false} >
             {wishlist.map((product) => (
               <WishListItem product={product} key={product.id} />
               

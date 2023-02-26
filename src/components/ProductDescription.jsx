@@ -28,7 +28,6 @@ const Productproduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted value:", value);
     addItemToCart(product, value);
   };
 

@@ -68,12 +68,16 @@ const Product = ({ product }) => {
       {product.rating && (
         <div
           className=" my-2 flex  items-center justify-start
-        self-start
+        self-start flex-wrap gap-2
         "
         >
-          <RatingStars rating={product.rating.rate} />
+          <div
+          className="flex items-center justify-center"
+          >
+            <RatingStars rating={product.rating.rate} />
+          </div>
           <span
-            className="ml-2 
+            className=" 
                 text-sm
                  text-gray-600"
           >

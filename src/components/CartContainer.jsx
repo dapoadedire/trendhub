@@ -60,7 +60,7 @@ const CartContainer = () => {
                 pb-80
                 "
               >
-                <AnimatePresence initial={false} mode="popLayout">
+                <AnimatePresence initial={false} >
                   {cart.map((product) => (
                     <CartItem product={product} key={product.id} />
                   ))}

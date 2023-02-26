@@ -50,6 +50,12 @@ const Header = () => {
     bg-slate-900
     px-4
     text-white
+
+    sm:px-8
+    md:px-12
+    lg:px-16
+    xl:px-20
+    
     "
     >
       <div className="">

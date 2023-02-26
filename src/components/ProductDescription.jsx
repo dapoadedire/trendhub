@@ -37,7 +37,23 @@ const Productproduct = () => {
   };
 
   return (
-    <div className="mx-auto max-w-md overflow-hidden rounded-md border border-gray-200 bg-white p-4 shadow-md md:max-w-2xl lg:max-w-4xl">
+    <>
+   <div
+   className="flex flex-col items-center justify-center
+   mb-10
+   "
+   >
+        <h2
+          className="text-center underline text-2xl font-bold text-gray-800"
+        >
+          Product Details
+        </h2>
+   </div>
+    <div className="mx-auto max-w-md overflow-hidden rounded-md border border-slate-200 bg-white p-4 md:max-w-2xl lg:max-w-4xl">
+    
+
+
+     
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <img
@@ -55,12 +71,17 @@ const Productproduct = () => {
             <h1 className="text-2xl font-bold text-gray-900">
               {product.title}
             </h1>
-            <h2 className="mt-2 text-xl font-bold text-gray-800">
+            <h2 className="mt-2 text-xl font-bold text-gray-800
+            w-max
+            bg-green-200
+            
+
+            ">
               {formatCurrency(product.price)}
             </h2>
             <p className="mt-2 text-base text-gray-500">{product.category}</p>
 
-            <p className="mt-2 text-base text-gray-700">
+            <p className="mt-2 text-base text-gray-800">
               {product.description}
             </p>
           </div>
@@ -194,6 +215,7 @@ const Productproduct = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

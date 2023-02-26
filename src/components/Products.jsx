@@ -3,9 +3,13 @@ import Product from "./Product";
 
 const Products = () => {
   return (
-    <div>
-      <div className="flex items-center justify-center">
-        <h2 className="mb-5 text-2xl font-bold">Product Display</h2>
+    <div
+    
+    >
+      <div className="flex items-center justify-center
+      my-10
+      ">
+        <h2 className="mb-5 text-2xl font-bold underline">Product Display</h2>
       </div>
       <div
         className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2

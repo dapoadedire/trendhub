@@ -27,6 +27,8 @@ const Product = ({ product }) => {
     transition-all
     duration-200
     ease-in-out
+    border
+    border-slate-300
    
     "
     >
@@ -53,9 +55,9 @@ const Product = ({ product }) => {
         <div>
           <h3
             className="mb-1 text-left
-          font-inter
+         
           text-sm
-          
+          font-semibold
           text-gray-900"
           >
             {product.title}

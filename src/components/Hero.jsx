@@ -5,9 +5,10 @@ const Hero = () => {
       className="
             mx-auto
             my-10
+            
             w-full
             text-center
-            font-noto
+           
             sm:w-3/4
             "
     >

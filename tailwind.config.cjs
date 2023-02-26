@@ -1,6 +1,3 @@
-
-// @import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Serif&display=swap');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,9 +7,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'noto': ['Noto Serif', 'sans-serif'],
-        'inter': ['Inter', 'serif'],
-        'tilt': ['Tilt Prism', 'cursive']
+        // 'noto': ['Noto Serif', 'sans-serif'],
+        // 'inter': ['Inter', 'serif'],
+        // 'tilt': ['Tilt Prism', 'cursive']
+        'IBM': ['IBM Plex Mono', 'monospace']
 
       }
       

@@ -86,6 +86,7 @@ const CartContainer = () => {
                     text-lg
                     font-medium
                     uppercase
+                    underline
                     "
                 >
                   Cart Summary
@@ -128,7 +129,7 @@ const CartContainer = () => {
                   <button
                     className="
                      border
-                     
+                     rounded-md
                       p-2
                       font-medium
                       hover:bg-red-600
@@ -140,14 +141,10 @@ const CartContainer = () => {
                   </button>
                   <button
                     className="
-                      border
-                     
-                      
-                      p-2
+                      border p-2
                       font-medium
                       hover:bg-green-600
-                     
-                      
+                      rounded-md
                       "
                     onClick={() => handleCheckout()}
                   >

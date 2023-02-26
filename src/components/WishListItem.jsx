@@ -46,12 +46,10 @@ const WishListItem = ({ product }) => {
       key={product.id}
       className=" 
       relative 
-     
-
        rounded-md
       bg-slate-800
-      
       p-3
+      pr-5
       "
     >
       <div
@@ -62,7 +60,7 @@ const WishListItem = ({ product }) => {
         <img
           src={product.image}
           alt={product.title}
-          className="h-36 w-36 flex-none rounded-md
+          className="h-24 w-24 flex-none rounded-md
           border
           border-slate-600
           object-cover
@@ -74,11 +72,14 @@ const WishListItem = ({ product }) => {
             className="
         mb-2 w-11/12
         text-sm
+        text-white
         "
           >
             {product.title}
           </h2>
-          <p className="underline">{formatCurrency(product.price)}</p>
+          <p className="underline
+          text-gray-300
+          ">{formatCurrency(product.price)}</p>
         </div>
       </div>
 
@@ -211,6 +212,7 @@ const WishListItem = ({ product }) => {
       border-slate-600
 bg-slate-700
       p-2
+      hover:bg-slate-600
 
 
       "

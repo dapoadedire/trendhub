@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import WishListItem from "./WishListItem";
 
+
 import { AnimatePresence, motion } from "framer-motion";
 
 const WishList = () => {
@@ -43,6 +44,7 @@ const WishList = () => {
           <AnimatePresence initial={false} mode="popLayout">
             {wishlist.map((product) => (
               <WishListItem product={product} key={product.id} />
+              
             ))}
           </AnimatePresence>
         </div>

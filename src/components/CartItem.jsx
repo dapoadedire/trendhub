@@ -42,19 +42,17 @@ const CartItem = ({ product }) => {
       key={product.id}
       className="
       relative mt-4
-
-     
       rounded-md
       bg-slate-800
       p-3
-      pb-10
+      
       "
     >
       <div className="mb-2 flex gap-3">
         <img
           src={product.image}
           alt={product.title}
-          className="h-36 w-36 flex-none rounded-md
+          className="h-24 w-24 flex-none rounded-md
           border
           border-slate-600
          
@@ -66,7 +64,7 @@ const CartItem = ({ product }) => {
           <h2
             className="mb-4 
           text-base
-          
+          text-gray-200
           "
           >
             {product.title}
@@ -74,7 +72,7 @@ const CartItem = ({ product }) => {
           <p
             className="
           text-base
-          
+          underline
           text-gray-300
           "
           >
@@ -169,7 +167,7 @@ const CartItem = ({ product }) => {
              
               "
             >
-              Add to cart
+              Add item
             </button>
           </div>
           {isInCart(product) && (

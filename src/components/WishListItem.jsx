@@ -73,6 +73,7 @@ const WishListItem = ({ product }) => {
         mb-2 w-11/12
         text-sm
         text-white
+        font-semibold
         "
           >
             {product.title}

@@ -65,6 +65,7 @@ const CartItem = ({ product }) => {
             className="mb-4 
           text-base
           text-gray-200
+          font-semibold
           "
           >
             {product.title}

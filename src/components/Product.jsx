@@ -23,12 +23,12 @@ const Product = ({ product }) => {
       className="flex flex-col items-center justify-center  
       rounded-lg
      
-      p-4
+      border
+    border-slate-300
+    p-4
     transition-all
     duration-200
     ease-in-out
-    border
-    border-slate-300
    
     "
     >
@@ -67,8 +67,8 @@ const Product = ({ product }) => {
 
       {product.rating && (
         <div
-          className=" my-2 flex  items-center justify-start
-        self-start flex-wrap gap-2
+          className=" my-2 flex  flex-wrap items-center
+        justify-start gap-2 self-start
         "
         >
           <div
@@ -94,9 +94,9 @@ const Product = ({ product }) => {
         <div>
           <p
             className="
+            font-inter
             self-start
-            py-2
-            text-start  font-inter
+            py-2  text-start
             text-base
             font-bold
            
@@ -110,15 +110,16 @@ const Product = ({ product }) => {
           {isInCart(product) ? (
             <button
               className="
+                flex
+                items-center
+                
+                justify-center
                 rounded-lg
                 p-2
-                
                 font-bold
                 text-slate-900
                 transition-all
-                duration-200
-                ease-in-out
-                hover:bg-gray-200
+                duration-200 ease-in-out hover:bg-red-200
                 
                 "
               onClick={() => removeItemFromCart(product)}
@@ -128,12 +129,13 @@ const Product = ({ product }) => {
           ) : (
             <button
               onClick={() => addItemToCart(product, 1)}
-              className="rounded-lg
-                p-2
+              className="flex
+                items-center
+                justify-center
+                 rounded-lg
+                   p-2
                 transition-all
-                 duration-200
-                   ease-in-out
-                hover:bg-gray-200
+                duration-200 ease-in-out hover:bg-green-200
                 "
             >
               <BsCart className="scale-[1.3]" />
@@ -142,10 +144,11 @@ const Product = ({ product }) => {
           {getItemInWishlist(product) ? (
             <button
               onClick={() => removeItemFromWishlist(product)}
-              className="  rounded-lg
-                p-2
-                text-slate-900
-                hover:bg-gray-200
+              className="  flex
+                items-center
+                justify-center
+                rounded-lg
+                p-2 text-slate-900 hover:bg-red-200
                 "
             >
               <BsHeartFill
@@ -156,9 +159,10 @@ const Product = ({ product }) => {
           ) : (
             <button
               onClick={() => addItemToWishlist(product)}
-              className="  rounded-lg
-            p-2
-            hover:bg-gray-200
+              className="  flex
+            items-center
+            justify-center
+rounded-lg p-2 hover:bg-green-200
 
             "
             >

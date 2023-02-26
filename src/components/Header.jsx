@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Fade as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
-import { BsXLg } from "react-icons/bs";
+import { BsXLg,
+  BsShop,
+  BsArrowUp
+} from "react-icons/bs";
 import WishList from "./WishList";
 import CartContainer from "./CartContainer";
 
@@ -14,6 +17,23 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isWishListOpen, setIsWishListOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+
+
+  useEffect(() => {
+
+    const handleScrollButtonVisibility = () => {
+      window.scrollY > 400 ? setShowScrollButton(true) : setShowScrollButton(false);
+    };
+
+    window.addEventListener("scroll", handleScrollButtonVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollButtonVisibility);
+    };
+  }, []);
+
 
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -59,14 +79,24 @@ const Header = () => {
     "
     >
       <div className="">
-        <Link to="/">
+        <Link to="/"
+       
+        >
           {" "}
           <h1
             className="text-2xl
           font-bold
+          flex
+          items-center
+          gap-2
+
+          
           "
           >
             TrendHub
+            <span>
+              <BsShop  />
+            </span>
           </h1>
         </Link>
       </div>
@@ -350,6 +380,35 @@ font-bold"
 
         <CartContainer />
       </div>
+
+      {
+        showScrollButton && (
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-10 right-10
+            rounded-full
+            border
+            border-white
+            bg-slate-900
+            p-3
+            transition-all
+            duration-500
+
+            
+
+            hover:animate-bounce
+            hover:bg-white
+            hover:text-slate-900
+
+            "
+          >
+            <BsArrowUp className="scale-[1.2]
+            font-bold
+            " />
+          </button>
+        )
+
+      }
     </header>
   );
 };

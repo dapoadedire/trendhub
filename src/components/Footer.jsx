@@ -96,10 +96,16 @@ const Footer = () => {
               <form
                 className="mt-4 flex gap-4"
 
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }
+                }
+
               >
                 <input
                   type="email"
                   name="email"
+                  required
                   placeholder="Enter your email"
                   className="w-full rounded-md border-2 border-gray-400
                   p-2
@@ -173,8 +179,8 @@ admin@trendhub.com
       <div className="mt-8 border-t border-gray-700">
         <div className="container mx-auto py-4">
           <p className="text-center text-gray-200">
-            &copy; {new Date().getFullYear()} - All Rights Reserved by Dapo
-            Adedire &#128526;
+            &copy; {new Date().getFullYear()} - <a href="https://twitter.com/dapo_adedire" target="_blank" rel="noreferrer">All Rights Reserved by Dapo
+              Adedire &#128526;</a>
           </p>
         </div>
       </div>

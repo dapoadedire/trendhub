@@ -7,7 +7,6 @@ import { useContext } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { BsXLg,
-  BsShop,
   BsArrowUp
 } from "react-icons/bs";
 import WishList from "./WishList";
@@ -85,18 +84,14 @@ const Header = () => {
           {" "}
           <h1
             className="text-2xl
-          font-bold
-          flex
-          items-center
-          gap-2
+          font-semibold
+         
 
-          
+
           "
           >
             TrendHub
-            <span>
-              <BsShop  />
-            </span>
+   
           </h1>
         </Link>
       </div>

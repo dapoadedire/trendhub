@@ -1,7 +1,7 @@
 import ProductDescription from "../components/ProductDescription";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-// import NewsletterForm from "../components/Newsletter";
+
 const Description = () => {
   return (
     <>

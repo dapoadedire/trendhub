@@ -64,8 +64,8 @@ const CartItem = ({ product }) => {
           <h2
             className="mb-4 
           text-base
-          text-gray-200
           font-semibold
+          text-gray-200
           "
           >
             {product.title}
@@ -73,8 +73,8 @@ const CartItem = ({ product }) => {
           <p
             className="
           text-base
-          underline
           text-gray-300
+          underline
           "
           >
             {getItemQuantity(product)} x {formatCurrency(product.price)} ={" "}

@@ -72,14 +72,14 @@ const WishListItem = ({ product }) => {
             className="
         mb-2 w-11/12
         text-sm
-        text-white
         font-semibold
+        text-white
         "
           >
             {product.title}
           </h2>
-          <p className="underline
-          text-gray-300
+          <p className="text-gray-300
+          underline
           ">{formatCurrency(product.price)}</p>
         </div>
       </div>

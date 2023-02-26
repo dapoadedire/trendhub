@@ -38,12 +38,12 @@ const Productproduct = () => {
   return (
     <>
    <div
-   className="flex flex-col items-center justify-center
-   mb-10
+   className="mb-10 flex flex-col items-center
+   justify-center
    "
    >
         <h2
-          className="text-center underline text-2xl font-bold text-gray-800"
+          className="text-center text-2xl font-bold text-gray-800 underline"
         >
           Product Details
         </h2>
@@ -56,9 +56,9 @@ const Productproduct = () => {
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <img
-            className="object-contain
+            className="h-96
             w-96
-            h-96
+            object-contain
             "
             src={product.image}
             alt="Backpack"
@@ -70,9 +70,9 @@ const Productproduct = () => {
             <h1 className="text-2xl font-bold text-gray-900">
               {product.title}
             </h1>
-            <h2 className="mt-2 text-xl font-bold text-gray-800
-            w-max
-            bg-green-200
+            <h2 className="mt-2 w-max bg-green-200 text-xl
+            font-bold
+            text-gray-800
             
 
             ">

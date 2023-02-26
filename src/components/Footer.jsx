@@ -65,22 +65,30 @@ const Footer = () => {
                 Follow Us On Social Media:
               </h2>
               {" "}
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="#" className="text-gray-400 hover:text-white"
+              aria-label="Twitter"
+              >
                 <BsTwitter className="h-5 w-5
                 hover:text-[#1DA1F2]
                 " />
               </a>
-              <a href="#" className=" text-gray-400 hover:text-white">
+              <a href="#" className=" text-gray-400 hover:text-white"
+                aria-label = "Linkedin"
+              >
                 <BsLinkedin className="h-5 w-5
                 hover:text-[#0A66C2]
                 " />
               </a>
-              <a href="#" className=" text-gray-400 hover:text-white">
+              <a href="#" className=" text-gray-400 hover:text-white"
+                aria-label = "Facebook"
+              >
                 <BsFacebook className="h-5 w-5
                 hover:text-[#1877F2]
                 " />
               </a>
-              <a href="#" className=" text-gray-400 hover:text-white">
+              <a href="#" className=" text-gray-400 hover:text-white"
+                aria-label = "Instagram"
+              >
                 <BsInstagram className="h-5 w-5
                 hover:text-[#E1306C]
                 " />
@@ -102,6 +110,9 @@ const Footer = () => {
                 }
 
               >
+                <label htmlFor="email">
+                  <span className="sr-only">Email</span>
+                </label>
                 <input
                   type="email"
                   name="email"

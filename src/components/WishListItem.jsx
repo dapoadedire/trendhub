@@ -116,6 +116,9 @@ const WishListItem = ({ product }) => {
           >
             {"<"}
           </button>
+          <label htmlFor="cartquantity">
+            <span className="sr-only">Quantity</span>
+          </label>
           <input
             type="number"
             value={value}

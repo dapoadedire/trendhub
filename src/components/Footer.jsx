@@ -117,6 +117,7 @@ const Footer = () => {
                   "
                 />
                 <button
+                  aria-label="Subscribe to newsletter"
                   type="submit"
                   className="rounded-md   border-2 border-gray-400
                   bg-green-700 p-2

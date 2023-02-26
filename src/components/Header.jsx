@@ -102,7 +102,9 @@ const Header = () => {
         md:hidden
         "
       >
-        <button onClick={toggleWishList} className="flex items-center gap-3">
+        <button 
+          aria-label = "wishlist"
+        onClick={toggleWishList} className="flex items-center gap-3">
           <FaRegHeart className="scale-[1.3]" />
           <span
             className="flex
@@ -122,7 +124,10 @@ font-bold
             {wishlist.length}
           </span>
         </button>
-        <button className="flex items-center gap-3" onClick={toggleCart}>
+        <button
+        
+          aria-label = "cart"
+        className="flex items-center gap-3" onClick={toggleCart}>
           <BsCart className="scale-[1.3] " />
           <span
             className="flex
@@ -226,6 +231,7 @@ font-bold"
                 "
           >
             <button
+              aria-label="wishlist"
               onClick={toggleWishList}
               className="flex items-center gap-3"
             >
@@ -253,7 +259,9 @@ font-bold
             className=" hidden
                 md:block"
           >
-            <button onClick={toggleCart} className="flex items-center gap-4">
+            <button 
+              aria-label = "cart"
+            onClick={toggleCart} className="flex items-center gap-4">
               <BsCart className="scale-150" />
               <span
                 className="flex
@@ -312,6 +320,7 @@ font-bold"
       "
         >
           <button
+            aria-label="close wishlist"
             onClick={toggleWishList}
             className="flex items-center justify-center rounded-full
           border
@@ -361,6 +370,7 @@ font-bold"
       "
         >
           <button
+            aria-label="close cart"
             onClick={toggleCart}
             className="flex items-center justify-center rounded-full
           border
@@ -379,6 +389,7 @@ font-bold"
       {
         showScrollButton && (
           <button
+            aria-label="scroll to top"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="fixed bottom-10 right-10
             rounded-full

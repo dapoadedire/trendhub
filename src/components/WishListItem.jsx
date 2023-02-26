@@ -101,6 +101,7 @@ const WishListItem = ({ product }) => {
             "
         >
           <button
+            aria-label="Decrease quantity"
             type="button"
             onClick={handleDecrease}
             className="
@@ -130,6 +131,7 @@ const WishListItem = ({ product }) => {
           />
 
           <button
+            aria-label="Increase quantity"
             type="button"
             onClick={handleIncrease}
             className="
@@ -150,6 +152,8 @@ const WishListItem = ({ product }) => {
 
         <div>
           <button
+
+            aria-label="Add to cart"
             type="submit"
             className="
              rounded-md
@@ -174,6 +178,7 @@ const WishListItem = ({ product }) => {
             "
           >
             <button
+              aria-label="Remove item"
               type="button"
               className="
               rounded-md
@@ -219,7 +224,9 @@ bg-slate-700
       "
       >
         {getItemInWishlist(product) && (
-          <button onClick={() => removeItemFromWishlist(product)}>
+          <button 
+            aria-label = "Remove from wishlist"
+          onClick={() => removeItemFromWishlist(product)}>
             <VscChromeClose color="white" size="1.2rem" className="scale-120" />
           </button>
         )}

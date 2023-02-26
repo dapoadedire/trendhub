@@ -109,6 +109,8 @@ const Product = ({ product }) => {
         <div className="flex items-center gap-4">
           {isInCart(product) ? (
             <button
+
+              aria-label="Remove from cart"
               className="
                 flex
                 items-center
@@ -128,6 +130,7 @@ const Product = ({ product }) => {
             </button>
           ) : (
             <button
+              aria-label="Add to cart"
               onClick={() => addItemToCart(product, 1)}
               className="flex
                 items-center
@@ -143,6 +146,8 @@ const Product = ({ product }) => {
           )}
           {getItemInWishlist(product) ? (
             <button
+
+              aria-label="Remove from wishlist"
               onClick={() => removeItemFromWishlist(product)}
               className="  flex
                 items-center
@@ -158,6 +163,7 @@ const Product = ({ product }) => {
             </button>
           ) : (
             <button
+              aria-label="Add to wishlist"
               onClick={() => addItemToWishlist(product)}
               className="  flex
             items-center

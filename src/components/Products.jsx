@@ -6,8 +6,8 @@ const Products = () => {
     <div
     
     >
-      <div className="flex items-center justify-center
-      my-10
+      <div className="my-10 flex items-center
+      justify-center
       ">
         <h2 className="mb-5 text-2xl font-bold underline">Product Display</h2>
       </div>

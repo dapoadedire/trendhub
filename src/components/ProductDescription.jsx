@@ -114,6 +114,7 @@ const Productproduct = () => {
             "
             >
               <button
+                  aria-label="Decrease quantity"
                 type="button"
                 onClick={handleDecrease}
                 className="
@@ -143,6 +144,7 @@ const Productproduct = () => {
               />
 
               <button
+                  aria-label="Increase quantity"
                 type="button"
                 onClick={handleIncrease}
                 className="
@@ -163,6 +165,8 @@ const Productproduct = () => {
 
             <div>
               <button
+
+                  aria-label="Add to cart"
                 type="submit"
                 className="
              rounded-md
@@ -187,6 +191,7 @@ const Productproduct = () => {
             "
               >
                 <button
+                  aria-label="Remove item from cart"
                   type="button"
                   className="
               rounded-md

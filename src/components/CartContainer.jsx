@@ -127,9 +127,10 @@ const CartContainer = () => {
                     "
                 >
                   <button
+                  aria-label="Clear cart"
                     className="
-                     border
                      rounded-md
+                     border
                       p-2
                       font-medium
                       hover:bg-red-600
@@ -140,11 +141,12 @@ const CartContainer = () => {
                     Clear cart
                   </button>
                   <button
+                  aria-label="Checkout"
                     className="
-                      border p-2
+                      rounded-md border
+                      p-2
                       font-medium
                       hover:bg-green-600
-                      rounded-md
                       "
                     onClick={() => handleCheckout()}
                   >

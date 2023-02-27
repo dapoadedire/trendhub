@@ -334,11 +334,15 @@ border-2 border-transparent
                     </AnimatePresence>
                   </div>
                   <div
-                    className="flex
-        flex-col
-        justify-between
+                    className="mt-10
+                    flex
+                    flex-col
+
+                    justify-between
         gap-4
         rounded-md
+        border
+        border-slate-400
         bg-gray-100
         p-4
         font-bold

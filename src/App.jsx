@@ -76,8 +76,6 @@ function App() {
     }
   };
 
-  
-
   const removeItemFromWishlist = (product) => {
     toast.error("Removed from wishlist");
     dispatch({ type: ACTIONS.REMOVE_FROM_WISHLIST, payload: product });
@@ -86,7 +84,6 @@ function App() {
   const getItemInWishlist = (product) => {
     return state.wishlist.find((item) => item.id === product.id);
   };
-
 
   const updateItemQuantity = (product, quantity) => {
     dispatch({
@@ -115,7 +112,6 @@ function App() {
       });
     }
   };
-
 
   const removeItemFromCart = (product) => {
     toast.error("Removed from cart");

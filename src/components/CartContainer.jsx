@@ -9,7 +9,6 @@ const CartContainer = () => {
   const { cart, clearCart, totalItemsPrice, totalItems } =
     useContext(CartContext);
 
-
   return (
     <div
       className="
@@ -138,7 +137,6 @@ const CartContainer = () => {
                   Clear cart
                 </button>
                 <Link to="/checkout">
-
                   <button
                     aria-label="Checkout"
                     className="
@@ -152,7 +150,6 @@ const CartContainer = () => {
                   >
                     Checkout
                   </button>
-
                 </Link>
               </div>
             </div>

@@ -14,6 +14,10 @@ const CartContainer = () => {
   const handleCheckout = () => {
     setShowCheckout(true);
     clearCart();
+
+    setTimeout(() => {
+      setShowCheckout(false);
+    }, 3000);
   };
 
   return (
@@ -22,7 +26,6 @@ const CartContainer = () => {
     hide-scrollbar
       h-full
     overflow-scroll
-    
     p-4
     "
     >
@@ -46,10 +49,17 @@ const CartContainer = () => {
               exit={{ opacity: 0 }}
               className="mt-20 flex
          flex-col
-         items-center justify-center space-y-4"
+         items-center justify-center space-y-4
+         p-4
+         "
             >
               <h2 className="text-lg font-medium">Your cart is empty</h2>
-              <p className="text-base text-gray-400">
+              <p
+                className="text-center text-base
+              text-gray-400
+              
+              "
+              >
                 Add items to your cart to continue shopping.
               </p>
             </motion.div>
@@ -60,7 +70,7 @@ const CartContainer = () => {
                 pb-80
                 "
               >
-                <AnimatePresence initial={false} >
+                <AnimatePresence initial={false}>
                   {cart.map((product) => (
                     <CartItem product={product} key={product.id} />
                   ))}
@@ -127,7 +137,7 @@ const CartContainer = () => {
                     "
                 >
                   <button
-                  aria-label="Clear cart"
+                    aria-label="Clear cart"
                     className="
                      rounded-md
                      border
@@ -141,7 +151,7 @@ const CartContainer = () => {
                     Clear cart
                   </button>
                   <button
-                  aria-label="Checkout"
+                    aria-label="Checkout"
                     className="
                       rounded-md border
                       p-2

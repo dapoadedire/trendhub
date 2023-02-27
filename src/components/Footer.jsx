@@ -2,11 +2,15 @@
 
 import { Link } from "react-router-dom";
 
-
-
-import { BsTelephone, BsInstagram, BsTwitter, BsFacebook, BsLinkedin, BsFillGeoAltFill, BsFillEnvelopeFill } from "react-icons/bs";
-
-
+import {
+  BsTelephone,
+  BsInstagram,
+  BsTwitter,
+  BsFacebook,
+  BsLinkedin,
+  BsFillGeoAltFill,
+  BsFillEnvelopeFill,
+} from "react-icons/bs";
 
 const categories = [
   "Electronics",
@@ -63,52 +67,62 @@ const Footer = () => {
               "
               >
                 Follow Us On Social Media:
-              </h2>
-              {" "}
-              <a href="#" className="text-gray-400 hover:text-white"
-              aria-label="Twitter"
+              </h2>{" "}
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white"
+                aria-label="Twitter"
               >
-                <BsTwitter className="h-5 w-5
+                <BsTwitter
+                  className="h-5 w-5
                 hover:text-[#1DA1F2]
-                " />
+                "
+                />
               </a>
-              <a href="#" className=" text-gray-400 hover:text-white"
-                aria-label = "Linkedin"
+              <a
+                href="#"
+                className=" text-gray-400 hover:text-white"
+                aria-label="Linkedin"
               >
-                <BsLinkedin className="h-5 w-5
+                <BsLinkedin
+                  className="h-5 w-5
                 hover:text-[#0A66C2]
-                " />
+                "
+                />
               </a>
-              <a href="#" className=" text-gray-400 hover:text-white"
-                aria-label = "Facebook"
+              <a
+                href="#"
+                className=" text-gray-400 hover:text-white"
+                aria-label="Facebook"
               >
-                <BsFacebook className="h-5 w-5
+                <BsFacebook
+                  className="h-5 w-5
                 hover:text-[#1877F2]
-                " />
+                "
+                />
               </a>
-              <a href="#" className=" text-gray-400 hover:text-white"
-                aria-label = "Instagram"
+              <a
+                href="#"
+                className=" text-gray-400 hover:text-white"
+                aria-label="Instagram"
               >
-                <BsInstagram className="h-5 w-5
+                <BsInstagram
+                  className="h-5 w-5
                 hover:text-[#E1306C]
-                " />
+                "
+                />
               </a>
             </div>
-            <div
-              className="mb-10"
-            >
+            <div className="mb-10">
               <p className="mt-4 text-gray-400">
                 Subscribe to our newsletter to get the latest updates on
                 products, offers and more.
               </p>
               <form
                 className="mt-4 flex gap-4"
-
                 onSubmit={(e) => {
                   e.preventDefault();
-                }
-                }
-
+                }}
               >
                 <label htmlFor="email">
                   <span className="sr-only">Email</span>
@@ -143,10 +157,7 @@ const Footer = () => {
                   Subscribe
                 </button>
               </form>
-
             </div>
-            
-
           </div>
           <div className="">
             <h2 className="mb-4 text-xl font-bold">Categories</h2>
@@ -165,34 +176,52 @@ const Footer = () => {
             <ul className="list-none">
               <li className="mb-2  flex items-center text-gray-300 hover:text-white">
                 <BsFillGeoAltFill className="mr-4" />
-               {/* google maps link */}
+                {/* google maps link */}
 
-                <a href="https://goo.gl/maps/4Q4Z9Z9Z9Z9Z9Z9Z9" target="_blank" rel="noreferrer">
+                <a
+                  href="https://goo.gl/maps/4Q4Z9Z9Z9Z9Z9Z9Z9"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   1234, Main Street, Lagos, Nigeria.
                 </a>
               </li>
               <li className="mb-2  flex items-center text-gray-400 hover:text-white">
                 <BsTelephone className="mr-4" />
-                <a href="tel:(+234) 902 123 4567" target="_blank" rel="noreferrer">(+234) 902 123 4567</a>
+                <a
+                  href="tel:(+234) 902 123 4567"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  (+234) 902 123 4567
+                </a>
               </li>
               <li className="mb-2 flex items-center text-gray-400 hover:text-white">
                 <BsFillEnvelopeFill className="mr-4" />
-              <a href="mailto:admin@trendhub.com" target="_blank" rel="noreferrer">
-
-admin@trendhub.com
-            </a>
+                <a
+                  href="mailto:admin@trendhub.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  admin@trendhub.com
+                </a>
               </li>
             </ul>
           </div>
-        
         </div>
       </div>
 
       <div className="mt-8 border-t border-gray-700">
         <div className="container mx-auto py-4">
           <p className="text-center text-gray-200">
-            &copy; {new Date().getFullYear()} - <a href="https://twitter.com/dapo_adedire" target="_blank" rel="noreferrer">All Rights Reserved by Dapo
-              Adedire &#128526;</a>
+            &copy; {new Date().getFullYear()} -{" "}
+            <a
+              href="https://twitter.com/dapo_adedire"
+              target="_blank"
+              rel="noreferrer"
+            >
+              All Rights Reserved by Dapo Adedire &#128526;
+            </a>
           </p>
         </div>
       </div>

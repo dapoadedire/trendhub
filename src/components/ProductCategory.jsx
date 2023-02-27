@@ -17,7 +17,7 @@ const ProductCategory = () => {
         
         "
       >
-        <h1 className="text-center underline text-3xl font-bold text-gray-800">
+        <h1 className="text-center text-3xl font-bold text-gray-800 underline">
           {capitalizeSentence(category)}
         </h1>
 

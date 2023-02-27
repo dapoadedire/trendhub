@@ -6,9 +6,7 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
-import { BsXLg,
-  BsArrowUp
-} from "react-icons/bs";
+import { BsXLg, BsArrowUp } from "react-icons/bs";
 import WishList from "./WishList";
 import CartContainer from "./CartContainer";
 
@@ -18,12 +16,11 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-
-
   useEffect(() => {
-
     const handleScrollButtonVisibility = () => {
-      window.scrollY > 400 ? setShowScrollButton(true) : setShowScrollButton(false);
+      window.scrollY > 400
+        ? setShowScrollButton(true)
+        : setShowScrollButton(false);
     };
 
     window.addEventListener("scroll", handleScrollButtonVisibility);
@@ -33,6 +30,12 @@ const Header = () => {
     };
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -78,10 +81,7 @@ const Header = () => {
     "
     >
       <div className="">
-        <Link to="/"
-       
-        >
-          {" "}
+        <Link to="/">
           <h1
             className="text-2xl
           font-semibold
@@ -91,7 +91,6 @@ const Header = () => {
           "
           >
             TrendHub
-   
           </h1>
         </Link>
       </div>
@@ -102,9 +101,11 @@ const Header = () => {
         md:hidden
         "
       >
-        <button 
-          aria-label = "wishlist"
-        onClick={toggleWishList} className="flex items-center gap-3">
+        <button
+          aria-label="wishlist"
+          onClick={toggleWishList}
+          className="flex items-center gap-3"
+        >
           <FaRegHeart className="scale-[1.3]" />
           <span
             className="flex
@@ -125,9 +126,10 @@ font-bold
           </span>
         </button>
         <button
-        
-          aria-label = "cart"
-        className="flex items-center gap-3" onClick={toggleCart}>
+          aria-label="cart"
+          className="flex items-center gap-3"
+          onClick={toggleCart}
+        >
           <BsCart className="scale-[1.3] " />
           <span
             className="flex
@@ -259,9 +261,11 @@ font-bold
             className=" hidden
                 md:block"
           >
-            <button 
-              aria-label = "cart"
-            onClick={toggleCart} className="flex items-center gap-4">
+            <button
+              aria-label="cart"
+              onClick={toggleCart}
+              className="flex items-center gap-4"
+            >
               <BsCart className="scale-150" />
               <span
                 className="flex
@@ -386,12 +390,11 @@ font-bold"
         <CartContainer />
       </div>
 
-      {
-        showScrollButton && (
-          <button
-            aria-label="scroll to top"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-10 right-10
+      {showScrollButton && (
+        <button
+          aria-label="scroll to top"
+          onClick={scrollToTop}
+          className="fixed bottom-10 right-10
             rounded-full
             border
             border-white
@@ -407,14 +410,14 @@ font-bold"
             hover:text-slate-900
 
             "
-          >
-            <BsArrowUp className="scale-[1.2]
+        >
+          <BsArrowUp
+            className="scale-[1.2]
             font-bold
-            " />
-          </button>
-        )
-
-      }
+            "
+          />
+        </button>
+      )}
     </header>
   );
 };

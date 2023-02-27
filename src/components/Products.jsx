@@ -3,12 +3,12 @@ import Product from "./Product";
 
 const Products = () => {
   return (
-    <div
-    
-    >
-      <div className="my-10 flex items-center
+    <div>
+      <div
+        className="my-10 flex items-center
       justify-center
-      ">
+      "
+      >
         <h2 className="mb-5 text-2xl font-bold underline">Product Display</h2>
       </div>
       <div

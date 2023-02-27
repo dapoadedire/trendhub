@@ -106,8 +106,7 @@ const CartItem = ({ product }) => {
             "
           >
             <button
-
-            aria-label="Decrease quantity"
+              aria-label="Decrease quantity"
               type="button"
               onClick={handleDecrease}
               className="
@@ -122,10 +121,10 @@ const CartItem = ({ product }) => {
             >
               {"<"}
             </button>
-<label htmlFor="cartquantity">
-            <span className="sr-only">Quantity</span>
-</label>
-            
+            <label htmlFor="cartquantity">
+              <span className="sr-only">Quantity</span>
+            </label>
+
             <input
               type="number"
               value={value}
@@ -141,7 +140,7 @@ const CartItem = ({ product }) => {
             />
 
             <button
-            aria-label="Increase quantity"
+              aria-label="Increase quantity"
               type="button"
               onClick={handleIncrease}
               className="
@@ -162,7 +161,7 @@ const CartItem = ({ product }) => {
 
           <div>
             <button
-            aria-label = "Add item to cart"
+              aria-label="Add item to cart"
               type="submit"
               className="
              rounded-md

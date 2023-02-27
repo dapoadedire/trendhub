@@ -71,9 +71,7 @@ const Product = ({ product }) => {
         justify-start gap-2 self-start
         "
         >
-          <div
-          className="flex items-center justify-center"
-          >
+          <div className="flex items-center justify-center">
             <RatingStars rating={product.rating.rate} />
           </div>
           <span
@@ -109,7 +107,6 @@ const Product = ({ product }) => {
         <div className="flex items-center gap-4">
           {isInCart(product) ? (
             <button
-
               aria-label="Remove from cart"
               className="
                 flex
@@ -146,7 +143,6 @@ const Product = ({ product }) => {
           )}
           {getItemInWishlist(product) ? (
             <button
-
               aria-label="Remove from wishlist"
               onClick={() => removeItemFromWishlist(product)}
               className="  flex

@@ -78,9 +78,13 @@ const WishListItem = ({ product }) => {
           >
             {product.title}
           </h2>
-          <p className="text-gray-300
+          <p
+            className="text-gray-300
           underline
-          ">{formatCurrency(product.price)}</p>
+          "
+          >
+            {formatCurrency(product.price)}
+          </p>
         </div>
       </div>
 
@@ -155,7 +159,6 @@ const WishListItem = ({ product }) => {
 
         <div>
           <button
-
             aria-label="Add to cart"
             type="submit"
             className="
@@ -227,9 +230,10 @@ bg-slate-700
       "
       >
         {getItemInWishlist(product) && (
-          <button 
-            aria-label = "Remove from wishlist"
-          onClick={() => removeItemFromWishlist(product)}>
+          <button
+            aria-label="Remove from wishlist"
+            onClick={() => removeItemFromWishlist(product)}
+          >
             <VscChromeClose color="white" size="1.2rem" className="scale-120" />
           </button>
         )}

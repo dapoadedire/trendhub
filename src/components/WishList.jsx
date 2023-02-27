@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import WishListItem from "./WishListItem";
 
-
 import { AnimatePresence, motion } from "framer-motion";
 
 const WishList = () => {
@@ -32,19 +31,24 @@ const WishList = () => {
           exit={{ opacity: 0 }}
           className="mt-20 flex 
         flex-col
-        items-center justify-center space-y-4"
+        items-center justify-center space-y-4
+         p-4
+        "
         >
           <h2 className="text-lg font-medium">Your wishlist is empty</h2>
-          <p className="text-base text-gray-400">
+          <p
+            className="text-center text-base
+          text-gray-400
+          "
+          >
             Add items to your wishlist to continue shopping.
           </p>
         </motion.div>
       ) : (
         <div className="flex  flex-col justify-between gap-4 p-3">
-          <AnimatePresence initial={false} >
+          <AnimatePresence initial={false}>
             {wishlist.map((product) => (
               <WishListItem product={product} key={product.id} />
-              
             ))}
           </AnimatePresence>
         </div>

@@ -106,8 +106,7 @@ const CartItem = ({ product }) => {
             "
           >
             <button
-
-            aria-label="Decrease quantity"
+              aria-label="Decrease quantity"
               type="button"
               onClick={handleDecrease}
               className="
@@ -117,15 +116,16 @@ const CartItem = ({ product }) => {
               p-2
               px-4
               font-semibold
+              text-slate-200
               hover:bg-slate-700
               "
             >
               {"<"}
             </button>
-<label htmlFor="cartquantity">
-            <span className="sr-only">Quantity</span>
-</label>
-            
+            <label htmlFor="cartquantity">
+              <span className="sr-only">Quantity</span>
+            </label>
+
             <input
               type="number"
               value={value}
@@ -135,24 +135,25 @@ const CartItem = ({ product }) => {
                 bg-slate-800
                 p-2
                 text-center
-               font-semibold
+                font-semibold
+               text-slate-200
                outline-none
                 "
             />
 
             <button
-            aria-label="Increase quantity"
+              aria-label="Increase quantity"
               type="button"
               onClick={handleIncrease}
               className="
               rounded-md
               border
               border-slate-600
-             
-              p-2
-              
+             p-2
               px-4
+              
               font-semibold
+              text-slate-200
               hover:bg-slate-700
               "
             >
@@ -162,7 +163,7 @@ const CartItem = ({ product }) => {
 
           <div>
             <button
-            aria-label = "Add item to cart"
+              aria-label="Add item to cart"
               type="submit"
               className="
              rounded-md
@@ -170,7 +171,8 @@ const CartItem = ({ product }) => {
               border-slate-600
               px-4
               py-2
-               font-medium
+              font-medium
+               text-slate-200
 
                hover:bg-slate-700
              

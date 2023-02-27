@@ -73,6 +73,7 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white"
                 aria-label="Twitter"
               >
+                
                 <BsTwitter
                   className="h-5 w-5
                 hover:text-[#1DA1F2]

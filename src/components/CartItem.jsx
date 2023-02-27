@@ -116,6 +116,7 @@ const CartItem = ({ product }) => {
               p-2
               px-4
               font-semibold
+              text-slate-200
               hover:bg-slate-700
               "
             >
@@ -134,7 +135,8 @@ const CartItem = ({ product }) => {
                 bg-slate-800
                 p-2
                 text-center
-               font-semibold
+                font-semibold
+               text-slate-200
                outline-none
                 "
             />
@@ -147,11 +149,11 @@ const CartItem = ({ product }) => {
               rounded-md
               border
               border-slate-600
-             
-              p-2
-              
+             p-2
               px-4
+              
               font-semibold
+              text-slate-200
               hover:bg-slate-700
               "
             >
@@ -169,7 +171,8 @@ const CartItem = ({ product }) => {
               border-slate-600
               px-4
               py-2
-               font-medium
+              font-medium
+               text-slate-200
 
                hover:bg-slate-700
              

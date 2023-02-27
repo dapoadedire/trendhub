@@ -1,6 +1,7 @@
 import Store from "./pages/Store";
 import Description from "./pages/Description";
 import Category from "./pages/Category";
+import CheckOut from "./pages/CheckOut";
 import "./App.css";
 import { useEffect, useReducer } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
@@ -176,6 +177,8 @@ function App() {
           {/* about */}
           {/* Category */}
           <Route path="/category/:category" element={<Category />} />
+          {/* checkout */}
+          <Route path="/checkout" element={<CheckOut />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>

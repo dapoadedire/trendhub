@@ -359,6 +359,8 @@ font-bold"
       transition-all
       duration-[600ms]
 
+      
+
               `}
       >
         <div

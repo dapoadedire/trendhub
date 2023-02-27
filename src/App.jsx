@@ -16,6 +16,8 @@ const ACTIONS = {
   CLEAR_CART: "clear-cart",
   ADD_TO_WISHLIST: "add-to-wishlist",
   REMOVE_FROM_WISHLIST: "remove-from-wishlist",
+  CHECKOUT: "checkout",
+  UPDATE_ITEM_QUANTITY: "update-item-quantity",
 };
 
 function CartReducer(state, action) {
@@ -37,6 +39,19 @@ function CartReducer(state, action) {
         wishlist: state.wishlist.filter(
           (item) => item.id !== action.payload.id
         ),
+      };
+    case ACTIONS.CHECKOUT:
+      return { ...state, cart: [] };
+
+    case ACTIONS.UPDATE_ITEM_QUANTITY:
+      return {
+        ...state,
+        cart: state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: action.payload.quantity };
+          }
+          return item;
+        }),
       };
     default:
       return state;
@@ -61,6 +76,8 @@ function App() {
     }
   };
 
+  
+
   const removeItemFromWishlist = (product) => {
     toast.error("Removed from wishlist");
     dispatch({ type: ACTIONS.REMOVE_FROM_WISHLIST, payload: product });
@@ -68,6 +85,14 @@ function App() {
 
   const getItemInWishlist = (product) => {
     return state.wishlist.find((item) => item.id === product.id);
+  };
+
+
+  const updateItemQuantity = (product, quantity) => {
+    dispatch({
+      type: ACTIONS.UPDATE_ITEM_QUANTITY,
+      payload: { ...product, quantity },
+    });
   };
 
   const addItemToCart = (product, quantity) => {
@@ -80,8 +105,8 @@ function App() {
     }
 
     if (itemInCart) {
-      toast.success("Added to cart");
-      itemInCart.quantity = quantity;
+      toast.success("Item quantity updated");
+      updateItemQuantity(product, quantity);
     } else {
       toast.success("Added to cart");
       dispatch({
@@ -90,6 +115,7 @@ function App() {
       });
     }
   };
+
 
   const removeItemFromCart = (product) => {
     toast.error("Removed from cart");
@@ -101,6 +127,11 @@ function App() {
     dispatch({ type: ACTIONS.CLEAR_CART });
   };
 
+  const checkout = () => {
+    toast.success("Checkout successful");
+    dispatch({ type: ACTIONS.CHECKOUT });
+  };
+
   const getItemPrice = (product) => {
     const item = getItemInCart(product);
     return item ? (item.price * item.quantity).toFixed(2) : 0;
@@ -110,12 +141,6 @@ function App() {
     const item = getItemInCart(product);
     return item ? item.quantity : 0;
   };
-
-  // const totalItemsPrice = cart
-  //   .reduce((acc, item) => acc + item.price * item.quantity, 0)
-  //   .toFixed(2);
-
-  // const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const totalItems = state.cart.reduce((total, item) => {
     return total + item.quantity;
@@ -159,6 +184,7 @@ function App() {
         addItemToWishlist,
         removeItemFromWishlist,
         getItemInWishlist,
+        checkout,
       }}
     >
       <Toaster

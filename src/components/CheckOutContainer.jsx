@@ -278,9 +278,19 @@ const CheckOutContainer = () => {
                                                 </div>
 
                                                 <button
-                                                    className="rounded-md bg-black p-2
-                                            font-bold
-                                            text-white
+                                                    className="mt-6 rounded-md
+border-2 border-transparent
+                                                    bg-slate-900
+                                                    p-4
+
+                                                    font-bold
+                                                    text-white
+                                                    hover:border-slate-800
+                                                    hover:bg-slate-100
+                                                    hover:text-slate-800
+                                                    
+                                            focus:outline-none
+                                            focus:ring-2
                                             "
                                                     type="submit"
                                                     

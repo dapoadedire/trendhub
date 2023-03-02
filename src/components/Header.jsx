@@ -186,6 +186,8 @@ font-bold"
          ${isOpen ? "opacity-100" : "opacity-0"}
          py-6
          text-center
+         text-sm
+         font-semibold
          transition-all
          duration-500
          md:flex

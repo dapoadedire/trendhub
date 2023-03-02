@@ -16,7 +16,10 @@ const CartItem = ({ product }) => {
   const [value, setValue] = useState(getItemQuantity(product) || 1);
 
   const handleIncrease = () => {
-    setValue(value + 1);
+    if (value< 10){
+      setValue(value + 1);
+    }
+    
   };
   const handleDecrease = () => {
     if (value > 0) {
@@ -130,6 +133,7 @@ const CartItem = ({ product }) => {
               type="number"
               value={value}
               onChange={handleInputChange}
+              min="0" max="10"
               className="w-16                 
                 
                 bg-slate-800

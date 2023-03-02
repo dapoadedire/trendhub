@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from "react";
 import { Fade as Hamburger } from "hamburger-react";
@@ -184,13 +186,13 @@ font-bold"
         p-4 
         md:gap-6 
          ${isOpen ? "opacity-100" : "opacity-0"}
+         md:text[1.1rem]
          py-6
          text-center
          font-semibold
          transition-all
          duration-500
          md:flex
-         md:text[1.1rem]
          md:border-none
          md:text-left
 
@@ -394,6 +396,44 @@ font-bold"
         <CartContainer />
       </div>
 
+      <div
+        className={` fixed
+      top-0
+     right-0
+     z-40
+     h-full
+      bg-transparent
+      
+      ${isCartOpen ? "translate-x-0" : "translate-x-full"}
+      
+      w-full`}
+
+        onClick={toggleCart}
+
+      >
+
+
+      </div>
+
+
+      <div
+        className={` fixed
+      top-0
+     right-0
+     z-40
+     h-full
+      bg-transparent
+      
+      ${isWishListOpen ? "translate-x-0" : "translate-x-full"}
+      
+      w-full`}
+
+        onClick={toggleWishList}
+
+      >
+
+
+      </div>
       {showScrollButton && (
         <button
           aria-label="scroll to top"

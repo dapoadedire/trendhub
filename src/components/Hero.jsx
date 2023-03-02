@@ -24,18 +24,7 @@ const Hero = () => {
         everything you need to stay on-trend and make a statement, all in one
         convenient online destination.
       </p>
-      {/* <a
-        href="/"
-        className="
-        
-         border-2 border-black py-3 px-5 text-lg
-         font-bold text-black
-          hover:bg-black hover:text-white
-                
-                "
-      >
-        Shop Now
-      </a> */}
+    
       <button className="group relative inline-block text-lg">
         <span className="relative z-10 block overflow-hidden rounded-md border-2 border-gray-900 px-5 py-3 font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out group-hover:text-white">
           <span className="absolute inset-0 h-full w-full rounded-md bg-gray-50 px-5 py-3"></span>

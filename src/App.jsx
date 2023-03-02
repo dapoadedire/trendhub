@@ -16,7 +16,7 @@ function App() {
       <Toaster
         position="bottom-left"
         reverseOrder={false}
-        toastOptions={{ duration: 3000 }}
+        toastOptions={{ duration: 500 }}
       />
       <HashRouter>
         <ScrollToTop />

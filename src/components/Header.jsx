@@ -18,6 +18,8 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
+
+
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
       window.scrollY > 400
@@ -58,6 +60,18 @@ const Header = () => {
     { name: "Men's Clothing", link: "/category/men's clothing" },
     { name: "Women's Clothing", link: "/category/women's clothing" },
   ];
+
+  // make body overflow to be hidden when menu is open
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (isOpen || isWishListOpen || isCartOpen) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
+    }
+  }, [isOpen, isWishListOpen, isCartOpen]);
+  
 
   return (
     <header
@@ -186,7 +200,7 @@ font-bold"
         p-4 
         md:gap-6 
          ${isOpen ? "opacity-100" : "opacity-0"}
-         md:text[1.1rem]
+        
          py-6
          text-center
          font-semibold
@@ -397,18 +411,20 @@ font-bold"
       </div>
 
       <div
-        className={` fixed
-      top-0
+        className={` 
+      fixed
+     top-0
      right-0
      z-40
-     h-full
-      bg-transparent
+h-full
       
+      bg-slate-900 opacity-20 blur-3xl
       ${isCartOpen ? "translate-x-0" : "translate-x-full"}
-      
+     
       w-full`}
 
         onClick={toggleCart}
+
 
       >
 
@@ -422,7 +438,7 @@ font-bold"
      right-0
      z-40
      h-full
-      bg-transparent
+       bg-slate-900 opacity-20 blur-3xl
       
       ${isWishListOpen ? "translate-x-0" : "translate-x-full"}
       

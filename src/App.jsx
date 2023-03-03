@@ -6,17 +6,18 @@ import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./hooks/ScrollToTop";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "sonner";
 import CartState from "./context/CartState";
 
 
 function App() {
   return (
     <CartState>
-      <Toaster
-        position="bottom-left"
-        reverseOrder={false}
-        toastOptions={{ duration: 500 }}
+      <Toaster position="bottom-left" 
+      style={{width: "100%", maxWidth: "100px",
+    borderRadius: "999px",
+    }}
+      richColors
       />
       <HashRouter>
         <ScrollToTop />

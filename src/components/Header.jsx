@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -221,6 +222,8 @@ font-bold"
                 mb-6
                 hover:text-slate-300
                 md:mb-0"
+
+                onClick={toggleMenu}
             >
               <Link
                 to={category.link}
@@ -228,7 +231,6 @@ font-bold"
                   transition-all
                   duration-500
                   group-hover:border-slate-300
-                 
                   "
               >
                 {category.name}

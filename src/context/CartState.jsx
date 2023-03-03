@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { CartContext } from "./CartContext";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 
 const ACTIONS = {
     ADD_TO_CART: "add-to-cart",
@@ -69,7 +69,7 @@ function CartState({ children }) {
     };
     
     const removeItemFromWishlist = (product) => {
-        toast.error("Removed from wishlist");
+        toast.success("Removed from wishlist");
         dispatch({ type: ACTIONS.REMOVE_FROM_WISHLIST, payload: product });
     };
 
@@ -88,7 +88,7 @@ function CartState({ children }) {
         const itemInCart = getItemInCart(product);
 
         if (quantity === 0) {
-            toast.error("Removed from cart");
+            toast.success("Removed from cart");
             removeItemFromCart(product);
             return;
         }
@@ -106,12 +106,12 @@ function CartState({ children }) {
     };
 
     const removeItemFromCart = (product) => {
-        toast.error("Removed from cart");
+        toast.success("Removed from cart");
         dispatch({ type: ACTIONS.REMOVE_FROM_CART, payload: product });
     };
 
     const clearCart = () => {
-        toast.error("Cart cleared");
+        toast.success("Cart cleared");
         dispatch({ type: ACTIONS.CLEAR_CART });
     };
 

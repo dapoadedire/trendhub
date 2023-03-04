@@ -15,7 +15,7 @@ TrendHub is an e-commerce website that allows users to view items in different c
 - React
 - TailwindCSS
 - React-Icons
-- Sonner
+- Sonner(best toaster library in the world.)
 - Hamburger-React
 - React-Router
 - Framer Motion
@@ -23,7 +23,11 @@ TrendHub is an e-commerce website that allows users to view items in different c
 
 ## Demo
 
-<https://www.youtube.com/watch?v=OhM5tp038Ew>
+
+https://user-images.githubusercontent.com/95668340/222895795-3631dead-db7e-4c29-80d1-bdbe51f08c8d.mp4
+
+
+
 
 ## Live Site
 
@@ -57,11 +61,8 @@ To run TrendHub locally, follow these steps:
   npm run start
 ```
 
-## Screenshots
 
-![TrendHub Homepage](https://via.placeholder.com/468x300?text=TrendHub+Homepage+Screenshot+Here)
-
-## Authors
+## Author
 
 - [@dapoadedire](https://www.github.com/dapoadedire)
 

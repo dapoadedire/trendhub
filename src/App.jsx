@@ -14,9 +14,7 @@ function App() {
   return (
     <CartState>
       <Toaster position="bottom-left" 
-      style={{width: "100%", maxWidth: "100px",
-    borderRadius: "999px",
-    }}
+      
       richColors
       />
       <HashRouter>

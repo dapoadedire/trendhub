@@ -9,19 +9,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 const schema = z.object({
-    name: z.string().min(3).max(50, { message: 'Name must be between 3 and 50 characters' }),
-    email: z.string().email({ message: 'Email must be a valid email address' }),
-    address: z.string().min(3).max(50, { message: 'Address must be between 3 and 50 characters' }),
-    city: z.string().min(3).max(50, { message: 'City must be between 3 and 50 characters' }),
-    state: z.string().min(3).max(50, { message: 'State must be between 3 and 50 characters' }),
-    zip: z.string().min(3).max(50, { message: 'Zip must be between 3 and 50 characters' }),
-    country: z.string().min(3).max(50, { message: 'Country must be between 3 and 50 characters' }),
-    phone: z.string().min(10).max(20, { message: 'Phone must be between 10 and 20 characters' }),
-    cardNumber: z.string().length(16, { message: 'Card number must be 16 digits' }),
+    name: z.string().min(3, { message: 'Name must be at least 3 characters long' }).max(50, { message: 'Name must be no longer than 50 characters' }),
+    email: z.string().email({ message: 'Please provide a valid email address' }),
+    address: z.string().min(3, { message: 'Address must be at least 3 characters long' }).max(50, { message: 'Address must be no longer than 50 characters' }),
+    city: z.string().min(3, { message: 'City must be at least 3 characters long' }).max(50, { message: 'City must be no longer than 50 characters' }),
+    state: z.string().min(3, { message: 'State must be at least 3 characters long' }).max(50, { message: 'State must be no longer than 50 characters' }),
+    zip: z.string().min(3, { message: 'Zip must be at least 3 characters long' }).max(50, { message: 'Zip must be no longer than 50 characters' }),
+    country: z.string().min(3, { message: 'Country must be at least 3 characters long' }).max(50, { message: 'Country must be no longer than 50 characters' }),
+    phone: z.string().min(10, { message: 'Phone number must be at least 10 digits' }).max(20, { message: 'Phone number must be no longer than 20 digits' }),
+    cardNumber: z.string().length(16, { message: 'Card number must be exactly 16 digits long' }),
     cardExpiry: z.string().length(5, { message: 'Card expiry must be in the format MM/YY' }),
-    cardCVV: z.string().length(3, { message: 'Card CVV must be 3 digits' }),
-    nameOnCard: z.string().min(3).max(50, { message: 'Name on card must be between 3 and 50 characters' }),
-    billingAddress: z.string().min(3).max(50, { message: 'Billing address must be between 3 and 50 characters' }),
+    cardCVV: z.string().length(3, { message: 'Card CVV must be exactly 3 digits long' }),
+    nameOnCard: z.string().min(3, { message: 'Name on card must be at least 3 characters long' }).max(50, { message: 'Name on card must be no longer than 50 characters' }),
+    billingAddress: z.string().min(3, { message: 'Billing address must be at least 3 characters long' }).max(50, { message: 'Billing address must be no longer than 50 characters' }),
 });
 
 

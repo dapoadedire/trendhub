@@ -3,10 +3,10 @@ import CartItem from "./CartItem";
 import { AnimatePresence } from "framer-motion";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
-
-import {z} from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 
 const schema = z.object({
     name: z.string().min(3, { message: 'Name must be at least 3 characters long' }).max(50, { message: 'Name must be no longer than 50 characters' }),
@@ -61,12 +61,16 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </h2>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="name">Name</label>
-                            <Input
+                            <input
+                                {...register("name")}
                                 type="text"
                                 name="name"
                                 id="name"
                                 placeholder="John Doe"
-                                {...register("name")}
+
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
+
                             />
                             {errors?.name?.message && (
                                 <span className="text-red-500">{errors.name.message}</span>
@@ -75,16 +79,17 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="email">Email</label>
-                            <Input
+                            <input
+                                {...register("email")}
+
                                 type="email"
                                 name="email"
                                 id="email"
-                                placeholder="johndoe@gmail.com"
+                                placeholder="johndoe@gmail.com" 
+                                
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
 
-                                {...register("email")}
-
-
-                            />
+                                />
 
                             {errors?.email?.message && (
                                 <span className="text-red-500">{errors.email.message}</span>
@@ -92,11 +97,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="address">Address</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="address"
                                 placeholder="1234 Main St"
                                 id="address"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
 
                                 {...register("address")}
@@ -110,11 +117,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="city">City</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="city"
                                 id="city"
                                 placeholder="New York"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("city")}
 
@@ -126,11 +135,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="state">State</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="state"
                                 placeholder="NY"
                                 id="state"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
                                 {...register("state")} />
                             {errors?.state?.message && (
                                 <span className="text-red-500">{errors.state.message}</span>
@@ -138,12 +149,14 @@ export const CheckOutForm = ({ handleCheckout }) => {
 
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="zip">Zip</label>
-                            <Input
+                            <label htmlFor="zip">Zip Code</label>
+                            <input
                                 type="text"
                                 placeholder="10001"
                                 name="zip"
                                 id="zip"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("zip")}
 
@@ -157,11 +170,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="country">Country</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="country"
                                 id="country"
                                 placeholder="United States"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("country")}
 
@@ -175,11 +190,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="phone">Phone</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="phone"
                                 id="phone"
                                 placeholder="123-456-7890"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("phone")}
 
@@ -199,11 +216,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
 
                         <div className="flex flex-col gap-2">
                             <label htmlFor="cardNumber">Card number</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="cardNumber"
                                 placeholder="1234 5678 9012 3456"
                                 id="cardNumber"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("cardNumber")}
 
@@ -216,11 +235,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         <div className="grid grid-cols-2 gap-2">
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="cardExpiry">Card expiry</label>
-                                <Input
+                                <input
                                     type="text"
                                     placeholder="09 / 25"
                                     name="cardExpiry"
                                     id="cardExpiry"
+                                    className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                     {...register("cardExpiry")}
 
@@ -234,11 +255,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="cvc">CVV</label>
-                                <Input
+                                <input
                                     type="text"
                                     name="cvc"
                                     id="cvc"
                                     placeholder="123"
+                                    className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                     {...register("cardCVV")}
 
@@ -253,11 +276,13 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="nameOnCard">Name on card</label>
-                            <Input
+                            <input
                                 type="text"
                                 name="nameOnCard"
                                 placeholder="John Doe"
                                 id="nameOnCard"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("nameOnCard")}
 
@@ -269,7 +294,9 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <label htmlFor="billingAddress">Billing Address</label>
-                            <Input type="text" name="billingAddress" id="billingAddress" placeholder="1234 Main St"
+                            <input type="text" name="billingAddress" id="billingAddress" placeholder="1234 Main St"
+                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
+
 
                                 {...register("billingAddress")}
 
@@ -341,21 +368,3 @@ border-2 border-transparent
     )
 
 }
-
-
-
-const Input = ({ label, type, name, placeholder, id }) => {
-    return (
-        <div className="flex flex-col gap-2">
-            <label htmlFor={id}>{label}</label>
-            <input
-                type={type}
-                name={name}
-                placeholder={placeholder}
-                id={id}
-                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-            />
-        </div>
-    )
-}
-

@@ -60,153 +60,94 @@ export const CheckOutForm = ({ handleCheckout }) => {
                             Shipping Information
                         </h2>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="name">Name</label>
-                            <input
-                                {...register("name")}
-                                type="text"
+                            <InputLabel htmlFor="name">Name</InputLabel>
+
+
+
+                            <InputField
                                 name="name"
-                                id="name"
+                                type="text"
+                                register={register}
                                 placeholder="John Doe"
-
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
+                                error={errors?.name?.message}
                             />
-                            {errors?.name?.message && (
-                                <span className="text-red-500">{errors.name.message}</span>
-                            )}
+
 
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="email">Email</label>
-                            <input
-                                {...register("email")}
-
-                                type="email"
+                            <InputLabel htmlFor="email">Email</InputLabel>
+                            <InputField
                                 name="email"
-                                id="email"
-                                placeholder="johndoe@gmail.com" 
-                                
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-                                />
-
-                            {errors?.email?.message && (
-                                <span className="text-red-500">{errors.email.message}</span>
-                            )}
+                                type="email"
+                                register={register}
+                                placeholder="johndoe@gmail.com"
+                                error={errors?.email?.message}
+                            />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="address">Address</label>
-                            <input
-                                type="text"
+                            <InputLabel htmlFor="address">Address</InputLabel>
+                            <InputField
                                 name="address"
+                                type="text"
+                                register={register}
                                 placeholder="1234 Main St"
-                                id="address"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-
-                                {...register("address")}
-
-
+                                error={errors?.address?.message}
                             />
-
-                            {errors?.address?.message && (
-                                <span className="text-red-500">{errors.address.message}</span>
-                            )}
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="city">City</label>
-                            <input
-                                type="text"
+                            <InputLabel htmlFor="city">City</InputLabel>
+                            <InputField
                                 name="city"
-                                id="city"
+                                type="text"
+                                register={register}
                                 placeholder="New York"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("city")}
-
-
+                                error={errors?.city?.message}
                             />
-                            {errors?.city?.message && (
-                                <span className="text-red-500">{errors.city.message}</span>
-                            )}
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="state">State</label>
-                            <input
-                                type="text"
+                            <InputLabel htmlFor="state">State</InputLabel>
+                            <InputField
                                 name="state"
-                                placeholder="NY"
-                                id="state"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-                                {...register("state")} />
-                            {errors?.state?.message && (
-                                <span className="text-red-500">{errors.state.message}</span>
-                            )}
+                                type="text"
+                                register={register}
+                                placeholder="New York"
+                                error={errors?.state?.message}
+                            />
 
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="zip">Zip Code</label>
-                            <input
-                                type="text"
-                                placeholder="10001"
+                            <InputLabel htmlFor="zip">Zip</InputLabel>
+                            <InputField
                                 name="zip"
-                                id="zip"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("zip")}
-
+                                type="text"
+                                register={register}
+                                placeholder="10001"
+                                error={errors?.zip?.message}
                             />
-
-                            {errors?.zip?.message && (
-                                <span className="text-red-500">{errors.zip.message}</span>
-                            )}
-
 
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="country">Country</label>
-                            <input
-                                type="text"
+                            <InputLabel htmlFor="country">Country</InputLabel>
+
+                            <InputField
                                 name="country"
-                                id="country"
+                                type="text"
+                                register={register}
                                 placeholder="United States"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("country")}
-
-
-
+                                error={errors?.country?.message}
                             />
 
-                            {errors?.country?.message && (
-                                <span className="text-red-500">{errors.country.message}</span>
-                            )}
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="phone">Phone</label>
-                            <input
-                                type="text"
+                            <InputLabel htmlFor="phone">Phone</InputLabel>
+                            <InputField
                                 name="phone"
-                                id="phone"
-                                placeholder="123-456-7890"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("phone")}
-
-
-
+                                type="text"
+                                register={register}
+                                placeholder="1234567890"
+                                error={errors?.phone?.message}
                             />
 
-                            {errors?.phone?.message && (
-                                <span className="text-red-500">{errors.phone.message}</span>
-                            )}
                         </div>
                     </div>
                     <div className="flex flex-col gap-4">
@@ -215,104 +156,62 @@ export const CheckOutForm = ({ handleCheckout }) => {
                         </h2>
 
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="cardNumber">Card number</label>
-                            <input
+                            <InputLabel htmlFor="nameOnCard">Name on card</InputLabel>
+                            <InputField
+                                name="nameOnCard"
                                 type="text"
-                                name="cardNumber"
-                                placeholder="1234 5678 9012 3456"
-                                id="cardNumber"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("cardNumber")}
-
-
+                                register={register}
+                                placeholder="John Doe"
+                                error={errors?.nameOnCard?.message}
                             />
-                            {errors?.cardNumber?.message && (
-                                <span className="text-red-500">{errors.cardNumber.message}</span>
-                            )}
+
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="cardExpiry">Card expiry</label>
-                                <input
+                                <InputLabel htmlFor="cardNumber">Card number</InputLabel>
+                                <InputField
+                                    name="cardNumber"
                                     type="text"
-                                    placeholder="09 / 25"
-                                    name="cardExpiry"
-                                    id="cardExpiry"
-                                    className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                    {...register("cardExpiry")}
-
-
-
+                                    register={register}
+                                    placeholder={'1234 1234 1234 1234'}
+                                    error={errors?.cardNumber?.message}
                                 />
-                                {errors?.cardExpiry?.message && (
-                                    <span className="text-red-500">{errors.cardExpiry.message}</span>
-                                )}
 
                             </div>
                             <div className="flex flex-col gap-2">
-                                <label htmlFor="cvc">CVV</label>
-                                <input
+                                <InputLabel htmlFor="cardExpiry">Card expiry</InputLabel>
+                                <InputField
+                                    name="cardExpiry"
                                     type="text"
-                                    name="cvc"
-                                    id="cvc"
-                                    placeholder="123"
-                                    className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                    {...register("cardCVV")}
-
-
-
+                                    register={register}
+                                    placeholder="MM/YY"
+                                    error={errors?.cardExpiry?.message}
                                 />
-                                {errors?.cardCVV?.message && (
-                                    <span className="text-red-500">{errors.cardCVV.message}</span>
-                                )}
-
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="nameOnCard">Name on card</label>
-                            <input
+                            <InputLabel htmlFor="cardCVV">Card CVV</InputLabel>
+                            <InputField
+                                name="cardCVV"
                                 type="text"
-                                name="nameOnCard"
-                                placeholder="John Doe"
-                                id="nameOnCard"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("nameOnCard")}
-
+                                register={register}
+                                placeholder="123"
+                                error={errors?.cardCVV?.message}
                             />
-                            {errors?.nameOnCard?.message && (
-                                <span className="text-red-500">{errors.nameOnCard.message}</span>
-                            )}
-
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="billingAddress">Billing Address</label>
-                            <input type="text" name="billingAddress" id="billingAddress" placeholder="1234 Main St"
-                                className="rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400"
-
-
-                                {...register("billingAddress")}
-
+                            <InputLabel htmlFor="billingAddress">Billing address</InputLabel>
+                            <InputField
+                                name="billingAddress"
+                                type="text"
+                                register={register}
+                                placeholder="1234 Main St"
+                                error={errors?.billingAddress?.message}
                             />
-
-                            {
-                                errors?.billingAddress?.message && (
-                                    <span className="text-red-500">{errors.billingAddress.message}</span>
-                                )
-
-                            }
                         </div>
-
                         <button
                             className="mt-6 rounded-md
-border-2 border-transparent  
+                            border-2 border-transparent  
                                                     bg-slate-900
                                                     p-4
 
@@ -334,11 +233,7 @@ border-2 border-transparent
             </div>
             <div className="flex flex-col gap-4 ">
                 <h1 className="text-3xl font-bold">Cart</h1>
-                <div
-                    className="flex flex-col gap-4
-       
-                
-                "
+                <div className="flex flex-col gap-4"
                 >
                     <AnimatePresence>
                         {cart.map((product) => (
@@ -367,4 +262,33 @@ border-2 border-transparent
         </div>
     )
 
-}
+};
+
+
+
+const InputLabel = ({ htmlFor, children }) => {
+    return (
+        <label htmlFor={htmlFor}>
+            {children}
+        </label>
+    );
+};
+
+
+
+const InputField = ({ name, type, register, placeholder, error }) => {
+    return (
+        <>
+            <input
+                {...register(name)}
+                type={type}
+                name={name}
+                placeholder={placeholder}
+                id={name}
+                className={`rounded-md border border-gray-400 p-2 focus:outline-none focus:ring-1 focus:ring-slate-400 ${error ? 'border-red-500 focus:ring-0' : ''
+                    }`}
+            />
+            {error && <span className="text-sm text-red-500">{error}</span>}
+        </>
+    );
+};

@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 
-import * as z from "zod";
+import {z} from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

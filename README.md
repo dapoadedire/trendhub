@@ -69,3 +69,8 @@ To run TrendHub locally, follow these steps:
 ## Feedback
 
 If you have any feedback or suggestions, please reach out to me on Twitter at twitter.com/dapo_adedire or create an issue on GitHub. Thank you for checking out TrendHub!
+
+
+
+
+![Visualization of the codebase](./diagram.svg)

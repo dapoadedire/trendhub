@@ -57,7 +57,7 @@ const Product = ({ product }) => {
             className="mb-1 text-left
          
           text-sm
-          font-semibold
+          font-medium
           text-gray-900"
           >
             {product.title}
@@ -72,12 +72,14 @@ const Product = ({ product }) => {
         "
         >
           <div className="flex items-center justify-center">
-            <RatingStars rating={product.rating.rate} />
+            <RatingStars rating={product.rating.rate} 
+            
+            />
           </div>
           <span
             className=" 
                 text-sm
-                 text-gray-600"
+                 text-gray-600 font-dm"
           >
             {product.rating.count} reviews.
           </span>
@@ -96,7 +98,7 @@ const Product = ({ product }) => {
             self-start
             py-2  text-start
             text-base
-            font-bold
+         font-medium
            
             "
           >

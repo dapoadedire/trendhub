@@ -21,7 +21,7 @@ const schema = z.object({
     cardExpiry: z.string().length(5, { message: 'Card expiry must be in the format MM/YY' }),
     cardCVV: z.string().length(3, { message: 'Card CVV must be exactly 3 digits long' }),
     nameOnCard: z.string().min(3, { message: 'Name on card must be at least 3 characters long' }).max(50, { message: 'Name on card must be no longer than 50 characters' }),
-    billingAddress: z.string().min(3, { message: 'Billing address must be at least 3 characters long' }).max(50, { message: 'Billing address must be no longer than 50 characters' }),
+    billingAddress: z.string().min(3, { message: 'Billing address must be at least 3 characters long' }).max(200, { message: 'Billing address must be no longer than 50 characters' }),
 });
 
 

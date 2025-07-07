@@ -5,14 +5,18 @@ import CheckoutSuccess from "./CheckoutSuccess";
 import { useState } from "react";
 import { CheckOutForm } from "./CheckOutForm";
 
-
 const CheckOutContainer = () => {
-  const { cart, checkout } =
-    useContext(CartContext);
+  const { cart, checkout } = useContext(CartContext);
   const [showCheckout, setShowCheckout] = useState(false);
 
   const handleCheckout = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
+    processCheckout();
+  };
+
+  const processCheckout = () => {
     setShowCheckout(true);
     checkout();
 
@@ -27,7 +31,6 @@ const CheckOutContainer = () => {
         <CheckoutSuccess />
       ) : (
         <>
-          {" "}
           {cart.length === 0 ? (
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.3 }}
@@ -42,7 +45,7 @@ const CheckOutContainer = () => {
               </p>
             </motion.div>
           ) : (
-            <CheckOutForm handleCheckout={handleCheckout}/>
+            <CheckOutForm handleCheckout={handleCheckout} />
           )}
         </>
       )}

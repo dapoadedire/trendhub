@@ -9,6 +9,7 @@ TrendHub is an e-commerce website that allows users to view items in different c
 - Users can view the total price and the total number of items in the cart.
 - Users can save and remove items to a wishlist.
 - Users can view the total number of items in the wishlist.
+- Users can checkout and make payments using Paystack.
 
 ## Tech Stack
 
@@ -20,14 +21,11 @@ TrendHub is an e-commerce website that allows users to view items in different c
 - React-Router
 - Framer Motion
 - ESLint
+- React-Paystack
 
 ## Demo
 
-
 https://user-images.githubusercontent.com/95668340/222895795-3631dead-db7e-4c29-80d1-bdbe51f08c8d.mp4
-
-
-
 
 ## Live Site
 
@@ -55,12 +53,21 @@ To run TrendHub locally, follow these steps:
   npm install
 ```
 
-4. Start the server
+4. Set up environment variables
+
+```bash
+  # Copy the example environment file
+  cp .env.example .env
+
+  # Edit the .env file and add your Paystack public key
+  VITE_PAYSTACK_PUBLIC_KEY=your_paystack_public_key_here
+```
+
+5. Start the server
 
 ```bash
   npm run start
 ```
-
 
 ## Author
 
@@ -69,8 +76,5 @@ To run TrendHub locally, follow these steps:
 ## Feedback
 
 If you have any feedback or suggestions, please reach out to me on Twitter at twitter.com/dapo_adedire or create an issue on GitHub. Thank you for checking out TrendHub!
-
-
-
 
 ![Visualization of the codebase](./diagram.svg)
